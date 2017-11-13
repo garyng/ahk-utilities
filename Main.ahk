@@ -2,6 +2,7 @@
 #SingleInstance Force
 #Persistent
 #Warn
+#NoEnv
 
 #Include Externals.ahk
 #Include Functions.ahk
