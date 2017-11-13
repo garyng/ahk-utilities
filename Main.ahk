@@ -3,7 +3,6 @@
 #Persistent
 #Warn
 
-#Include, HotStrings.ahk
 
 ; Toggle Always on top + Transparency
 !F1::	; Alt + F1
