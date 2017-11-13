@@ -3,6 +3,46 @@
 #Persistent
 #Warn
 
+class TestBase
+{
+	_testing := 999
+	static Test := 2345
+	Method()
+	{
+		MsgBox % "_testing from base " . this._testing
+	}
+}
+
+class Testing extends TestBase
+{
+
+	BlaBlaBla
+	{
+		get
+		{
+			return this._property
+		}
+		set
+		{
+			return this._property := value
+		}
+	}
+	
+	Method()
+	{
+		base.Method()
+		MsgBox % "_testing " . this._testing
+		MsgBox % "Test " . this.Test
+	}
+}
+
+obj := new Testing()
+obj.Method()
+MsgBox % obj.BlaBlaBla
+obj.BlaBlaBla := "property"
+MsgBox % obj.BlaBlaBla
+
+#Include, HotStrings.ahk
 
 ; Toggle Always on top + Transparency
 !F1::	; Alt + F1
