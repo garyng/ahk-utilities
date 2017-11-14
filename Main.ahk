@@ -30,11 +30,10 @@ switcher := new WindowSwitcher()
 #2::switcher.Switch("firefox")
 #3::switcher.Switch("onenote")
 #4::switcher.Switch("gitkraken")
-#5::switcher.Switch("chrome")
+#5::switcher.Switch("sublime")
 
 CapsLock & 1::switcher.Switch("visualstudio")
 CapsLock & 2::switcher.Switch("todoist")
-; todoist
-; sublimetext
-; cmder
-; notepad
+CapsLock & 3::switcher.Switch("cmder")
+CapsLock & 4::switcher.Switch("vscode")
+CapsLock & 5::switcher.Switch("notepad")

@@ -17,6 +17,9 @@ class WindowSwitcher
         this._windows["visualstudio"] := new Window("ahk_exe devenv.exe", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\devenv.exe")
         ; todoist is a Windows 10 app, need to be launched by its ApplicationUserModelId
         this._windows["todoist"] := new Window("Todoist: To-Do List and Task Manager ahk_class ApplicationFrameWindow","explorer.exe shell:AppsFolder\88449BC3.TodoistTo-DoListTaskManager_71ef4824z52ta!App")
+        this._windows["cmder"] := new Window("ahk_class VirtualConsoleClass ahk_exe ConEmu64.exe", "D:\Tools\cmder\Cmder.exe")
+        this._windows["vscode"] := new Window("ahk_exe Code.exe", "C:\\Program Files\\Microsoft VS Code\\Code.exe")
+        this._windows["sublime"] := new Window("ahk_exe sublime_text.exe", "C:\\Program Files\\Sublime Text 3\\sublime_text.exe")
 	}
 
 	Switch(name)
