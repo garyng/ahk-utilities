@@ -9,10 +9,7 @@ debug.start()
 		this.LastOperation := Operation.None
 		this.LastWindowHandle := -1
 		this.StillHoldingWinKey := 0
-		
-		onExitMethod := ObjBindMethod(this, "exitFunc")
-		OnExit(onExitMethod)
-		
+				
 		hWinEventHook := SetWinEventHook(EVENT.SYSTEM.MOVESIZESTART, EVENT.SYSTEM.MOVESIZESTART, 0, RegisterCallbackToThis("WinEventProc", 7, this), 0, 0, WINEVENT.SKIPOWNPROCESS)
 		; No need to call UnhookWinEvent
 		; 	If the client's thread ends, the system automatically calls this function.
