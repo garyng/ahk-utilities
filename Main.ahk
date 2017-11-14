@@ -3,38 +3,40 @@
 #Persistent
 #Warn
 #NoEnv
+SetBatchLines -1
 
 #Include Externals.ahk
 #Include Functions.ahk
 #Include Prompt.ahk
 #Include WindowSwitcher.ahk
+#Include KeyLister.ahk
 
 RunExternals()
 
+lister := new KeyLister(A_ScriptFullPath, A_WorkingDir "\SnapX\SnapX.ahk")
 switcher := new WindowSwitcher()
 
-; Reload script
-^+!R::Reload
+^+!R::Reload	;#; Reload script
 
-; Type datetime
-:*:!!d::
+:*:!!d::	;#; Type datetime
 	TypeDateTime()
 	return
 
-!F1::ToggleActiveWindowAlwaysOnTop()
-!WheelDown::DecreaseTransparencyOfWindowUnderMouse()
-!WheelUp::IncreaseTransparencyOfWindowUnderMouse()
-!F2::ResetTransparencyOfWindowUnderMouse()
+!F1::ToggleActiveWindowAlwaysOnTop()	;#; Toggle active window always on top
+!WheelDown::DecreaseTransparencyOfWindowUnderMouse()	;#; Decrease the transparency of window under mouse
+!WheelUp::IncreaseTransparencyOfWindowUnderMouse()	;#; Increase the transparency of window under mouse
+!F2::ResetTransparencyOfWindowUnderMouse()	;#; Reset the transparency of window under mouse
 
+#F1::lister.Show()	;#; List all hotkeys and hotstrings
 ; add new entries in WindowsSwticher
-#1::switcher.Switch("xyplorer")
-#2::switcher.Switch("firefox")
-#3::switcher.Switch("onenote")
-#4::switcher.Switch("gitkraken")
-#5::switcher.Switch("sublime")
+#1::switcher.Switch("xyplorer")	;#; Switch to xyplorer
+#2::switcher.Switch("firefox")	;#; Switch to firefox
+#3::switcher.Switch("onenote")	;#; Switch to onenote
+#4::switcher.Switch("gitkraken")	;#; Switch to gitkraken
+#5::switcher.Switch("sublime")	;#; Switch to sublime
 
-CapsLock & 1::switcher.Switch("visualstudio")
-CapsLock & 2::switcher.Switch("todoist")
-CapsLock & 3::switcher.Switch("cmder")
-CapsLock & 4::switcher.Switch("vscode")
-CapsLock & 5::switcher.Switch("notepad")
+CapsLock & 1::switcher.Switch("visualstudio")	;#; Switch to visual studio
+CapsLock & 2::switcher.Switch("todoist")	;#; Switch to todoist
+CapsLock & 3::switcher.Switch("cmder")	;#; Switch to cmder
+CapsLock & 4::switcher.Switch("vscode")	;#; Switch to vscode
+CapsLock & 5::switcher.Switch("notepad")	;#; Switch to notepad
