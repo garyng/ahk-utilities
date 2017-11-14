@@ -6,6 +6,7 @@
 
 #Include Externals.ahk
 #Include Functions.ahk
+#Include Prompt.ahk
 #Include WindowSwitcher.ahk
 
 RunExternals()

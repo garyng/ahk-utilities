@@ -1,8 +1,10 @@
 class WindowSwitcher
 {
     ; _windows
+	; _prompt
 	__New()
 	{
+		this._prompt := new Prompt()
 		this._windows := {}
         ; add new entries
         this._windows["notepad"] := new Window("ahk_class Notepad", "notepad.exe")
@@ -34,16 +36,7 @@ class WindowSwitcher
 
 	ConfirmLaunch(name)
 	{
-		Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop
-		Gui, Color, 303030
-		Gui, Font, cWhite
-		Gui, Font, s10, Consolas
-		Gui, Add, Text, +Center, Launch %name%?`n[Space to launch]
-		WinSet, Transparent, 200
-		Gui, Show, y0
-		Input, userInput, L1
-		Gui, Destroy
-		return userInput = " "
+		return this._prompt.Prompt("Launch " name " ?`n[Space to launch]") = " "
 	}
 }
 
@@ -65,10 +58,7 @@ class Window
 
 	InitGroup()
 	{
-		; have to use non-expression style
-		g := this._groupName
-		id := this._identifier
-		GroupAdd, %g% , %id%	
+		GroupAdd, % this._groupName , % this._identifier
 	}
 
 	Exist()
