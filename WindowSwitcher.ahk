@@ -22,6 +22,7 @@ class WindowSwitcher
         this._windows["cmder"] := new Window("ahk_class VirtualConsoleClass ahk_exe ConEmu64.exe", "D:\Tools\cmder\Cmder.exe")
         this._windows["vscode"] := new Window("ahk_exe Code.exe", "C:\\Program Files\\Microsoft VS Code\\Code.exe")
         this._windows["sublime"] := new Window("ahk_exe sublime_text.exe", "C:\\Program Files\\Sublime Text 3\\sublime_text.exe")
+		this._windows["keepass"] := new Window("ahk_exe KeePass.exe", "C:\\Program Files (x86)\\KeePass\\KeePass.exe")
 	}
 
 	Switch(name)

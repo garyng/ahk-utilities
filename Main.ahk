@@ -34,6 +34,7 @@ switcher := new WindowSwitcher()
 #3::switcher.Switch("onenote")	;#; Switch to onenote
 #4::switcher.Switch("gitkraken")	;#; Switch to gitkraken
 #5::switcher.Switch("sublime")	;#; Switch to sublime
+#6::switcher.Switch("keepass")	;#; Switch to keepass
 
 CapsLock & 1::switcher.Switch("visualstudio")	;#; Switch to visual studio
 CapsLock & 2::switcher.Switch("todoist")	;#; Switch to todoist
