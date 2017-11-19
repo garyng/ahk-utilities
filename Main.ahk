@@ -29,30 +29,32 @@ switcher := new WindowSwitcher()
 
 #F1::lister.Show()	;#; List all hotkeys and hotstrings
 ; add new entries in WindowsSwticher
-#1::switcher.Switch("xyplorer")	;#; Switch to xyplorer
-#2::switcher.Switch("firefox")	;#; Switch to firefox
-#3::switcher.Switch("onenote")	;#; Switch to onenote
-#4::switcher.Switch("gitkraken")	;#; Switch to gitkraken
-#5::switcher.Switch("sublime")	;#; Switch to sublime
-#6::switcher.Switch("keepass")	;#; Switch to keepass
+; - On Esc:: ;#; 
+#if GetKeyState("Esc", "P")	
+	F1::switcher.Switch("xyplorer")	;#; Switch to xyplorer
+	F2::switcher.Switch("firefox")	;#; Switch to firefox
+	F3::switcher.Switch("onenote")	;#; Switch to onenote
+	F4::switcher.Switch("gitkraken")	;#; Switch to gitkraken
+	F5::switcher.Switch("sublime")	;#; Switch to sublime
+	F6::switcher.Switch("keepass")	;#; Switch to keepass
 
-#+1::switcher.Launch("xyplorer")
-#+2::switcher.Launch("firefox")
-#+3::switcher.Launch("onenote")
-#+4::switcher.Launch("gitkraken")
-#+5::switcher.Launch("sublime")
-#+6::switcher.Launch("keepass")
+	+F1::switcher.Launch("xyplorer")
+	+F2::switcher.Launch("firefox")
+	+F3::switcher.Launch("onenote")
+	+F4::switcher.Launch("gitkraken")
+	+F5::switcher.Launch("sublime")
+	+F6::switcher.Launch("keepass")
 
-CapsLock & 1::switcher.Switch("visualstudio")	;#; Switch to visual studio
-CapsLock & 2::switcher.Switch("todoist")	;#; Switch to todoist
-CapsLock & 3::switcher.Switch("cmder")	;#; Switch to cmder
-CapsLock & 4::switcher.Switch("vscode")	;#; Switch to vscode
-CapsLock & 5::switcher.Switch("notepad")	;#; Switch to notepad
+	1::switcher.Switch("visualstudio")	;#; Switch to visual studio
+	2::switcher.Switch("todoist")	;#; Switch to todoist
+	3::switcher.Switch("cmder")	;#; Switch to cmder
+	4::switcher.Switch("vscode")	;#; Switch to vscode
+	5::switcher.Switch("notepad")	;#; Switch to notepad
 
-#if GetKeyState("Shift", "P")
-CapsLock & 1::switcher.Launch("visualstudio")
-CapsLock & 2::switcher.Launch("todoist")
-CapsLock & 3::switcher.Launch("cmder")
-CapsLock & 4::switcher.Launch("vscode")
-CapsLock & 5::switcher.Launch("notepad")
+	+1::switcher.Launch("visualstudio")
+	+2::switcher.Launch("todoist")
+	+3::switcher.Launch("cmder")
+	+4::switcher.Launch("vscode")
+	+5::switcher.Launch("notepad")
 #if
+; - On Esc:: ;#;
