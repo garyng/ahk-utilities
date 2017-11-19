@@ -10,6 +10,7 @@ Some scripts that I wrote (+ some external scripts that I collected)
 3. Decrease/Increase/Reset the transparency of the window under mouse
 4. Instant window switcher (Originally from [Taran VH's 2nd Keyboard repo](https://github.com/TaranVH/2nd-keyboard), but refactored into classes + custom prompt before launching)
 5. Key lister (List all hotkeys and hotstrings)
+6. Switch between virtual desktops (Adapted from [windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher))
 
 # External Scripts
  

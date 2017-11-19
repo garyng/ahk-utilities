@@ -29,4 +29,17 @@ class Prompt
 		Gui, Destroy
         return userInput
     }
+
+    Show(text)
+    {
+        Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop
+		Gui, Color, % this._backgroundColor
+		Gui, Font, % "c" this._textColor
+		Gui, Font, % "s" this._fontSize, % this._font
+        Gui, Add, Text, % this._centerText ? "+Center" : "" , % text
+		WinSet, Transparent, % this._transparency
+		Gui, Show, y0
+        Sleep, 500
+        Gui, Destroy
+    }
 }
