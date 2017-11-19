@@ -35,6 +35,15 @@ class WindowSwitcher
 		window.Switch()
 	}
 
+	Launch(name)
+	{
+		window := this._windows[name]
+		if (this.ConfirmLaunch(name))
+		{
+			window.Launch()
+		}
+	}
+
 	ConfirmLaunch(name)
 	{
 		return this._prompt.Prompt("Launch " name " ?`n[Space to launch]") = " "
