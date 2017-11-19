@@ -39,7 +39,7 @@ class Prompt
         Gui, Add, Text, % this._centerText ? "+Center" : "" , % text
 		WinSet, Transparent, % this._transparency
 		Gui, Show, y0
-        Sleep, 500
+        Sleep, 1000
         Gui, Destroy
     }
 }
