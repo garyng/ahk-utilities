@@ -145,9 +145,106 @@ class VirtualDesktopEnhancer
         Send, #^{F4}
     }
 
+    PinActiveWindow()
+    {
+        id := this.getActiveWindowId()
+        title := this.getActiveWindowTitle()
+        this.pinWindow(id)
+        this.showNotificationForPinning(title)
+    }
+
+    UnpinActiveWindow()
+    {
+        id := this.getActiveWindowId()
+        title := this.getActiveWindowTitle()
+        this.unpinWindow(id)
+        this.showNotificationForUnpinning(title)
+    }
+
+    ToggleWindowPinning()
+    {
+        id := this.getActiveWindowId()
+        title := this.getActiveWindowTitle()
+        If (this.isWindowPinned(id))
+        {
+            this.unpinWindow(id)
+            this.showNotificationForUnpinning(title)
+        }
+        else
+        {
+            this.pinWindow(id)
+            this.showNotificationForPinning(title)
+        }
+    }
+
+    PinActiveApp()
+    {
+        id := this.getActiveWindowId()
+        name := this.getActiveWindowProcessName()
+        this.pinApp(id)
+        this.showNotificationForPinning(name)
+    }
+
+    UnpinActiveApp()
+    {
+        id := this.getActiveWindowId()
+        name := this.getActiveWindowProcessName()
+        this.unpinApp(id)
+        this.showNotificationForUnpinning(name)
+    }
+
+    ToggleAppPinning()
+    {
+        id := this.getActiveWindowId()
+        name := this.getActiveWindowProcessName()
+        If (this.isAppPinned(id))
+        {
+            this.unpinApp(id)
+            this.showNotificationForUnpinning(name)
+        }
+        else
+        {
+            this.pinApp(id)
+            this.showNotificationForPinning(name)
+        }
+    }
+
+
+
 ; =============================
 ; Helper methods
-; =============================
+; ============================= 
+
+
+    isAppPinned(windowId)
+    {
+        return DllCall(this._isPinnedAppProc, UInt, windowId)
+    }
+
+    unpinApp(windowId)
+    {
+        DllCall(this._unPinAppProc, UInt, windowId)
+    }
+    
+    pinApp(windowId)
+    {
+        DllCall(this._pinAppProc, UInt, windowId)
+    }
+
+    isWindowPinned(windowId)
+    {
+        return DllCall(this._isPinnedWindowProc, UInt, windowId)
+    }
+
+    pinWindow(windowId)
+    {
+        DllCall(this._pinWindowProc, UInt, windowId)
+    }
+
+    unpinWindow(windowId)
+    {
+        DllCall(this._unPinWindowProc, UInt, windowId)
+    }
 
     isMouseHoveringTaskbar()
     {
@@ -221,6 +318,12 @@ class VirtualDesktopEnhancer
         return activeHwnd
     }
 
+    getActiveWindowProcessName()
+    {
+        WinGet, name, ProcessName, A
+        return name
+    }
+
     getCurrentDesktopIndex()
     {
         return DllCall(this._getCurrentDesktopNumberProc)
@@ -257,5 +360,15 @@ class VirtualDesktopEnhancer
     showNotificationForDesktopSwtich(index)
     {
         this._prompt.Show("Desktop #" . (index + 1) )
+    }
+
+    showNotificationForPinning(text)
+    {
+        this._prompt.Show("Pinned '" . text . "'")
+    }
+
+    showNotificationForUnpinning(text)
+    {
+        this._prompt.Show("Unpinned '" . text . "'")
     }
 }

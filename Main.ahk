@@ -67,7 +67,7 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 #if
 ; - On Esc:: ;#;
 
-#if !GetKeyState("Shift", "P")
+#if !GetKeyState("Shift", "P") && !GetKeyState("Ctrl", "P")
 	CapsLock & 1::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(0)	;#; Switch to desktop #1
 	CapsLock & 2::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(1)	;#; Switch to desktop #2
 	CapsLock & 3::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(2)	;#; Switch to desktop #3
@@ -95,10 +95,13 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 
 	CapsLock & c::virtualDesktopEnhancer.CreateDesktop()	;#; Create a new desktop
 	CapsLock & d::virtualDesktopEnhancer.DeleteCurrentDesktop()	;#; Delete current dekstop
+
+	CapsLock & z::virtualDesktopEnhancer.PinActiveWindow()	;#; Pin active window
+	CapsLock & x::virtualDesktopEnhancer.PinActiveApp()	;#; Pin active app
 #if
 
 ; - On Shift:: ;#; 	
-#if GetKeyState("Shift", "P")	; If Shift is pressed -> "Shift" window and dekstop
+#if GetKeyState("Shift", "P") && !GetKeyState("Ctrl", "P")	; Only Shift is pressed -> "Shift" window and dekstop
 	CapsLock & 1::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0)	;#; Move active window and switch to desktop #1 
 	CapsLock & 2::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1)	;#; Move active window and switch to desktop #2 
 	CapsLock & 3::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2)	;#; Move active window and switch to desktop #3 
@@ -111,8 +114,18 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 
 	CapsLock & a::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus()	;#; Switch to previous dekstop
 	CapsLock & s::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus()	;#; Switch to next dekstop
+
+	CapsLock & z::virtualDesktopEnhancer.UnpinActiveWindow()	;#; Unpin active window
+	CapsLock & x::virtualDesktopEnhancer.UnpinActiveApp()	;#; Unpin active app	
 #if
 ; - On Shift:: ;#; 
+
+; - On Ctrl:: ;#; 
+#if !GetKeyState("Shift", "P") && GetKeyState("Ctrl", "P")	; Only Ctrl is pressed
+	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning()	;#; Toggle window pinning
+	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning()	;#; Toggle app pining
+#if
+; - On Ctrl:: ;#; 
 
 ~WheelUp::virtualDesktopEnhancer.TaskbarScrollUp()
 ~WheelDown::virtualDesktopEnhancer.TaskbarScrollDown()
