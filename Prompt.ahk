@@ -38,7 +38,7 @@ class Prompt
 		Gui, Font, % "s" this._fontSize, % this._font
         Gui, Add, Text, % this._centerText ? "+Center" : "" , % text
 		WinSet, Transparent, % this._transparency
-		Gui, Show, y0
+		Gui, Show, y0 NoActivate
         Sleep, 1000
         Gui, Destroy
     }
