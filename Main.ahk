@@ -4,7 +4,7 @@
 #Persistent
 #Warn
 #NoEnv
-
+#MaxHotkeysPerInterval 20000	; Require as we have a hotkey listening on mouse scroll
 #WinActivateForce
 
 DetectHiddenWindows, On
@@ -12,7 +12,7 @@ SetBatchLines -1
 
 #Include Externals.ahk
 #Include Functions.ahk
-; Prompt.ahk is used by multiple scripts - must load this first
+; Prompt.ahk is used by multiple scripts - it must be loaded first
 #Include Prompt.ahk
 #Include WindowSwitcher.ahk
 #Include KeyLister.ahk
@@ -129,3 +129,5 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 
 ~WheelUp::virtualDesktopEnhancer.TaskbarScrollUp()
 ~WheelDown::virtualDesktopEnhancer.TaskbarScrollDown()
+
+~MButton & m::WinMinimize, A
