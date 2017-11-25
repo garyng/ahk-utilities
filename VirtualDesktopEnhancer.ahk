@@ -138,7 +138,7 @@ class VirtualDesktopEnhancer
 
     DeleteCurrentDesktop()
     {
-        if (not (this._prompt.PromptMatchInput("Remove current desktop?`n[Space to remove]", " ")))
+        if (not (this._prompt.PromptMatchSpace("Remove current desktop?", "remove")))
         {
             return
         }

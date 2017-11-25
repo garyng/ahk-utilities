@@ -36,6 +36,13 @@ class Prompt
         return this.Prompt(text) = match
     }
 
+    ; Return true if user input is space
+    ; `n[Space to `action`] will be appended to the text
+    PromptMatchSpace(text, action)
+    {
+        return this.PromptMatchInput(text . "`n[Space to " . action . "]", " ")
+    }
+
     Show(text)
     {
         Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop

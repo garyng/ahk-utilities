@@ -46,7 +46,7 @@ class WindowSwitcher
 
 	ConfirmLaunch(name)
 	{
-		return this._prompt.Prompt("Launch " name " ?`n[Space to launch]") = " "
+		return this._prompt.PromptMatchSpace("Launch " . name . "?", "launch")
 	}
 }
 
