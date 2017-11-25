@@ -17,12 +17,14 @@ SetBatchLines -1
 #Include WindowSwitcher.ahk
 #Include KeyLister.ahk
 #Include VirtualDesktopEnhancer.ahk
+#Include WindowQuickMinMax.ahk
 
 RunExternals()
 
 lister := new KeyLister(A_ScriptFullPath, A_WorkingDir "\SnapX\SnapX.ahk")
 windowSwitcher := new WindowSwitcher()
 virtualDesktopEnhancer := new VirtualDesktopEnhancer()
+windowQuickMinMax := new WindowQuickMinMax()
 
 ^+!R::Reload	;#; Reload script
 
@@ -67,7 +69,7 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 #if
 ; - On Esc:: ;#;
 
-#if !GetKeyState("Shift", "P") && !GetKeyState("Ctrl", "P")
+#if IsNone()
 	CapsLock & 1::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(0)	;#; Switch to desktop #1
 	CapsLock & 2::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(1)	;#; Switch to desktop #2
 	CapsLock & 3::virtualDesktopEnhancer.SwitchToDesktopNThenFocus(2)	;#; Switch to desktop #3
@@ -101,7 +103,7 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 #if
 
 ; - On Shift:: ;#; 	
-#if GetKeyState("Shift", "P") && !GetKeyState("Ctrl", "P")	; Only Shift is pressed -> "Shift" window and dekstop
+#if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and dekstop
 	CapsLock & 1::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0)	;#; Move active window and switch to desktop #1 
 	CapsLock & 2::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1)	;#; Move active window and switch to desktop #2 
 	CapsLock & 3::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2)	;#; Move active window and switch to desktop #3 
@@ -121,7 +123,7 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 ; - On Shift:: ;#; 
 
 ; - On Ctrl:: ;#; 
-#if !GetKeyState("Shift", "P") && GetKeyState("Ctrl", "P")	; Only Ctrl is pressed
+#if IsOnlyCtrl()	; Only Ctrl is pressed
 	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning()	;#; Toggle window pinning
 	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning()	;#; Toggle app pining
 #if
@@ -130,4 +132,46 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 ~WheelUp::virtualDesktopEnhancer.TaskbarScrollUp()
 ~WheelDown::virtualDesktopEnhancer.TaskbarScrollDown()
 
-~MButton & m::WinMinimize, A
+
+#If IsNone()
+	~MButton & z::windowQuickMinMax.MinimizeActiveWindow()	;#; Minimize active window
+	~MButton & x::windowQuickMinMax.MaximizeActiveWindow()	;#; Maximize active window
+#if
+
+#If IsOnlyCtrl()
+	~MButton & z::windowQuickMinMax.MinimizeWindowUnderMouse()	;#; Minimize window under mouse
+	~MButton & x::windowQuickMinMax.MaximizeWindowUnderMouse()	;#; Maximize window under mouse
+#if
+
+#if IsOnlyShift()
+	~MButton & z::windowQuickMinMax.Restore()	;#; Restore previously minimized/maximized window
+	~MButton & x::windowQuickMinMax.ClearHistory()	;#; Clear history stack
+#if
+
+; Modifiers keys combinations
+; useful for custom keys combinations
+
+IsNone()
+{
+	return !IsShift() && !IsCtrl()
+}
+
+IsOnlyShift()
+{
+	return IsShift() && !IsCtrl()
+}
+
+IsOnlyCtrl()
+{
+	return !IsShift() && IsCtrl()
+}
+
+IsShift()
+{
+	return GetKeyState("Shift", "P")
+}
+
+IsCtrl()
+{
+	return GetKeyState("Ctrl", "P")
+}
