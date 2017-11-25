@@ -10,8 +10,9 @@ Some scripts that I wrote (+ some external scripts that I collected)
 3. Decrease/Increase/Reset the transparency of the window under mouse
 4. Instant window switcher (Originally from [Taran VH's 2nd Keyboard repo](https://github.com/TaranVH/2nd-keyboard), but refactored into classes + custom prompt before launching)
 5. Key lister (List all hotkeys and hotstrings)
-6. Switch between virtual desktops (Adapted from [windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher))
+6. Switch between virtual desktops (Adapted from [win-10-virtual-desktop-enhancer](https://github.com/sdias/win-10-virtual-desktop-enhancer), with a quite a lot of refactoring)
+7. Quickly minimize and maximize active window (with history)
 
 # External Scripts
- 
-1. [SnapX](https://github.com/benallred/SnapX) (Removed `updater`, `run on startup` and `admin rights`)
+
+1. [SnapX](https://github.com/benallred/SnapX) (Removed `updater`, `run on startup` and `admin rights`
