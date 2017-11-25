@@ -30,6 +30,12 @@ class Prompt
         return userInput
     }
 
+    ; Return true if user input match
+    PromptMatchInput(text, match)
+    {
+        return this.Prompt(text) = match
+    }
+
     Show(text)
     {
         Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop
