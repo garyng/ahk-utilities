@@ -6,6 +6,7 @@ class Prompt
     ; _font
     ; _transparency
     ; _centerText
+
     __New(backgroundColor := 202020, textColor := "White", fontSize := 10, font := "Consolas", transparency := 200, centerText := true)
     {
         this._backgroundColor := backgroundColor
@@ -45,14 +46,22 @@ class Prompt
 
     Show(text)
     {
-        Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop
+        Gui, New
+        Gui, -Caption +ToolWindow +LastFound +AlwaysOnTop +Hwndhwnd
+        Gui, %hwnd%:Default
 		Gui, Color, % this._backgroundColor
 		Gui, Font, % "c" this._textColor
 		Gui, Font, % "s" this._fontSize, % this._font
         Gui, Add, Text, % this._centerText ? "+Center" : "" , % text
 		WinSet, Transparent, % this._transparency
 		Gui, Show, y0 NoActivate
-        Sleep, 1000
-        Gui, Destroy
+
+        callback := ObjBindMethod(this, "destroyGui", hwnd)
+        SetTimer, % callBack, -1000
+    }
+    
+    destroyGui(hwnd)
+    {
+        Gui, %hwnd%:Destroy
     }
 }
