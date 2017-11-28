@@ -20,6 +20,7 @@ SetBatchLines -1
 #Include VirtualDesktopEnhancer.ahk
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk
+#Include ModifierKeysDetector.ahk
 
 RunExternals()
 
@@ -142,34 +143,6 @@ _enableOverlay := true
 	~MButton & z::windowQuickMinMax.Restore(), showOverlay("~MButton & Shift-z", "Restore previously minimized/maximized window")
 	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift-x", "Clear history stack")
 #if
-
-; Modifiers keys combinations
-; useful for custom keys combinations
-
-IsNone()
-{
-	return !IsShift() && !IsCtrl()
-}
-
-IsOnlyShift()
-{
-	return IsShift() && !IsCtrl()
-}
-
-IsOnlyCtrl()
-{
-	return !IsShift() && IsCtrl()
-}
-
-IsShift()
-{
-	return GetKeyState("Shift", "P")
-}
-
-IsCtrl()
-{
-	return GetKeyState("Ctrl", "P")
-}
 
 showOverlay(label, description)
 {
