@@ -44,3 +44,19 @@ ResetTransparencyOfWindowUnderMouse()
 	WinSet, Transparent, 255, ahk_id %windowUnderMouse%
 	return
 }
+
+HumanizeHotkey(label)
+{
+	replacement := {}
+	replacement["~"] := ""
+	replacement["+"] := "Shift + "	
+	replacement["#"] := "Win + "
+	replacement["!"] := "Alt + "
+	replacement["^"] := "Ctrl + "
+	replacement[" &"] := ","
+	For search, replace in replacement
+	{
+		label := StrReplace(label, search, replace)
+	}
+	return label
+}
