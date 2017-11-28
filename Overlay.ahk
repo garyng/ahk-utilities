@@ -7,7 +7,8 @@ class Overlay
         this._guiConfig.Foreground := "white"
         this._guiConfig.FontSize := 10
         this._guiConfig.FontName := "Consolas"
-        this._guiConfig.Transparency := 1
+        this._guiConfig.Transparency := 200
+		this._guiConfig.Timeout := -1000	; must be negative to ensure the timer is launched once only
 	}
 
     _monitorGuisMap := [[]]
@@ -36,14 +37,14 @@ class Overlay
 
 			guiIndex := guis.Push(hwnd)
 
-            this.guiSetupDestroyCallback(hwnd, guis, guiIndex)
+            this.guiSetupDestroyCallback(hwnd, guis, guiIndex, this._guiConfig.Timeout)
 
-            WinSet, Transparent, 200, ahk_id %hwnd%
+            WinSet, Transparent, % this._guiConfig.Transparency, ahk_id %hwnd%
         }
     }
 
     ; negative number for only launching once
-	guiSetupDestroyCallback(hwnd, guis, guiIndex, timeout := -1000)
+	guiSetupDestroyCallback(hwnd, guis, guiIndex, timeout)
 	{
 		callback := ObjBindMethod(this, "guiDestroy", hwnd, guis, guiIndex)
 		SetTimer % callback, % timeout
