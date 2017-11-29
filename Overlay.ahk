@@ -27,8 +27,7 @@ class Overlay
 			}
             guis := this._monitorGuisMap[index]
 			
-            WinSet, Transparent, 1, ahk_id %hwnd%
-			Gui, Show, NoActivate
+			Gui, Show, x0 y-3000 NoActivate
 
             this.placeGuiBottomLeft(index, hwnd)
 
