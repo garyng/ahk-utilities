@@ -13,7 +13,6 @@ class VirtualDesktopEnhancer
     _primaryTaskbarId := 0
     _secondaryTaskbarId := 0    ; taskbar on another monitor
 
-
     __New()
     {
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
@@ -25,6 +24,7 @@ class VirtualDesktopEnhancer
     init()
     {
         this.registerOnVirtualDesktopChangedMessageHandler()
+        this.updateTrayIcon(this.getCurrentDesktopIndex())
         ; setup icon?
     }
 
@@ -197,12 +197,25 @@ class VirtualDesktopEnhancer
         }
     }
 
-
-
 ; =============================
 ; Helper methods
 ; ============================= 
 
+    updateTrayIcon(desktopIndex)
+    {
+        
+        Menu, Tray, Tip, % this.GetDesktopName(desktopindex)
+        ; icons start at index 1
+        iconFileName := A_ScriptDir . "\icons\" . (desktopIndex + 1) . ".ico"
+        if (FileExist(iconFileName))
+        {
+            Menu, Tray, Icon, % iconFileName
+        }
+        else
+        {
+            Menu, Tray, Icon, % A_ScriptDir . "\icons\+.ico"
+        }
+    }    
 
     isAppPinned(windowId)
     {
@@ -255,6 +268,7 @@ class VirtualDesktopEnhancer
     {
         this.focusIfRequested()        
         this.showNotificationForDesktopSwtich(index)
+        this.updateTrayIcon(index)
     }
 
     moveActiveWindowToDesktopN(index)
@@ -346,7 +360,12 @@ class VirtualDesktopEnhancer
 
     showNotificationForDesktopSwtich(index)
     {
-        this._prompt.Show("Desktop #" . (index + 1) )
+        this._prompt.Show(this.GetDesktopName(index))
+    }
+
+    GetDesktopName(index)
+    {
+        return "Desktop #" . (index + 1)
     }
 
     showNotificationForPinning(text)
