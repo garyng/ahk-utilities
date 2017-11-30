@@ -117,6 +117,7 @@ _enableOverlay := true
 #if
 
 #if IsOnlyCtrl()
+	CapsLock & a::virtualDesktopEnhancer.MoveAllWindowToNewDesktop(), showOverlay("CapsLock, Ctrl + a", "Move all windows to new desktop")
 	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning(), showOverlay("CapsLock, Ctrl + z", "Toggle window pinning")
 	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl + x", "Toggle app pining")
 #if

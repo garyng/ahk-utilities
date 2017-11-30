@@ -103,6 +103,18 @@ class VirtualDesktopEnhancer
         this.switchToDesktopNThenFocus(index)
     }
 
+    MoveAllWindowToNewDesktop()
+    {
+        currentIndex := this.getCurrentDesktopIndex()
+        windows := this.getAllWindowsOnDesktopN(currentIndex)
+        this.CreateDesktop()
+        newDesktopIndex := this.GetDesktopCount() - 1
+        for index, window in windows
+        {
+            this._virtualDesktopAccessor.MoveWindowToDesktopNumber(window, newDesktopIndex)
+        }
+    }
+    
     TaskbarScrollUp()
     {
         if (this.isMouseHoveringTaskbar())
@@ -275,6 +287,22 @@ class VirtualDesktopEnhancer
     {
         activeHwnd := this.getActiveWindowId()
         this._virtualDesktopAccessor.MoveWindowToDesktopNumber(activeHwnd, index)
+    }   
+
+    getAllWindowsOnDesktopN(index)
+    {
+        windows := []
+        WinGet, winIdList, List
+        Loop % winIdList
+        {
+            currentId := % winIdList%A_Index%
+            isWindowOnDesktop := this._virtualDesktopAccessor.IsWindowOnDesktopNumber(currentId, index)
+            if (isWindowOnDesktop)
+            {
+                windows.Push(currentId)
+            }
+        }
+        return windows
     }
 
     focusIfRequested()
