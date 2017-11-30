@@ -109,16 +109,16 @@ _enableOverlay := true
 	CapsLock & 8::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(7), showOverlay("CapsLock, Shift + 8", "Move active window and switch to desktop #8")
 	CapsLock & 9::virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), showOverlay("CapsLock, Shift + 9", "Move active window and switch to desktop #9")
 
-	CapsLock & a::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift-a", "Switch to previous dekstop")
-	CapsLock & s::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift-s", "Switch to next dekstop")
+	CapsLock & a::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift + a", "Switch to previous dekstop")
+	CapsLock & s::virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift + s", "Switch to next dekstop")
 
-	CapsLock & z::virtualDesktopEnhancer.UnpinActiveWindow(), showOverlay("CapsLock, Shift-z", "Unpin active window")
-	CapsLock & x::virtualDesktopEnhancer.UnpinActiveApp(), showOverlay("CapsLock, Shift-x", "Unpin active app")
+	CapsLock & z::virtualDesktopEnhancer.UnpinActiveWindow(), showOverlay("CapsLock, Shift + z", "Unpin active window")
+	CapsLock & x::virtualDesktopEnhancer.UnpinActiveApp(), showOverlay("CapsLock, Shift + x", "Unpin active app")
 #if
 
 #if IsOnlyCtrl()
-	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning(), showOverlay("CapsLock, Ctrl-z", "Toggle window pinning")
-	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl-x", "Toggle app pining")
+	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning(), showOverlay("CapsLock, Ctrl + z", "Toggle window pinning")
+	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl + x", "Toggle app pining")
 #if
 
 ~WheelUp::virtualDesktopEnhancer.TaskbarScrollUp()
@@ -130,13 +130,13 @@ _enableOverlay := true
 #if
 
 #If IsOnlyCtrl()
-	~MButton & z::windowQuickMinMax.MinimizeWindowUnderMouse(), showOverlay("~MButton & Ctrl-z", "Minimize window under mouse")
-	~MButton & x::windowQuickMinMax.MaximizeWindowUnderMouse(), showOverlay("~MButton & Ctrl-x", "Maximize window under mouse")
+	~MButton & z::windowQuickMinMax.MinimizeWindowUnderMouse(), showOverlay("~MButton & Ctrl + z", "Minimize window under mouse")
+	~MButton & x::windowQuickMinMax.MaximizeWindowUnderMouse(), showOverlay("~MButton & Ctrl + x", "Maximize window under mouse")
 #if
 
 #if IsOnlyShift()
-	~MButton & z::windowQuickMinMax.Restore(), showOverlay("~MButton & Shift-z", "Restore previously minimized/maximized window")
-	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift-x", "Clear history stack")
+	~MButton & z::windowQuickMinMax.Restore(), showOverlay("~MButton & Shift + z", "Restore previously minimized/maximized window")
+	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
 
 showOverlay(label, description)
