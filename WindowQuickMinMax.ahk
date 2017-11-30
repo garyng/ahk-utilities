@@ -1,3 +1,5 @@
+#Include Prompt.ahk
+
 class WindowQuickMinMax
 {
     ; _history

@@ -13,10 +13,8 @@ SetBatchLines -1
 
 #Include Externals.ahk
 #Include Functions.ahk
-; Prompt.ahk is used by multiple scripts - it must be loaded first
-#Include Prompt.ahk
+
 #Include WindowSwitcher.ahk
-#Include KeyLister.ahk
 #Include VirtualDesktopEnhancer.ahk
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk

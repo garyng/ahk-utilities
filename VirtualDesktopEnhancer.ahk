@@ -1,3 +1,5 @@
+#Include Prompt.ahk
+
 class VirtualDesktopEnhancer
 {
     ; _onVirtualDesktopChangedMessageHandler

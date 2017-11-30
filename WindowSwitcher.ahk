@@ -1,3 +1,5 @@
+#Include Prompt.ahk
+
 class WindowSwitcher
 {
     ; _windows
