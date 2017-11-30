@@ -4,9 +4,6 @@
 #Persistent
 #Warn
 #NoEnv
-#HotkeyInterval 20
-#MaxHotkeysPerInterval 20000	; Require as we have a hotkey listening on mouse scroll
-#WinActivateForce
 
 DetectHiddenWindows, On
 SetBatchLines -1

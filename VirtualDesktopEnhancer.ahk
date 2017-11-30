@@ -1,4 +1,9 @@
 #Include Prompt.ahk
+#Include lib\VirtualDesktopAccessor.ahk
+
+#HotkeyInterval 20
+#MaxHotkeysPerInterval 20000	; Require as we have a hotkey listening on mouse scroll
+#WinActivateForce
 
 class VirtualDesktopEnhancer
 {
@@ -13,34 +18,14 @@ class VirtualDesktopEnhancer
     {
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
         this._prompt := new Prompt()
+        this._virtualDesktopAccessor := new VirtualDesktopAccessor()
         this.init()
     }
 
     init()
     {
-        this.loadVirtualDesktopAccessorLibrary()
         this.registerOnVirtualDesktopChangedMessageHandler()
-        
         ; setup icon?
-    }
-
-    loadVirtualDesktopAccessorLibrary()
-    {
-        hVirtualDesktopAccessor := DllCall("LoadLibrary", "Str", A_ScriptDir . "\lib\virtual-desktop-accessor.dll", "Ptr")
-
-        this._goToDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GoToDesktopNumber", "Ptr")
-        this._registerPostMessageHookProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "RegisterPostMessageHook", "Ptr")
-        this._unregisterPostMessageHookProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "UnregisterPostMessageHook", "Ptr")
-        this._getCurrentDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GetCurrentDesktopNumber", "Ptr")
-        this._getDesktopCountProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GetDesktopCount", "Ptr")
-        this._isWindowOnDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "IsWindowOnDesktopNumber", "Ptr")
-        this._moveWindowToDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "MoveWindowToDesktopNumber", "Ptr")
-        this._isPinnedWindowProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "IsPinnedWindow", "Ptr")
-        this._pinWindowProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "PinWindow", "Ptr")
-        this._unPinWindowProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "UnPinWindow", "Ptr")
-        this._isPinnedAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "IsPinnedApp", "Ptr")
-        this._pinAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "PinApp", "Ptr")
-        this._unPinAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "UnPinApp", "Ptr")
     }
 
     registerOnVirtualDesktopChangedMessageHandler()
@@ -48,7 +33,8 @@ class VirtualDesktopEnhancer
         DetectHiddenWindows, On
         hwnd := WinExist("ahk_pid " . DllCall("GetCurrentProcessId","Uint"))
         hwnd += 0x1000 << 32
-        DllCall(this._registerPostMessageHookProc, Int, hwnd, Int, 0x1400 + 30)
+        this._virtualDesktopAccessor.RegisterPostMessageHook(hwnd, 0x1400 + 30)        
+        
         OnMessage(0x1400 + 30, this._onVirtualDesktopChangedMessageHandler)
         DetectHiddenWindows, Off
     }
@@ -66,7 +52,7 @@ class VirtualDesktopEnhancer
     SwitchToDesktopNThenFocus(index)
     {
         this._focusAfterSwitching := true        
-        DllCall(this._goToDesktopNumberProc, Int, index)
+        this._virtualDesktopAccessor.GoToDesktopNumber(index)
     }
 
     MoveActiveWindowToDesktopNThenFocus(index)
@@ -220,32 +206,32 @@ class VirtualDesktopEnhancer
 
     isAppPinned(windowId)
     {
-        return DllCall(this._isPinnedAppProc, UInt, windowId)
+        return this._virtualDesktopAccessor.IsPinnedApp(windowId)
     }
 
     unpinApp(windowId)
     {
-        DllCall(this._unPinAppProc, UInt, windowId)
+        this._virtualDesktopAccessor.UnpinApp(windowId)
     }
     
     pinApp(windowId)
     {
-        DllCall(this._pinAppProc, UInt, windowId)
+        this._virtualDesktopAccessor.PinApp(windowId)
     }
 
     isWindowPinned(windowId)
     {
-        return DllCall(this._isPinnedWindowProc, UInt, windowId)
+        return this._virtualDesktopAccessor.IsPinnedWindow(windowId)
     }
 
     pinWindow(windowId)
     {
-        DllCall(this._pinWindowProc, UInt, windowId)
+        this._virtualDesktopAccessor.PinWindow(windowId)
     }
 
     unpinWindow(windowId)
     {
-        DllCall(this._unPinWindowProc, UInt, windowId)
+        this._virtualDesktopAccessor.UnPinWindow(windowId)
     }
 
     isMouseHoveringTaskbar()
@@ -274,7 +260,7 @@ class VirtualDesktopEnhancer
     moveActiveWindowToDesktopN(index)
     {
         activeHwnd := this.getActiveWindowId()
-        DllCall(this._moveWindowToDesktopNumberProc, UInt, activeHwnd, UInt, index)
+        this._virtualDesktopAccessor.MoveWindowToDesktopNumber(activeHwnd, index)
     }
 
     focusIfRequested()
@@ -299,7 +285,7 @@ class VirtualDesktopEnhancer
         Loop % winIdList 
         {
             currentWindowId := % winIdList%A_Index%
-            isWindowOnDesktop := DllCall(this._isWindowOnDesktopNumberProc, UInt, currentWindowId, UInt, index)
+            isWindowOnDesktop := this._virtualDesktopAccessor.IsWindowOnDesktopNumber(currentWindowId, index)
             if (isWindowOnDesktop)
             {
                 return currentWindowId
@@ -328,14 +314,13 @@ class VirtualDesktopEnhancer
 
     getCurrentDesktopIndex()
     {
-        return DllCall(this._getCurrentDesktopNumberProc)
+        return this._virtualDesktopAccessor.GetCurrentDesktopNumber()
     }
 
     getDesktopCount()
     {
-        return DllCall(this._getDesktopCountProc)
+        return this._virtualDesktopAccessor.GetDesktopCount()
     }
-
 
     getNextDesktopIndex()
     {
