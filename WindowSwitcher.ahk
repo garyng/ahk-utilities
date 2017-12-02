@@ -12,7 +12,7 @@ class WindowSwitcher
         this._windows["notepad"] := new Window("ahk_class Notepad", "notepad.exe")
         ; this will alt-tab when firefox is active
         ; this._windows["firefox"] := new AltTabWindow("MozillaWindowClass", "firefox.exe")
-        this._windows["firefox"] := new Window("ahk_class MozillaWindowClass", "firefox.exe")
+        this._windows["firefox"] := new Window("ahk_class MozillaWindowClass", "C:\\Program Files\\Mozilla Firefox\\firefox.exe")
         this._windows["xyplorer"] := new Window("ahk_class ThunderRT6FormDC", "XYplorer.exe")
         ; need to use ahk_exe for chrome as other electron apps also uses chrome (which has the same ahk_class)
         this._windows["chrome"] := new AltTabWindow("ahk_exe chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
