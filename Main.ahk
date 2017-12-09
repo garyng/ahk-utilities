@@ -32,8 +32,12 @@ _enableOverlay := true
 	return
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
-!WheelDown::DecreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
-!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
+
+#if !WinActive("ahk_exe Illustrator.exe")
+	!WheelDown::DecreaseTransparencyOfWindowUnderMouse(),showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
+	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
+#if
+
 !F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouseole")
 #F1::_enableOverlay := !_enableOverlay, overlay.Show(HumanizeHotkey("#F1"), "Toogle overlay visibility to " . (_enableOverlay ? "true" : "false"))
 
