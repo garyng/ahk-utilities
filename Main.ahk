@@ -49,12 +49,12 @@ _enableOverlay := true
 	F5::windowSwitcher.Switch("sublime"), showOverlay("Esc, F5", "Switch to sublime")
 	F6::windowSwitcher.Switch("keepass"), showOverlay("Esc, F6", "Switch to keepass")
 
-	+F1::windowSwitcher.Launch("xyplorer"), showOverlay("Esc, +F1", "Launch to xyplorer")
-	+F2::windowSwitcher.Launch("firefox"), showOverlay("Esc, +F2", "Launch to firefox")
-	+F3::windowSwitcher.Launch("onenote"), showOverlay("Esc, +F3", "Launch to onenote")
-	+F4::windowSwitcher.Launch("gitkraken"), showOverlay("Esc, +F4", "Launch to gitkraken")
-	+F5::windowSwitcher.Launch("sublime"), showOverlay("Esc, +F5", "Launch to sublime")
-	+F6::windowSwitcher.Launch("keepass"), showOverlay("Esc, +F6", "Launch to keepass")
+	+F1::windowSwitcher.Launch("xyplorer"), showOverlay("Esc, +F1", "Launch xyplorer")
+	+F2::windowSwitcher.Launch("firefox"), showOverlay("Esc, +F2", "Launch firefox")
+	+F3::windowSwitcher.Launch("onenote"), showOverlay("Esc, +F3", "Launch onenote")
+	+F4::windowSwitcher.Launch("gitkraken"), showOverlay("Esc, +F4", "Launch gitkraken")
+	+F5::windowSwitcher.Launch("sublime"), showOverlay("Esc, +F5", "Launch sublime")
+	+F6::windowSwitcher.Launch("keepass"), showOverlay("Esc, +F6", "Launch keepass")
 
 	1::windowSwitcher.Switch("visualstudio"), showOverlay("Esc, 1", "Switch to visual studio")
 	2::windowSwitcher.Switch("todoist"), showOverlay("Esc, 2", "Switch to todoist")
@@ -63,12 +63,12 @@ _enableOverlay := true
 	5::windowSwitcher.Switch("notepad"), showOverlay("Esc, 5", "Switch to notepad")
 	6::windowSwitcher.Switch("calendar"), showOverlay("Esc, 6", "Switch to calendar")
 
-	+1::windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch to visual studio")
-	+2::windowSwitcher.Launch("todoist"), showOverlay("Esc, +2", "Launch to todoist")
-	+3::windowSwitcher.Launch("cmder"), showOverlay("Esc, +3", "Launch to cmder")
-	+4::windowSwitcher.Launch("vscode"), showOverlay("Esc, +4", "Launch to vscode")
-	+5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch to notepad")
-	+6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch to calendar")
+	+1::windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch visual studio")
+	+2::windowSwitcher.Launch("todoist"), showOverlay("Esc, +2", "Launch todoist")
+	+3::windowSwitcher.Launch("cmder"), showOverlay("Esc, +3", "Launch cmder")
+	+4::windowSwitcher.Launch("vscode"), showOverlay("Esc, +4", "Launch vscode")
+	+5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch notepad")
+	+6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch calendar")
 #if
 
 #if IsNone()
