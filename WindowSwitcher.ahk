@@ -25,6 +25,8 @@ class WindowSwitcher
         this._windows["vscode"] := new Window("ahk_exe Code.exe", "C:\\Program Files\\Microsoft VS Code\\Code.exe")
         this._windows["sublime"] := new Window("ahk_exe sublime_text.exe", "C:\\Program Files\\Sublime Text 3\\sublime_text.exe")
 		this._windows["keepass"] := new Window("ahk_exe KeePass.exe", "C:\\Program Files (x86)\\KeePass\\KeePass.exe")
+		; ahk_exe was unable to detect instances of calendar though
+		this._windows["calendar"] := new Window("ahk_exe HxCalendarAppImm.exe","explorer.exe shell:AppsFolder\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar")
 	}
 
 	Switch(name)

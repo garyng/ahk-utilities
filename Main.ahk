@@ -61,12 +61,14 @@ _enableOverlay := true
 	3::windowSwitcher.Switch("cmder"), showOverlay("Esc, 3", "Switch to cmder")
 	4::windowSwitcher.Switch("vscode"), showOverlay("Esc, 4", "Switch to vscode")
 	5::windowSwitcher.Switch("notepad"), showOverlay("Esc, 5", "Switch to notepad")
+	6::windowSwitcher.Switch("calendar"), showOverlay("Esc, 6", "Switch to calendar")
 
 	+1::windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch to visual studio")
 	+2::windowSwitcher.Launch("todoist"), showOverlay("Esc, +2", "Launch to todoist")
 	+3::windowSwitcher.Launch("cmder"), showOverlay("Esc, +3", "Launch to cmder")
 	+4::windowSwitcher.Launch("vscode"), showOverlay("Esc, +4", "Launch to vscode")
 	+5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch to notepad")
+	+6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch to calendar")
 #if
 
 #if IsNone()
