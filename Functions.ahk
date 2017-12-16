@@ -2,7 +2,12 @@ TypeDateTime()
 {
     FormatTime, current, , dd/MM/yyyy HH:mm:ss
 	Send %current%
-	return
+}
+
+TypeGitClone()
+{
+	text := AppendWithClipboardContent("git clone ")
+	Send %text%
 }
 
 ToggleActiveWindowAlwaysOnTop()
@@ -59,4 +64,9 @@ HumanizeHotkey(label)
 		label := StrReplace(label, search, replace)
 	}
 	return label
+}
+
+AppendWithClipboardContent(text)
+{
+	return text . Clipboard
 }

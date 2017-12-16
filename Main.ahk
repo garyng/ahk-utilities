@@ -18,7 +18,6 @@ SetBatchLines -1
 #Include ModifierKeysDetector.ahk
 
 RunExternals()
-
 windowSwitcher := new WindowSwitcher()
 virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
@@ -29,6 +28,9 @@ _enableOverlay := true
 
 :*:!!d::
 	TypeDateTime()
+	return
+:*:!!gc::
+	TypeGitClone()
 	return
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
