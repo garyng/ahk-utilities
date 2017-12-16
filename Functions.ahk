@@ -1,13 +1,13 @@
 TypeDateTime()
 {
     FormatTime, current, , dd/MM/yyyy HH:mm:ss
-	Send %current%
+	SendInput %current%
 }
 
 TypeGitClone()
 {
 	text := AppendWithClipboardContent("git clone ")
-	Send %text%
+	SendInput %text%
 }
 
 ToggleActiveWindowAlwaysOnTop()
