@@ -16,6 +16,7 @@ SetBatchLines -1
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk
 #Include ModifierKeysDetector.ahk
+#Include Mouse.ahk
 
 RunExternals()
 windowSwitcher := new WindowSwitcher()
@@ -136,11 +137,19 @@ _enableOverlay := true
 #If IsNone()
 	~MButton & z::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("~MButton & z", "Minimize active window")
 	~MButton & x::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("~MButton & x", "Maximize active window")
+	~LButton & Left::Mouse.MoveHorizontal(-1)
+	~LButton & Right::Mouse.MoveHorizontal(1)
+	~LButton & Up::Mouse.MoveVertical(-1)
+	~LButton & Down::Mouse.MoveVertical(1)
 #if
 
 #If IsOnlyCtrl()
 	~MButton & z::windowQuickMinMax.MinimizeWindowUnderMouse(), showOverlay("~MButton & Ctrl + z", "Minimize window under mouse")
 	~MButton & x::windowQuickMinMax.MaximizeWindowUnderMouse(), showOverlay("~MButton & Ctrl + x", "Maximize window under mouse")
+	~LButton & Left::Mouse.MoveHorizontal(-10)
+	~LButton & Right::Mouse.MoveHorizontal(10)
+	~LButton & Up::Mouse.MoveVertical(-10)
+	~LButton & Down::Mouse.MoveVertical(10)
 #if
 
 #if IsOnlyShift()
