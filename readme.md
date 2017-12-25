@@ -22,7 +22,7 @@ Some scripts that I wrote (+ some external scripts that I collected).
 
 # External Scripts
 
-1. [SnapX](https://github.com/benallred/SnapX) (Removed `updater`, `run on startup` and `admin rights`
+1. [SnapX](https://github.com/benallred/SnapX) (Removed `updater`, `run on startup` and `admin rights`)
 
 # Demo
 
