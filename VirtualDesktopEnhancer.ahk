@@ -52,6 +52,12 @@ class VirtualDesktopEnhancer
     ; 0-index
     SwitchToDesktopNThenFocus(index)
     {
+        currentIndex := this.getCurrentDesktopIndex()
+        if (currentIndex == index) 
+        { 
+            return 
+        }
+
         this.SaveDesktopIndex()
         this._focusAfterSwitching := true
         this._virtualDesktopAccessor.GoToDesktopNumber(index)
