@@ -12,7 +12,8 @@ class VirtualDesktopEnhancer
     ; _prompt
     _primaryTaskbarId := 0
     _secondaryTaskbarId := 0    ; taskbar on another monitor
-
+    _lastDesktopIndex := -1
+    
     __New()
     {
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
@@ -51,8 +52,23 @@ class VirtualDesktopEnhancer
     ; 0-index
     SwitchToDesktopNThenFocus(index)
     {
-        this._focusAfterSwitching := true        
+        this.SaveDesktopIndex()
+        this._focusAfterSwitching := true
         this._virtualDesktopAccessor.GoToDesktopNumber(index)
+    }
+
+    SaveDesktopIndex()
+    {
+        this._lastDesktopIndex := this.getCurrentDesktopIndex()
+    }
+
+    GoToLastDesktop()
+    {
+        if (this._lastDesktopIndex != -1)
+        {
+            index := this._lastDesktopIndex
+            this.SwitchToDesktopNThenFocus(index)
+        }
     }
 
     MoveActiveWindowToDesktopNThenFocus(index)

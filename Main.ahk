@@ -105,6 +105,8 @@ _enableOverlay := true
 
 	CapsLock & z::virtualDesktopEnhancer.PinActiveWindow(), showOverlay("CapsLock & z", "Pin active window")
 	CapsLock & x::virtualDesktopEnhancer.PinActiveApp(), showOverlay("CapsLock & x", "Pin active app")
+
+	CapsLock & e::virtualDesktopEnhancer.GoToLastDesktop(), showOverlay("CapsLock, e", "Go to last active desktop")	
 #if
 
 #if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and dekstop
