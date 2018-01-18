@@ -133,9 +133,6 @@ _enableOverlay := true
 	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl + x", "Toggle app pining")
 #if
 
-~WheelUp::virtualDesktopEnhancer.TaskbarScrollUp()
-~WheelDown::virtualDesktopEnhancer.TaskbarScrollDown()
-
 #If IsNone()
 	~MButton & z::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("~MButton & z", "Minimize active window")
 	~MButton & x::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("~MButton & x", "Maximize active window")
