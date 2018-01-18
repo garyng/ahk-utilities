@@ -106,7 +106,7 @@ _enableOverlay := true
 	CapsLock & z::virtualDesktopEnhancer.PinActiveWindow(), showOverlay("CapsLock & z", "Pin active window")
 	CapsLock & x::virtualDesktopEnhancer.PinActiveApp(), showOverlay("CapsLock & x", "Pin active app")
 
-	CapsLock & e::virtualDesktopEnhancer.GoToLastDesktop(), showOverlay("CapsLock, e", "Go to last active desktop")	
+	CapsLock & e::virtualDesktopEnhancer.GoToLastDesktop(), showOverlay("CapsLock, e", "Go to last active desktop")
 #if
 
 #if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and dekstop
@@ -155,6 +155,14 @@ _enableOverlay := true
 	~MButton & z::windowQuickMinMax.Restore(), showOverlay("~MButton & Shift + z", "Restore previously minimized/maximized window")
 	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
+
+; Presentation-related
+#If IsNone()
+	~LButton & PgUp::ShiftAltTab
+	~LButton & PgDn::AltTab
+	~LButton & b::windowSwitcher.Switch("powerpoint"), showOverlay("~LButton & b", "Switch to powerpoint")
+	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
+#If
 
 showOverlay(label, description)
 {
