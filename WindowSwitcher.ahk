@@ -27,6 +27,8 @@ class WindowSwitcher
 		this._windows["keepass"] := new Window("ahk_exe KeePass.exe", "C:\\Program Files (x86)\\KeePass\\KeePass.exe")
 		; ahk_exe was unable to detect instances of calendar though
 		this._windows["calendar"] := new Window("ahk_exe HxCalendarAppImm.exe","explorer.exe shell:AppsFolder\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar")
+		; ahk_class is not used because slide show uses different class name (screenclass) compared to the main program (PPTFrameClass)
+		this._windows["powerpoint"] := new Window("ahk_exe POWERPNT.EXE", "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE")
 	}
 
 	Switch(name)
