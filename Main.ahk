@@ -33,6 +33,9 @@ _enableOverlay := true
 :*:!!gc::
 	TypeGitClone()
 	return
+:*:!!img::
+	TypeMarkdownImageTag()
+	return
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 

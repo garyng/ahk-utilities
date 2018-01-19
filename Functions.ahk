@@ -10,6 +10,12 @@ TypeGitClone()
 	SendInput %text%
 }
 
+TypeMarkdownImageTag()
+{
+	text := "{Raw}![](" . Clipboard . ")"
+	SendInput %text%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A
