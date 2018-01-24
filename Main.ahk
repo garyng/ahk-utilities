@@ -75,6 +75,12 @@ _enableOverlay := true
 	+4::windowSwitcher.Launch("vscode"), showOverlay("Esc, +4", "Launch vscode")
 	+5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch notepad")
 	+6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch calendar")
+
+	q::windowSwitcher.Switch("toggl"), showOverlay("Esc, q", "Switch to toggl")
+	+q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch to toggl")
+
+	w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
+	+w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch to itunes")
 #if
 
 #if IsNone()

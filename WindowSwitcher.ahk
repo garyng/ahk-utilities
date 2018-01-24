@@ -29,11 +29,14 @@ class WindowSwitcher
 		this._windows["calendar"] := new Window("ahk_exe HxCalendarAppImm.exe","explorer.exe shell:AppsFolder\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar")
 		; ahk_class is not used because slide show uses different class name (screenclass) compared to the main program (PPTFrameClass)
 		this._windows["powerpoint"] := new Window("ahk_exe POWERPNT.EXE", "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE")
+		this._windows["toggl"] := new Window("ahk_exe TogglDesktop.exe", "C:\\Users\\GaryNg\\AppData\\Local\\TogglDesktop\\TogglDesktop.exe")
+		this._windows["itunes"] := new Window("ahk_class iTunes", "C:\\Program Files\\iTunes\\iTunes.exe")
 	}
 
 	Switch(name)
 	{
 		window := this._windows[name]
+		
 		if (!window.Exist() and this.ConfirmLaunch(name))
 		{
 			window.Launch()
