@@ -124,3 +124,25 @@ class AltTabWindow extends Window
 		Send % "^{tab}"
 	}
 }
+
+class FuzzyMatchWindow extends Window
+{
+	Exist()
+	{
+		SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match. 
+
+		result := WinExist(this._identifier) != 0
+		
+		SetTitleMatchMode 1
+		return result
+	}
+
+	ActivateWindowInactive()
+	{
+		SetTitleMatchMode 2
+
+		WinActivate % this._identifier
+
+		SetTitleMatchMode 1
+	}
+}
