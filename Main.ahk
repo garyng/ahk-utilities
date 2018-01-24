@@ -81,6 +81,9 @@ _enableOverlay := true
 
 	w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
 	+w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch to itunes")
+	
+	e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
+	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch to todoist (Web)")
 #if
 
 #if IsNone()

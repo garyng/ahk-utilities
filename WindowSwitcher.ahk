@@ -31,6 +31,8 @@ class WindowSwitcher
 		this._windows["powerpoint"] := new Window("ahk_exe POWERPNT.EXE", "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE")
 		this._windows["toggl"] := new Window("ahk_exe TogglDesktop.exe", "C:\\Users\\GaryNg\\AppData\\Local\\TogglDesktop\\TogglDesktop.exe")
 		this._windows["itunes"] := new Window("ahk_class iTunes", "C:\\Program Files\\iTunes\\iTunes.exe")
+
+		this._windows["todoist_firefox"] := new FuzzyMatchWindow("Todoist ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://todoist.com/")
 	}
 
 	Switch(name)
@@ -132,8 +134,9 @@ class FuzzyMatchWindow extends Window
 		SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match. 
 
 		result := WinExist(this._identifier) != 0
-		
+
 		SetTitleMatchMode 1
+		
 		return result
 	}
 
