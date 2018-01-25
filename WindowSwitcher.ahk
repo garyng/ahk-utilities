@@ -32,7 +32,7 @@ class WindowSwitcher
 		this._windows["toggl"] := new Window("ahk_exe TogglDesktop.exe", "C:\\Users\\GaryNg\\AppData\\Local\\TogglDesktop\\TogglDesktop.exe")
 		this._windows["itunes"] := new Window("ahk_class iTunes", "C:\\Program Files\\iTunes\\iTunes.exe")
 
-		this._windows["todoist_firefox"] := new FuzzyMatchWindow("Todoist ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://todoist.com/")
+		this._windows["todoist_firefox"] := new FuzzyMatchWindow("Todoist ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://en.todoist.com/")
 	}
 
 	Switch(name)
