@@ -66,6 +66,7 @@ class Window
 	; _identifier
 	; _filePath
 	; _groupName
+	; _lastActiveHwnd
 
 	; by default `identifier` uses ahk_class
 	__New(identifier, filePath)
@@ -100,8 +101,10 @@ class Window
 		{		
 			if (this.GetGroupCount() == 1)
 			{
-				; todo: Minimizing window wont lost focus
 				this.MinimizeActiveWindow(hwnd)
+
+				; Minimizing window wont lost focus
+				WinActivate, % "ahk_id" . this._lastActiveHwnd
 			}
 			else
 			{
@@ -110,7 +113,7 @@ class Window
 		}
 		else
 		{
-			; todo: oremember currently active window
+			this._lastActiveHwnd := WinExist("A")
 
 			this.ActivateWindow()
 		}
