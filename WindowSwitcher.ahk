@@ -73,7 +73,7 @@ class Window
 		this._identifier := identifier
 		this._filePath := filePath
 		; remove all illegal characters
-		this._groupName := RegExReplace(identifier, "[\\\.\*\?\+\[\{\|\(\)\^\$\""\s:-]")  . "_group"
+		this._groupName := RegExReplace(identifier, "[_\\\.\*\?\+\[\{\|\(\)\^\$\""\s\:\-]")  . "_group"
 		this.InitGroup()
 	}
 
