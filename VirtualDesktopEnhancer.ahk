@@ -42,7 +42,9 @@ class VirtualDesktopEnhancer
 
     OnVirtualDesktopChangedMessageHandler(wParam, lParam, msg, hwnd)
     {
-        this.onDesktopChangedHandler(lParam)
+        ; wParam -> old desktop index
+        ; lParam -> new desktop index
+        this.onDesktopChangedHandler(wParam, lParam)
     }
 
 ; =============================
@@ -58,14 +60,8 @@ class VirtualDesktopEnhancer
             return 
         }
 
-        this.SaveDesktopIndex()
         this._focusAfterSwitching := true
         this._virtualDesktopAccessor.GoToDesktopNumber(index)
-    }
-
-    SaveDesktopIndex()
-    {
-        this._lastDesktopIndex := this.getCurrentDesktopIndex()
     }
 
     GoToLastDesktop()
@@ -298,11 +294,13 @@ class VirtualDesktopEnhancer
         return ((mouseHoveringId == this._primaryTaskbarId) || (mouseHoveringId == this._secondaryTaskbarId))
     }
 
-    onDesktopChangedHandler(index := 0)
+    onDesktopChangedHandler(oldIndex, newIndex)
     {
+        this._lastDesktopIndex := oldIndex
+        
         this.focusIfRequested()        
-        this.showNotificationForDesktopSwtich(index)
-        this.updateTrayIcon(index)
+        this.showNotificationForDesktopSwtich(newIndex)
+        this.updateTrayIcon(newIndex)
     }
 
     moveActiveWindowToDesktopN(index)
