@@ -84,7 +84,7 @@ class Window
 
 	Exist()
 	{
-		return WinExist(this._identifier) != 0
+		return this.GetHwnd() != 0
 	}
 
 	Launch()
@@ -94,25 +94,58 @@ class Window
 
 	Switch()
 	{
-		if (WinActive(this._identifier))
-		{
-			this.ActivateWindowActive()	
+		hwnd := this.GetHwnd()
+
+		if (this.IsActive(hwnd))
+		{		
+			if (this.GetGroupCount() == 1)
+			{
+				; todo: Minimizing window wont lost focus
+				this.MinimizeActiveWindow(hwnd)
+			}
+			else
+			{
+				this.CycleActiveWindows()
+			}
 		}
 		else
 		{
-			this.ActivateWindowInactive()
+			; todo: oremember currently active window
+
+			this.ActivateWindow()
 		}
 	}
 
-	ActivateWindowActive()
+	GetGroupCount()
+	{
+		WinGet, itemsCount, Count, % "ahk_group " . this._groupName
+		return itemsCount
+	}
+
+	MinimizeActiveWindow(hwnd)
+	{
+		WinMinimize % "ahk_id " . hwnd
+	}
+
+	CycleActiveWindows()
 	{
 		; default behaviour when there is active window is to cycle through all windows 
 		GroupActivate % this._groupName, R
 	}
 
-	ActivateWindowInactive()
+	ActivateWindow()
 	{
 		WinActivate % this._identifier
+	}
+
+	GetHwnd()
+	{
+		return WinExist(this._identifier)
+	}
+
+	IsActive(hwnd)
+	{
+		return WinActive("ahk_id " . hwnd)
 	}
 
 }
@@ -121,7 +154,7 @@ class AltTabWindow extends Window
 {
 	; can be used for chrome/firefox
 	; create new class and override the function to suite your own needs
-	ActivateWindowActive()
+	CycleActiveWindows()
 	{
 		Send % "^{tab}"
 	}
@@ -129,23 +162,20 @@ class AltTabWindow extends Window
 
 class FuzzyMatchWindow extends Window
 {
-	Exist()
-	{
-		SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match. 
-
-		result := WinExist(this._identifier) != 0
-
-		SetTitleMatchMode 1
-		
-		return result
-	}
-
-	ActivateWindowInactive()
+	ActivateWindow()
 	{
 		SetTitleMatchMode 2
 
 		WinActivate % this._identifier
 
 		SetTitleMatchMode 1
+	}
+
+	GetHwnd()
+	{
+		SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match. 
+		result := WinExist(this._identifier)
+		SetTitleMatchMode 1
+		return result		
 	}
 }
