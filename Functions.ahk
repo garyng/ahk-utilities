@@ -16,6 +16,12 @@ TypeMarkdownImageTag()
 	SendInput %text%
 }
 
+TypeClipboard()
+{
+	text := Clipboard
+	SendInput %text%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A
