@@ -22,6 +22,12 @@ TypeClipboard()
 	SendInput %text%
 }
 
+TypeRandomNumber()
+{
+	Random, num
+	SendInput %num%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A

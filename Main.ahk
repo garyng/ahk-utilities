@@ -39,6 +39,9 @@ _enableOverlay := true
 :*:!!cb::
 	TypeClipboard()
 	return
+:*:!!r::
+	TypeRandomNumber()
+	return
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
