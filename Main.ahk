@@ -93,6 +93,9 @@ _enableOverlay := true
 
 	s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
 	+s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")
+
+	a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
+	+a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
 #if
 
 ; #if GetKeyState("F1", "P")

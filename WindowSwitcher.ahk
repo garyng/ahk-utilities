@@ -34,6 +34,7 @@ class WindowSwitcher
 
 		this._windows["todoist_firefox"] := new FuzzyMatchWindow("Todoist ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://en.todoist.com/")
 		this._windows["slack"] := new Window("ahk_exe slack.exe", "C:\\Users\\GaryNg\\AppData\\Local\\slack\\slack.exe")
+		this._windows["station"] := new Window("ahk_exe Station.exe", "C:\\Users\\GaryNg\\AppData\\Local\\browserX\\Station.exe")
 	}
 
 	Switch(name)
