@@ -83,13 +83,16 @@ _enableOverlay := true
 	+6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch calendar")
 
 	q::windowSwitcher.Switch("toggl"), showOverlay("Esc, q", "Switch to toggl")
-	+q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch to toggl")
+	+q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch toggl")
 
 	w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
-	+w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch to itunes")
+	+w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch itunes")
 	
 	e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
-	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch to todoist (Web)")
+	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch todoist (Web)")
+
+	s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
+	+s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")
 #if
 
 ; #if GetKeyState("F1", "P")
