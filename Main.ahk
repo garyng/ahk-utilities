@@ -17,6 +17,7 @@ SetBatchLines -1
 #Include Overlay.ahk
 #Include ModifierKeysDetector.ahk
 #Include Mouse.ahk
+#Include MultiplePressListener.ahk
 
 RunExternals()
 windowSwitcher := new WindowSwitcher()
