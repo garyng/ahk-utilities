@@ -33,6 +33,7 @@ class WindowSwitcher
 		this._windows["itunes"] := new Window("ahk_class iTunes", "C:\\Program Files\\iTunes\\iTunes.exe")
 
 		this._windows["todoist_firefox"] := new FuzzyMatchWindow("Todoist ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://en.todoist.com/")
+		this._windows["asana_firefox"] := new FuzzyMatchWindow("Asana ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://app.asana.com/")
 		this._windows["slack"] := new Window("ahk_exe slack.exe", "C:\\Users\\GaryNg\\AppData\\Local\\slack\\slack.exe")
 		this._windows["station"] := new Window("ahk_exe Station.exe", "C:\\Users\\GaryNg\\AppData\\Local\\browserX\\Station.exe")
 	}

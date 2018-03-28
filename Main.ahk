@@ -91,8 +91,11 @@ _enableOverlay := true
 	e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
 	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch todoist (Web)")
 
-	s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
-	+s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")
+	; s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
+	; +s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")s
+
+	s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, s", "Switch to asana (Web)")
+	+s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, +s", "Launch asana (Web)")
 
 	a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
 	+a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
