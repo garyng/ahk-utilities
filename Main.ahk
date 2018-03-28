@@ -25,6 +25,7 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
+_closeMonitorListener := new MultiplePressListener(5, Func("TurnOffMonitor"), 700)
 
 ^+!R::Reload
 
@@ -43,6 +44,8 @@ _enableOverlay := true
 :*:!!r::
 	TypeRandomNumber()
 	return
+
+~Esc::_closeMonitorListener.Fire() 
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
