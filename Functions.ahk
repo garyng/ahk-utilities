@@ -91,7 +91,13 @@ AppendWithClipboardContent(text)
 
 TurnOffMonitor()
 {
-	; 0x112 = WM_SYSCOMMAND
-	; 0xF170 = SC_MONITORPOWER
-	SendMessage 0x112, 0xF170, 2, , Program Manager
+	_prompt := new Prompt()	
+	If (_prompt.PromptMatchSpace("Turn off monitor?", "turn off"))
+	{
+		; 0x112 = WM_SYSCOMMAND
+		; 0xF170 = SC_MONITORPOWER
+		SendMessage 0x112, 0xF170, 2, , Program Manager
+		return true
+	}
+	return false
 }
