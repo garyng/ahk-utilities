@@ -15,7 +15,7 @@ SetBatchLines -1
 #Include VirtualDesktopEnhancer.ahk
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk
-#Include ModifierKeysDetector.ahk
+#Include Conditions.ahk
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
 

@@ -25,3 +25,8 @@ IsCtrl()
 {
 	return GetKeyState("Ctrl", "P")
 }
+
+IsMultitaskingViewExists()
+{
+	return WinExist("ahk_class MultitaskingViewFrame")
+}
