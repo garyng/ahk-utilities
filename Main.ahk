@@ -205,6 +205,18 @@ _closeMonitorListener := new MultiplePressListener(4, Func("TurnOffMonitor"), 70
 	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
 #If
 
+; G602 Mouse
+F22::AltTabAndMenu
+#If IsMultitaskingViewExists()
+	!F23::AltTabMenuDismiss	; alt key will remain pressed while inside the multitasking view
+#if
+F23::Send !{tab}
+
+F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
++F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
+^F24::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
+
+
 showOverlay(label, description)
 {
 	global _enableOverlay
