@@ -25,7 +25,8 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
-_closeMonitorListener := new MultiplePressListener(4, Func("TurnOffMonitor"), 700)
+_askIfCloseMonitorListener := new MultiplePressListener(4, Func("AskIfTurnOffMonitor"), 700)
+_closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 700)
 
 ^+!R::Reload
 
@@ -45,7 +46,7 @@ _closeMonitorListener := new MultiplePressListener(4, Func("TurnOffMonitor"), 70
 	TypeRandomNumber()
 	return
 
-~Esc::_closeMonitorListener.Fire()
+~Esc::_askIfCloseMonitorListener.Fire()
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
@@ -206,6 +207,8 @@ _closeMonitorListener := new MultiplePressListener(4, Func("TurnOffMonitor"), 70
 #If
 
 ; G602 Mouse
+F21::_closeMonitorListener.Fire()
+
 F22::AltTabAndMenu
 #If IsMultitaskingViewExists()
 	; alt key will remain pressed while inside the multitasking view
@@ -213,13 +216,13 @@ F22::AltTabAndMenu
 	WheelUp::ShiftAltTab	
 	WheelDown::AltTab
 #if
+
 F23::Send !{tab}
 ^F23::Send !{esc}
 
 F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
 +F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
 ^F24::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
-
 
 showOverlay(label, description)
 {
