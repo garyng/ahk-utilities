@@ -208,9 +208,13 @@ _closeMonitorListener := new MultiplePressListener(4, Func("TurnOffMonitor"), 70
 ; G602 Mouse
 F22::AltTabAndMenu
 #If IsMultitaskingViewExists()
-	!F23::AltTabMenuDismiss	; alt key will remain pressed while inside the multitasking view
+	; alt key will remain pressed while inside the multitasking view
+	!F22::AltTabMenuDismiss
+	WheelUp::ShiftAltTab	
+	WheelDown::AltTab
 #if
 F23::Send !{tab}
+^F23::Send !{esc}
 
 F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
 +F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
