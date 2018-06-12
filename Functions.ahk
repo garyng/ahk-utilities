@@ -102,6 +102,7 @@ AskIfTurnOffMonitor()
 
 TurnOffMonitor()
 {
+	DllCall("LockWorkStation")
 	; 0x112 = WM_SYSCOMMAND
 	; 0xF170 = SC_MONITORPOWER
 	SendMessage 0x112, 0xF170, 2, , Program Manager
