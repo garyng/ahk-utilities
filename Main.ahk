@@ -67,10 +67,11 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
-#if !WinActive("ahk_exe Illustrator.exe")
-	!WheelDown::DecreaseTransparencyOfWindowUnderMouse(),showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
-	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
-#if
+; #if !WinActive("ahk_exe Illustrator.exe")
+; 	!WheelDown::DecreaseTransparencyOfWindowUnderMouse(),showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
+; 	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
+; #if
+
 ~LShift & WheelUp::ScrollLeft()
 ~LShift & WheelDown::ScrollRight()
 
@@ -118,8 +119,8 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	; s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
 	; +s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")s
 
-	s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, s", "Switch to asana (Web)")
-	+s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, +s", "Launch asana (Web)")
+	; s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, s", "Switch to asana (Web)")
+	; +s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, +s", "Launch asana (Web)")
 
 	a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
 	+a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
@@ -193,7 +194,7 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 #if
 
 #If IsNone()
-	~MButton & z::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("~MButton & z", "Minimize active window")
+	; ~MButton & z::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("~MButton & z", "Minimize active window")
 	~MButton & x::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("~MButton & x", "Maximize active window")
 
 	~LButton & Left::Mouse.MoveHorizontal(-1)
