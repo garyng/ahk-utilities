@@ -125,3 +125,11 @@ ScrollRight()
 		; 0x114 =  WM_HSCROLL 
 	}
 }
+
+DisableAltMenuAccelerator(key, upOrDown)
+{
+	; from Taran the Marco King https://github.com/TaranVH/2nd-keyboard/blob/master/Taran's%20Windows%20Mods/Alt_menu_acceleration_DISABLER.ahk
+	SendInput {%key% %upOrDown%}
+	SendInput {SC0E8 %upOrDown%}
+	KeyWait %key%
+}

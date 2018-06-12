@@ -72,6 +72,11 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 ; 	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
 ; #if
 
+LAlt::DisableAltMenuAccelerator("LAlt", "Down")
+LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
+RAlt::DisableAltMenuAccelerator("RAlt", "Down")
+RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
+
 ~LShift & WheelUp::ScrollLeft()
 ~LShift & WheelDown::ScrollRight()
 
