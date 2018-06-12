@@ -107,3 +107,21 @@ TurnOffMonitor()
 	; 0xF170 = SC_MONITORPOWER
 	SendMessage 0x112, 0xF170, 2, , Program Manager
 }
+
+ScrollLeft()
+{
+	ControlGetFocus, control, A
+	Loop, 5 {	
+		PostMessage, 0x114, 0, 0, %control%, A
+		; 0x114 =  WM_HSCROLL 
+	}
+}
+
+ScrollRight()
+{
+	ControlGetFocus, control, A
+	Loop, 5 {	
+		PostMessage, 0x114, 1, 0, %control%, A
+		; 0x114 =  WM_HSCROLL 
+	}
+}
