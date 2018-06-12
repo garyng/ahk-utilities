@@ -226,7 +226,9 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
 #If
 
-; G602 Mouse
+; G602 Mouse ==============
+F19::Browser_Forward
+F20::Browser_Back
 F21::_closeMonitorListener.Fire()
 
 F22::AltTabAndMenu
@@ -243,6 +245,18 @@ F23::Send !{tab}
 F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
 +F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
 ^F24::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
+
+#if GetKeyState("F18", "P")	; mapped to G11
+	F24::virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("F18, F24", "Switch to previous dekstop")
+	F23::virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("F18, F23", "Switch to next dekstop")
+
+	F21::virtualDesktopEnhancer.CreateDesktop(), showOverlay("F18, F21", "Create a new desktop")
+	F20::virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("F18, F20", "Delete current dekstop")
+
+	F19::Send ^+{Escape}
+#if
+
+; G602 Mouse ==============
 
 showOverlay(label, description)
 {
