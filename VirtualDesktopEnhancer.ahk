@@ -337,6 +337,7 @@ class VirtualDesktopEnhancer
     ; focus the foremost window on current desktop after moving the window
     focus()
     {
+        return
         foremostWindowId := this.getForemostWindowIdOnDesktopN(this.getCurrentDesktopIndex())
         WinActivate, ahk_id %foremostWindowId%
     }
