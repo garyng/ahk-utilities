@@ -52,6 +52,8 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	ins::_homeEndKeyRemapListener.Fire()
 #if
 
+RControl::AppsKey
+
 #if _enableHomeEndKeyRemap
 	; remap ins key to end key
 	; F12 key to home key
@@ -129,6 +131,9 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
 	a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
 	+a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
+
+	s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, s", "Switch to source tree")
+	+s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, +s", "Launch source tree")
 #if
 
 ; #if GetKeyState("F1", "P")
