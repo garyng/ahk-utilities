@@ -111,7 +111,7 @@ TurnOffMonitor()
 ScrollLeft()
 {
 	ControlGetFocus, control, A
-	Loop, 5 {	
+	Loop, 10 {	
 		PostMessage, 0x114, 0, 0, %control%, A
 		; 0x114 =  WM_HSCROLL 
 	}
@@ -120,7 +120,7 @@ ScrollLeft()
 ScrollRight()
 {
 	ControlGetFocus, control, A
-	Loop, 5 {	
+	Loop, 10 {	
 		PostMessage, 0x114, 1, 0, %control%, A
 		; 0x114 =  WM_HSCROLL 
 	}
@@ -132,4 +132,46 @@ DisableAltMenuAccelerator(key, upOrDown)
 	SendInput {%key% %upOrDown%}
 	SendInput {SC0E8 %upOrDown%}
 	KeyWait %key%
+}
+
+goBack()
+{
+	If (WinActive("ahk_exe Station.exe"))
+	{
+		SendInput ^[
+		return
+	}
+	If (WinActive("ahk_exe devenv.exe"))
+	{
+		; go back to last cursor position
+		SendInput ^-
+		return
+	}
+	If (WinActive("ahk_exe Code.exe"))
+	{
+		SendInput {Browser_Back}
+		return
+	}
+	SendInput !{Left}
+}
+
+goForward()
+{
+	If (WinActive("ahk_exe Station.exe"))
+	{
+		SendInput ^]
+		return
+	}
+	If (WinActive("ahk_exe devenv.exe"))
+	{
+		; go to the next cursor position
+		SendInput ^+-
+		return
+	}
+	If (WinActive("ahk_exe Code.exe"))
+	{
+		SendInput {Browser_Forward}
+		return
+	}
+	SendInput !{Right}
 }

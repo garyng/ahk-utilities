@@ -232,8 +232,8 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 #If
 
 ; G602 Mouse ==============
-F19::Browser_Forward
-F20::Browser_Back
+F19::goForward()
+F20::goBack()
 F21::_closeMonitorListener.Fire()
 
 F22::AltTabAndMenu
@@ -281,3 +281,8 @@ ToggleHomeEndKeyRemap()
 		overlay.Show("ins *4", "Enable Home && End key remapping")
 	}
 }
+
+; # Win
+; ! Alt
+; ^ Ctrl
+; + Shift
