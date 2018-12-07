@@ -32,8 +32,11 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 
 ^+!R::Reload
 
-:*:!!d::
+:*:!!dt::
 	TypeDateTime()
+	return
+:*:!!ds::
+	TypeShortDate()
 	return
 :*:!!gc::
 	TypeGitClone()
