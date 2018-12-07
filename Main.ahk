@@ -55,7 +55,7 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	ins::_homeEndKeyRemapListener.Fire()
 #if
 
-RControl::AppsKey
+; RControl::AppsKey
 
 #if _enableHomeEndKeyRemap
 	; remap ins key to end key
@@ -82,8 +82,10 @@ LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
 RAlt::DisableAltMenuAccelerator("RAlt", "Down")
 RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
-~LShift & WheelUp::ScrollLeft()
-~LShift & WheelDown::ScrollRight()
+#if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
+	~LShift & WheelUp::ScrollLeft()
+	~LShift & WheelDown::ScrollRight()
+#if
 
 !F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouseole")
 #F1::_enableOverlay := !_enableOverlay, overlay.Show(HumanizeHotkey("#F1"), "Toogle overlay visibility to " . (_enableOverlay ? "true" : "false"))
@@ -137,6 +139,9 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
 	s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, s", "Switch to source tree")
 	+s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, +s", "Launch source tree")
+
+	c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, c", "Switch to calendar (Web)")
+	+c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, +c", "Launch calendar (Web)")
 #if
 
 ; #if GetKeyState("F1", "P")
@@ -240,6 +245,7 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 #If
 
 ; G602 Mouse ==============
+F17::MButton
 F19::goForward()
 F20::goBack()
 F21::_closeMonitorListener.Fire()

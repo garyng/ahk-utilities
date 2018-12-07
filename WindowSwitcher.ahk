@@ -37,6 +37,8 @@ class WindowSwitcher
 		this._windows["slack"] := new Window("ahk_exe slack.exe", "C:\\Users\\GaryNg\\AppData\\Local\\slack\\slack.exe")
 		this._windows["station"] := new Window("ahk_exe Station.exe", "C:\\Users\\GaryNg\\AppData\\Local\\browserX\\Station.exe")
 		this._windows["source_tree"] := new Window("ahk_exe SourceTree.exe", "C:\\Users\\GaryNg\\AppData\\Local\\SourceTree\\SourceTree.exe")
+
+		this._windows["calendar_firefox"] := new FuzzyMatchWindow("Multimedia University ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://calendar.google.com/calendar/b/1/r/day")
 	}
 
 	Switch(name)
