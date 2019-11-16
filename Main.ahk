@@ -77,10 +77,10 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 ; 	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
 ; #if
 
-LAlt::DisableAltMenuAccelerator("LAlt", "Down")
-LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
-RAlt::DisableAltMenuAccelerator("RAlt", "Down")
-RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
+; LAlt::DisableAltMenuAccelerator("LAlt", "Down")
+; LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
+; RAlt::DisableAltMenuAccelerator("RAlt", "Down")
+; RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
 #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
 	~LShift & WheelUp::ScrollLeft()
@@ -122,8 +122,8 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 	q::windowSwitcher.Switch("toggl"), showOverlay("Esc, q", "Switch to toggl")
 	+q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch toggl")
 
-	w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
-	+w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch itunes")
+	; w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
+	; +w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch itunes")
 	
 	e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
 	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch todoist (Web)")
@@ -134,14 +134,14 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 	; s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, s", "Switch to asana (Web)")
 	; +s::windowSwitcher.Switch("asana_firefox"), showOverlay("Esc, +s", "Launch asana (Web)")
 
-	a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
-	+a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
+	; a::windowSwitcher.Switch("station"), showOverlay("Esc, a", "Switch to station")
+	; +a::windowSwitcher.Switch("station"), showOverlay("Esc, +a", "Launch station")
 
 	s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, s", "Switch to source tree")
 	+s::windowSwitcher.Switch("source_tree"), showOverlay("Esc, +s", "Launch source tree")
 
-	c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, c", "Switch to calendar (Web)")
-	+c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, +c", "Launch calendar (Web)")
+	; c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, c", "Switch to calendar (Web)")
+	; +c::windowSwitcher.Switch("calendar_firefox"), showOverlay("Esc, +c", "Launch calendar (Web)")
 #if
 
 ; #if GetKeyState("F1", "P")
@@ -206,9 +206,9 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 #if
 
 #if IsOnlyCtrl()
-	CapsLock & a::virtualDesktopEnhancer.MoveAllWindowToNewDesktop(), showOverlay("CapsLock, Ctrl + a", "Move all windows to new desktop")
-	CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning(), showOverlay("CapsLock, Ctrl + z", "Toggle window pinning")
-	CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl + x", "Toggle app pining")
+	; CapsLock & a::virtualDesktopEnhancer.MoveAllWindowToNewDesktop(), showOverlay("CapsLock, Ctrl + a", "Move all windows to new desktop")
+	; CapsLock & z::virtualDesktopEnhancer.ToggleWindowPinning(), showOverlay("CapsLock, Ctrl + z", "Toggle window pinning")
+	; CapsLock & x::virtualDesktopEnhancer.ToggleAppPinning(), showOverlay("CapsLock, Ctrl + x", "Toggle app pining")
 #if
 
 #If IsNone()
@@ -244,7 +244,7 @@ RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
 #If
 
-; G602 Mouse ==============
+; Mouse ==============
 F17::MButton
 F19::goForward()
 F20::goBack()
@@ -275,7 +275,7 @@ F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize acti
 	F19::Send ^+{Escape}
 #if
 
-; G602 Mouse ==============
+; Mouse ==============
 
 showOverlay(label, description)
 {
