@@ -2,7 +2,7 @@ class VirtualDesktopAccessor
 {
     __New()
     {
-        hVirtualDesktopAccessor := DllCall("LoadLibrary", "Str", A_ScriptDir . "\lib\virtual-desktop-accessor.dll", "Ptr")
+        hVirtualDesktopAccessor := DllCall("LoadLibrary", "Str", A_ScriptDir . "\lib\VirtualDesktopAccessor.dll", "Ptr")
 
         this._goToDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GoToDesktopNumber", "Ptr")
         this._registerPostMessageHookProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "RegisterPostMessageHook", "Ptr")
