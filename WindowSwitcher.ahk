@@ -14,18 +14,20 @@ class WindowSwitcher
 		; this._windows["firefox"] := new AltTabWindow("MozillaWindowClass", "firefox.exe")
 		this._windows["firefox"] := new Window("ahk_class MozillaWindowClass", "C:\\Program Files\\Mozilla Firefox\\firefox.exe")
 		this._windows["xyplorer"] := new Window("ahk_class ThunderRT6FormDC", "XYplorer.exe")
+		this._windows["explorer"] := new Window("ahk_class CabinetWClass", "explorer.exe")
 		; need to use ahk_exe for chrome as other electron apps also uses chrome (which has the same ahk_class)
-		this._windows["chrome"] := new AltTabWindow("ahk_exe chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
+		this._windows["chrome"] := new Window("ahk_exe chrome.exe", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["gitkraken"] := new Window("ahk_exe gitkraken.exe", "C:\\Users\\GaryNg\\AppData\\Local\\gitkraken\\Update.exe --processStart ""gitkraken.exe""", "gitkraken.exe")
 		this._windows["onenote"] := new Window("ahk_exe onenote.exe", "onenote.exe")
 		this._windows["visualstudio"] := new Window("ahk_exe devenv.exe", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\devenv.exe")
 		; todoist is a Windows 10 app, need to be launched by its ApplicationUserModelId
 		this._windows["todoist"] := new Window("Todoist: To-Do List and Task Manager ahk_class ApplicationFrameWindow","explorer.exe shell:AppsFolder\88449BC3.TodoistTo-DoListTaskManager_71ef4824z52ta!App")
 		this._windows["cmder"] := new Window("ahk_class VirtualConsoleClass ahk_exe ConEmu64.exe", "D:\Tools\cmder\Cmder.exe")
-		this._windows["vscode"] := new Window("ahk_exe Code.exe", "C:\\Program Files\\Microsoft VS Code\\Code.exe")
+		this._windows["vscode"] := new Window("ahk_exe Code.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
 		this._windows["sublime"] := new Window("ahk_exe sublime_text.exe", "C:\\Program Files\\Sublime Text 3\\sublime_text.exe")
 		this._windows["keepass"] := new Window("ahk_exe KeePass.exe", "C:\\Program Files (x86)\\KeePass\\KeePass.exe")
 		this._windows["calendar"] := new FuzzyMatchWindow("Calendar ahk_class ApplicationFrameWindow","explorer.exe shell:AppsFolder\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar")
+		this._windows["wt"] := new Window("ahk_exe WindowsTerminal.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe")
 
 		; ahk_class is not used because slide show uses different class name (screenclass) compared to the main program (PPTFrameClass)
 		this._windows["powerpoint"] := new Window("ahk_exe POWERPNT.EXE", "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE")
@@ -39,25 +41,26 @@ class WindowSwitcher
 		this._windows["source_tree"] := new Window("ahk_exe SourceTree.exe", "C:\\Users\\GaryNg\\AppData\\Local\\SourceTree\\SourceTree.exe")
 
 		this._windows["calendar_firefox"] := new FuzzyMatchWindow("Multimedia University ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://calendar.google.com/calendar/b/1/r/day")
+		this._windows["fork"] := New Window("ahk_exe fork.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Fork\\fork.exe")
 	}
 
 	Switch(name)
 	{
-		window := this._windows[name]
+		win := this._windows[name]
 		
-		if (!window.Exist() and this.ConfirmLaunch(name))
+		if (!win.Exist() and this.ConfirmLaunch(name))
 		{
-			window.Launch()
+			win.Launch()
 		}
-		window.Switch()
+		win.Switch()
 	}
 
 	Launch(name)
 	{
-		window := this._windows[name]
+		win := this._windows[name]
 		if (this.ConfirmLaunch(name))
 		{
-			window.Launch()
+			win.Launch()
 		}
 	}
 

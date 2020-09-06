@@ -15,10 +15,23 @@ TypeIsoDate()
     FormatTime, current, , yyyy-MM-dd
 	SendInput %current%
 }
+
 TypeZettelkastenUid()
 {
 	FormatTime, current, , yyyyMMddHHmmss
 	SendInput %current%
+}
+
+TypeFileDate()
+{
+	FormatTime, current, , dd-MM-yyyy_
+	SendInput, %current%
+}
+
+TypeFileDateTime()
+{
+	FormatTime, current, , dd-MM-yyyyTHH.mm.ss_
+	SendInput, %current%
 }
 
 TypeGitClone()
@@ -87,9 +100,11 @@ ResetTransparencyOfWindowUnderMouse()
 
 HumanizeHotkey(label)
 {
+	; replace all '+' to 'Shift +' first
+	StrReplace(label, "+", "Shift +")
+
 	replacement := {}
 	replacement["~"] := ""
-	replacement["+"] := "Shift + "	
 	replacement["#"] := "Win + "
 	replacement["!"] := "Alt + "
 	replacement["^"] := "Ctrl + "
