@@ -29,6 +29,7 @@ _enableOverlay := true
 ; #Include devices/K380.ahk
 ; _enableHomeEndKeyRemap := false
 
+
 ^+!R::Reload
 
 :*:!!dt::
@@ -207,9 +208,8 @@ _enableOverlay := true
 #if
 
 ; Mouse ==============
+#Include devices/MXMaster3.ahk
 
-
-; Mouse ==============
 
 showOverlay(label, description)
 {
