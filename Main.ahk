@@ -50,19 +50,7 @@ _enableOverlay := true
 	TypeRandomNumber()
 	return
 
-; RControl::AppsKey
-
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
-
-; #if !WinActive("ahk_exe Illustrator.exe")
-; 	!WheelDown::DecreaseTransparencyOfWindowUnderMouse(),showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
-; 	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
-; #if
-
-; LAlt::DisableAltMenuAccelerator("LAlt", "Down")
-; LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
-; RAlt::DisableAltMenuAccelerator("RAlt", "Down")
-; RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
 #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
 	~LShift & WheelUp::ScrollLeft()
@@ -217,14 +205,6 @@ _enableOverlay := true
 	~MButton & z::windowQuickMinMax.Restore(), showOverlay("~MButton & Shift + z", "Restore previously minimized/maximized window")
 	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
-
-; Presentation-related
-#If IsNone()
-	~LButton & PgUp::ShiftAltTab
-	~LButton & PgDn::AltTab
-	~LButton & b::windowSwitcher.Switch("powerpoint"), showOverlay("~LButton & b", "Switch to powerpoint")
-	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
-#If
 
 ; Mouse ==============
 F17::MButton
