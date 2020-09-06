@@ -55,6 +55,12 @@ class WindowSwitcher
 		win.Switch()
 	}
 
+	Reset(name)
+	{
+		win := this._windows[name]
+		win.Reset()
+	}
+
 	Launch(name)
 	{
 		win := this._windows[name]
@@ -128,6 +134,11 @@ class Window
 		}
 	}
 
+	Reset()
+	{
+		; noop, only used for HwndWindow
+	}
+
 	GetGroupCount()
 	{
 		WinGet, itemsCount, Count, % "ahk_group " . this._groupName
@@ -189,5 +200,55 @@ class FuzzyMatchWindow extends Window
 		result := WinExist(this._identifier)
 		SetTitleMatchMode 1
 		return result		
+	}
+}
+
+class HwndMatchWindow extends Window
+{
+	__New(name, filePath)
+	{
+		this._name := name
+		this._prompt := new Prompt()
+		base.__New("", filePath)
+	}
+
+	Reset()
+	{
+		this._identifier := ""
+	}
+
+	Switch()
+	{
+		this.SetIdentifier()
+		base.Switch()
+	}
+
+	SetIdentifier()
+	{
+		if (this._identifier)
+		{
+			return
+		}
+		
+		WinGet, hwnd, ID, A
+		WinGet, pid, PID, A
+		WinGet, exe, ProcessName, A
+		text := "Set " . this._name . " to " . hwnd . "?`n" . exe . ", " . pid
+		
+		if (!this._prompt.PromptMatchInput(text, " "))
+		{
+			return
+		}
+
+		this._identifier := "ahk_id " . hwnd
+	}
+
+	Exist()
+	{
+		if (!this._identifier) 
+		{
+			return True
+		}
+		return base.Exist()
 	}
 }
