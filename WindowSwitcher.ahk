@@ -46,21 +46,21 @@ class WindowSwitcher
 
 	Switch(name)
 	{
-		window := this._windows[name]
+		win := this._windows[name]
 		
-		if (!window.Exist() and this.ConfirmLaunch(name))
+		if (!win.Exist() and this.ConfirmLaunch(name))
 		{
-			window.Launch()
+			win.Launch()
 		}
-		window.Switch()
+		win.Switch()
 	}
 
 	Launch(name)
 	{
-		window := this._windows[name]
+		win := this._windows[name]
 		if (this.ConfirmLaunch(name))
 		{
-			window.Launch()
+			win.Launch()
 		}
 	}
 

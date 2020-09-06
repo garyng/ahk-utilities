@@ -14,6 +14,6 @@ F22::AltTabAndMenu
 
 ; F23::
 
-F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
-+F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
-^F24::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
+F24::_windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
++F24::_windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
+^F24::_windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
