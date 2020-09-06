@@ -58,8 +58,8 @@ _enableOverlay := true
 	~LShift & WheelDown::ScrollRight()
 #if
 
-!F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouseole")
 #F1::_enableOverlay := !_enableOverlay, overlay.Show(HumanizeHotkey("#F1"), "Toogle overlay visibility to " . (_enableOverlay ? "true" : "false"))
+!F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouse")
 
 #if GetKeyState("Esc", "P")
 	F1::windowSwitcher.Switch("xyplorer"), showOverlay("Esc, F1", "Switch to xyplorer")
