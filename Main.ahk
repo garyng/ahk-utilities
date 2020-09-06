@@ -26,8 +26,8 @@ windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
 
-; #Include devices/K380.ahk
 ; _enableHomeEndKeyRemap := false
+; #Include devices/K380.ahk
 
 
 ^+!R::Reload
