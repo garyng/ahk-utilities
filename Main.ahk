@@ -95,6 +95,12 @@ _enableOverlay := true
 	w::_windowSwitcher.Switch("wt"), showOverlay("Esc, w", "Switch to terminal")
 	+w::_windowSwitcher.Launch("wt"), showOverlay("Esc, +w", "Launch terminal")
 
+	z::_windowSwitcher.Switch("tasks"), showOverlay("Esc, z", "Switch to tasks")
+	+z::_windowSwitcher.Reset("tasks"), showOverlay("Esc, +z", "Reset tasks")
+
+	x::_windowSwitcher.Switch("local"), showOverlay("Esc, x", "Switch to local")
+	+x::_windowSwitcher.Reset("local"), showOverlay("Esc, +x", "Reset local")
+
 	; F3::_windowSwitcher.Switch("onenote"), showOverlay("Esc, F3", "Switch to onenote")
 	; F4::_windowSwitcher.Switch("gitkraken"), showOverlay("Esc, F4", "Switch to gitkraken")
 	; F5::_windowSwitcher.Switch("sublime"), showOverlay("Esc, F5", "Switch to sublime")
