@@ -32,6 +32,8 @@ _enableOverlay := true
 
 ^+!R::Reload
 
+; Hot strings ===============
+
 :*:!!dt::
 	TypeDateTime()
 	return
@@ -50,6 +52,14 @@ _enableOverlay := true
 :*:!!r::
 	TypeRandomNumber()
 	return
+:*:!!fd::
+	TypeFileDate()
+	return
+:*:!!ft::
+	TypeFileDateTime()
+	return
+
+; Hot strings ============
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
