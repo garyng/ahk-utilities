@@ -101,7 +101,7 @@ ResetTransparencyOfWindowUnderMouse()
 HumanizeHotkey(label)
 {
 	; replace all '+' to 'Shift +' first
-	StrReplace(label, "+", "Shift +")
+	label := StrReplace(label, "+", "Shift + ")
 
 	replacement := {}
 	replacement["~"] := ""
