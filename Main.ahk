@@ -25,12 +25,14 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
-_enableHomeEndKeyRemap := false
-_askIfCloseMonitorListener := new MultiplePressListener(4, Func("AskIfTurnOffMonitor"), 700)
-_homeEndKeyRemapListener := new MultiplePressListener(4, Func("ToggleHomeEndKeyRemap"), 700)
-_closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 700)
+
+; #Include devices/K380.ahk
+; _enableHomeEndKeyRemap := false
+
 
 ^+!R::Reload
+
+; Hot strings ===============
 
 :*:!!dt::
 	TypeDateTime()
@@ -50,45 +52,23 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 :*:!!r::
 	TypeRandomNumber()
 	return
+:*:!!fd::
+	TypeFileDate()
+	return
+:*:!!ft::
+	TypeFileDateTime()
+	return
 
-#if !_enableHomeEndKeyRemap
-	ins::_homeEndKeyRemapListener.Fire()
-#if
-
-; RControl::AppsKey
-
-#if _enableHomeEndKeyRemap
-	; remap ins key to end key
-	; F12 key to home key
-	; Volume Down to F12 (Fn + F12 = Volume Down)
-	; Ctrl + Volume Down to Volume Down	
-	F12::home
-	ins::end
-	Volume_Down::F12
-	^Volume_Down::Volume_Down
-#if
-
-~Esc::_askIfCloseMonitorListener.Fire()
+; Hot strings ============
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
-
-; #if !WinActive("ahk_exe Illustrator.exe")
-; 	!WheelDown::DecreaseTransparencyOfWindowUnderMouse(),showOverlay("!WheelDown", "Decrease the transparency of window under mouse")
-; 	!WheelUp::IncreaseTransparencyOfWindowUnderMouse(), showOverlay("!WheelUp", "Increase the transparency of window under mouse")
-; #if
-
-; LAlt::DisableAltMenuAccelerator("LAlt", "Down")
-; LAlt Up::DisableAltMenuAccelerator("LAlt", "Up")
-; RAlt::DisableAltMenuAccelerator("RAlt", "Down")
-; RAlt Up::DisableAltMenuAccelerator("RAlt", "Up")
 
 #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
 	~LShift & WheelUp::ScrollLeft()
 	~LShift & WheelDown::ScrollRight()
 #if
 
-!F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouseole")
-#F1::_enableOverlay := !_enableOverlay, overlay.Show(HumanizeHotkey("#F1"), "Toogle overlay visibility to " . (_enableOverlay ? "true" : "false"))
+!F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouse")
 
 #if GetKeyState("Esc", "P")
 	F1::windowSwitcher.Switch("slack"), showOverlay("Esc, F1", "Switch to slack")
@@ -252,46 +232,11 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	~MButton & x::windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
 
-; Presentation-related
-#If IsNone()
-	~LButton & PgUp::ShiftAltTab
-	~LButton & PgDn::AltTab
-	~LButton & b::windowSwitcher.Switch("powerpoint"), showOverlay("~LButton & b", "Switch to powerpoint")
-	~LButton & e::windowSwitcher.Switch("visualstudio"), showOverlay("~LButton & e", "Switch to visual studio")
-#If
-
 ; Mouse ==============
-F17::MButton
-F19::goForward()
-F20::goBack()
-F21::_closeMonitorListener.Fire()
+#Include devices/MXMaster3.ahk
 
-F22::AltTabAndMenu
-#If IsMultitaskingViewExists()
-	; alt key will remain pressed while inside the multitasking view
-	!F22::AltTabMenuDismiss
-	WheelUp::ShiftAltTab	
-	WheelDown::AltTab
-#if
-
-F23::Send !{tab}
-^F23::Send !{esc}
-
-F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize active window")
-+F24::windowQuickMinMax.Restore(), showOverlay("+F24", "Restore previously minimized/maximized window")
-^F24::windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
-
-#if GetKeyState("F18", "P")	; mapped to G11
-	F24::virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("F18, F24", "Switch to previous dekstop")
-	F23::virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("F18, F23", "Switch to next dekstop")
-
-	F21::virtualDesktopEnhancer.CreateDesktop(), showOverlay("F18, F21", "Create a new desktop")
-	F20::virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("F18, F20", "Delete current dekstop")
-
-	F19::Send ^+{Escape}
-#if
-
-; Mouse ==============
+; Keyboard ============
+#Include devices/MXKeys.ahk
 
 ; Work ===============
 #F1::
@@ -307,16 +252,6 @@ showOverlay(label, description)
 	if (_enableOverlay)
 	{
 		overlay.Show(HumanizeHotkey(label), description)
-	}
-}
-
-ToggleHomeEndKeyRemap()
-{
-	global _enableHomeEndKeyRemap
-	_enableHomeEndKeyRemap := !_enableHomeEndKeyRemap
-	if (_enableHomeEndKeyRemap)
-	{
-		overlay.Show("ins *4", "Enable Home && End key remapping")
 	}
 }
 

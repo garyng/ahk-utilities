@@ -10,6 +10,18 @@ TypeShortDate()
 	SendInput %current%
 }
 
+TypeFileDate()
+{
+	FormatTime, current, , dd-MM-yyyy_
+	SendInput, %current%
+}
+
+TypeFileDateTime()
+{
+	FormatTime, current, , dd-MM-yyyyTHH.mm.ss_
+	SendInput, %current%
+}
+
 TypeGitClone()
 {
 	text := AppendWithClipboardContent("git clone ")
