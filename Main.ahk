@@ -91,42 +91,58 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 #F1::_enableOverlay := !_enableOverlay, overlay.Show(HumanizeHotkey("#F1"), "Toogle overlay visibility to " . (_enableOverlay ? "true" : "false"))
 
 #if GetKeyState("Esc", "P")
-	F1::windowSwitcher.Switch("xyplorer"), showOverlay("Esc, F1", "Switch to xyplorer")
-	F2::windowSwitcher.Switch("firefox"), showOverlay("Esc, F2", "Switch to firefox")
-	F3::windowSwitcher.Switch("onenote"), showOverlay("Esc, F3", "Switch to onenote")
-	; F4::windowSwitcher.Switch("gitkraken"), showOverlay("Esc, F4", "Switch to gitkraken")
-	; F5::windowSwitcher.Switch("sublime"), showOverlay("Esc, F5", "Switch to sublime")
-	F6::windowSwitcher.Switch("keepass"), showOverlay("Esc, F6", "Switch to keepass")
+	F1::windowSwitcher.Switch("slack"), showOverlay("Esc, F1", "Switch to slack")
+	+F1::windowSwitcher.Launch("slack"), showOverlay("Esc, +F1", "Launch slack")
 
-	+F1::windowSwitcher.Launch("xyplorer"), showOverlay("Esc, +F1", "Launch xyplorer")
-	+F2::windowSwitcher.Launch("firefox"), showOverlay("Esc, +F2", "Launch firefox")
-	+F3::windowSwitcher.Launch("onenote"), showOverlay("Esc, +F3", "Launch onenote")
-	; +F4::windowSwitcher.Launch("gitkraken"), showOverlay("Esc, +F4", "Launch gitkraken")
-	; +F5::windowSwitcher.Launch("sublime"), showOverlay("Esc, +F5", "Launch sublime")
-	+F6::windowSwitcher.Launch("keepass"), showOverlay("Esc, +F6", "Launch keepass")
+	F2::windowSwitcher.Switch("chrome"), showOverlay("Esc, F2", "Switch to chrome")
+	+F2::windowSwitcher.Launch("chrome"), showOverlay("Esc, +F2", "Launch chrome")
+
+	F3::windowSwitcher.Switch("firefox"), showOverlay("Esc, F3", "Switch to firefox")
+	+F3::windowSwitcher.Launch("firefox"), showOverlay("Esc, +F3", "Launch firefox")
 
 	1::windowSwitcher.Switch("visualstudio"), showOverlay("Esc, 1", "Switch to visual studio")
+	+1::windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch visual studio")
+	
+	2::windowSwitcher.Switch("vscode"), showOverlay("Esc, 2", "Switch to vscode")
+	+2::windowSwitcher.Launch("vscode"), showOverlay("Esc, +2", "Launch vscode")
+
+	3::windowSwitcher.Switch("fork"), showOverlay("Esc, 3", "Switch to fork")
+	+3::windowSwitcher.Launch("fork"), showOverlay("Esc, +3", "Launch fork")
+	
+	e::windowSwitcher.Switch("explorer"), showOverlay("Esc, e", "Switch to explorer")
+	+e::windowSwitcher.Launch("explorer"), showOverlay("Esc, +e", "Launch explorer")
+
+	w::windowSwitcher.Switch("wt"), showOverlay("Esc, w", "Switch to terminal")
+	+w::windowSwitcher.Launch("wt"), showOverlay("Esc, +w", "Launch terminal")
+
+	; F3::windowSwitcher.Switch("onenote"), showOverlay("Esc, F3", "Switch to onenote")
+	; F4::windowSwitcher.Switch("gitkraken"), showOverlay("Esc, F4", "Switch to gitkraken")
+	; F5::windowSwitcher.Switch("sublime"), showOverlay("Esc, F5", "Switch to sublime")
+	; F6::windowSwitcher.Switch("keepass"), showOverlay("Esc, F6", "Switch to keepass")
+
+	; +F3::windowSwitcher.Launch("onenote"), showOverlay("Esc, +F3", "Launch onenote")
+	; +F4::windowSwitcher.Launch("gitkraken"), showOverlay("Esc, +F4", "Launch gitkraken")
+	; +F5::windowSwitcher.Launch("sublime"), showOverlay("Esc, +F5", "Launch sublime")
+	; +F6::windowSwitcher.Launch("keepass"), showOverlay("Esc, +F6", "Launch keepass")
+
 	; 2::windowSwitcher.Switch("todoist"), showOverlay("Esc, 2", "Switch to todoist")
 	; 3::windowSwitcher.Switch("cmder"), showOverlay("Esc, 3", "Switch to cmder")
-	4::windowSwitcher.Switch("vscode"), showOverlay("Esc, 4", "Switch to vscode")
-	5::windowSwitcher.Switch("notepad"), showOverlay("Esc, 5", "Switch to notepad")
+	; 5::windowSwitcher.Switch("notepad"), showOverlay("Esc, 5", "Switch to notepad")
 	; 6::windowSwitcher.Switch("calendar"), showOverlay("Esc, 6", "Switch to calendar")
 
-	+1::windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch visual studio")
 	; +2::windowSwitcher.Launch("todoist"), showOverlay("Esc, +2", "Launch todoist")
 	; +3::windowSwitcher.Launch("cmder"), showOverlay("Esc, +3", "Launch cmder")
-	+4::windowSwitcher.Launch("vscode"), showOverlay("Esc, +4", "Launch vscode")
-	+5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch notepad")
+	; +5::windowSwitcher.Launch("notepad"), showOverlay("Esc, +5", "Launch notepad")
 	; +6::windowSwitcher.Launch("calendar"), showOverlay("Esc, +6", "Launch calendar")
 
-	q::windowSwitcher.Switch("toggl"), showOverlay("Esc, q", "Switch to toggl")
-	+q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch toggl")
+	; q::windowSwitcher.Switch("toggl"), showOverlay("Esc, q", "Switch to toggl")
+	; +q::windowSwitcher.Switch("toggl"), showOverlay("Esc, +q", "Launch toggl")
 
 	; w::windowSwitcher.Switch("itunes"), showOverlay("Esc, w", "Switch to itunes")
 	; +w::windowSwitcher.Switch("itunes"), showOverlay("Esc, +w", "Launch itunes")
 	
-	e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
-	+e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch todoist (Web)")
+	; e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, e", "Switch to todoist (Web)")
+	; +e::windowSwitcher.Switch("todoist_firefox"), showOverlay("Esc, +e", "Launch todoist (Web)")
 
 	; s::windowSwitcher.Switch("slack"), showOverlay("Esc, s", "Switch to slack")
 	; +s::windowSwitcher.Switch("slack"), showOverlay("Esc, +s", "Launch slack")s
@@ -276,6 +292,14 @@ F24::windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize acti
 #if
 
 ; Mouse ==============
+
+; Work ===============
+#F1::
+	Run *RunAs "iisreset.exe"
+	showOverlay("!F1", "Reset IIS")
+	return
+; Work ===============
+
 
 showOverlay(label, description)
 {
