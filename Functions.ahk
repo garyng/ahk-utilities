@@ -10,6 +10,17 @@ TypeShortDate()
 	SendInput %current%
 }
 
+TypeIsoDate()
+{
+    FormatTime, current, , yyyy-MM-dd
+	SendInput %current%
+}
+TypeZettelkastenUid()
+{
+	FormatTime, current, , yyyyMMddHHmmss
+	SendInput %current%
+}
+
 TypeGitClone()
 {
 	text := AppendWithClipboardContent("git clone ")

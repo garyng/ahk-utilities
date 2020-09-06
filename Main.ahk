@@ -38,6 +38,12 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 :*:!!ds::
 	TypeShortDate()
 	return
+:*:!!dd::
+	TypeIsoDate()
+	return
+:*:!!dz::
+	TypeZettelkastenUid()
+	return
 :*:!!gc::
 	TypeGitClone()
 	return
