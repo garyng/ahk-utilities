@@ -25,8 +25,6 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
-_askIfCloseMonitorListener := new MultiplePressListener(4, Func("AskIfTurnOffMonitor"), 700)
-_closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 700)
 
 ; #Include devices/K380.ahk
 ; _enableHomeEndKeyRemap := false
@@ -53,9 +51,6 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	return
 
 ; RControl::AppsKey
-
-
-~Esc::_askIfCloseMonitorListener.Fire()
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
@@ -235,7 +230,7 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 F17::MButton
 F19::goForward()
 F20::goBack()
-F21::_closeMonitorListener.Fire()
+; F21::_closeMonitorListener.Fire()
 
 F22::AltTabAndMenu
 #If IsMultitaskingViewExists()
