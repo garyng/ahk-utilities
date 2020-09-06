@@ -210,6 +210,8 @@ _enableOverlay := true
 ; Mouse ==============
 #Include devices/MXMaster3.ahk
 
+; Keyboard ============
+#Include devices/MXKeys.ahk
 
 showOverlay(label, description)
 {
