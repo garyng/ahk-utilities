@@ -18,9 +18,10 @@ _homeEndKeyRemapListener := new MultiplePressListener(4, Func("ToggleHomeEndKeyR
 ToggleHomeEndKeyRemap()
 {
 	global _enableHomeEndKeyRemap
+	global _overlay
 	_enableHomeEndKeyRemap := !_enableHomeEndKeyRemap
 	if (_enableHomeEndKeyRemap)
 	{
-		overlay.Show("ins *4", "Enable Home && End key remapping")
+		_overlay.Show("ins *4", "Enable Home && End key remapping")
 	}
 }

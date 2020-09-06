@@ -127,9 +127,9 @@ class VirtualDesktopEnhancer
         windows := this.getAllWindowsOnDesktopN(currentIndex)
         this.CreateDesktop()
         newDesktopIndex := this.GetDesktopCount() - 1
-        for index, window in windows
+        for index, win in windows
         {
-            this._virtualDesktopAccessor.MoveWindowToDesktopNumber(window, newDesktopIndex)
+            this._virtualDesktopAccessor.MoveWindowToDesktopNumber(win, newDesktopIndex)
         }
     }
     
@@ -337,9 +337,8 @@ class VirtualDesktopEnhancer
     ; focus the foremost window on current desktop after moving the window
     focus()
     {
-        return
-        foremostWindowId := this.getForemostWindowIdOnDesktopN(this.getCurrentDesktopIndex())
-        WinActivate, ahk_id %foremostWindowId%
+        ; foremostWindowId := this.getForemostWindowIdOnDesktopN(this.getCurrentDesktopIndex())
+        ; WinActivate, ahk_id %foremostWindowId%
     }
 
     getForemostWindowIdOnDesktopN(index)
