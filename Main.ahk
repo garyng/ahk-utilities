@@ -25,10 +25,11 @@ virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 windowQuickMinMax := new WindowQuickMinMax()
 overlay := new Overlay()
 _enableOverlay := true
-_enableHomeEndKeyRemap := false
 _askIfCloseMonitorListener := new MultiplePressListener(4, Func("AskIfTurnOffMonitor"), 700)
-_homeEndKeyRemapListener := new MultiplePressListener(4, Func("ToggleHomeEndKeyRemap"), 700)
 _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 700)
+
+; #Include devices/K380.ahk
+; _enableHomeEndKeyRemap := false
 
 ^+!R::Reload
 
@@ -51,22 +52,8 @@ _closeMonitorListener := new MultiplePressListener(3, Func("TurnOffMonitor"), 70
 	TypeRandomNumber()
 	return
 
-#if !_enableHomeEndKeyRemap
-	ins::_homeEndKeyRemapListener.Fire()
-#if
-
 ; RControl::AppsKey
 
-#if _enableHomeEndKeyRemap
-	; remap ins key to end key
-	; F12 key to home key
-	; Volume Down to F12 (Fn + F12 = Volume Down)
-	; Ctrl + Volume Down to Volume Down	
-	F12::home
-	ins::end
-	Volume_Down::F12
-	^Volume_Down::Volume_Down
-#if
 
 ~Esc::_askIfCloseMonitorListener.Fire()
 
@@ -283,16 +270,6 @@ showOverlay(label, description)
 	if (_enableOverlay)
 	{
 		overlay.Show(HumanizeHotkey(label), description)
-	}
-}
-
-ToggleHomeEndKeyRemap()
-{
-	global _enableHomeEndKeyRemap
-	_enableHomeEndKeyRemap := !_enableHomeEndKeyRemap
-	if (_enableHomeEndKeyRemap)
-	{
-		overlay.Show("ins *4", "Enable Home && End key remapping")
 	}
 }
 
