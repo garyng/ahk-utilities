@@ -213,48 +213,27 @@ class HwndMatchWindow extends Window
 		this._name := name
 		this._prompt := new Prompt()
 		base.__New("", filePath)
-		this.LoadHwnd()
+		this.Load()
 	}
 
-	LoadHwnd()
+	Load()
 	{
-		oldHwnd := this._config.Read("hwnd")
-		oldPid := this._config.Read("pid")
-		oldExe := this._config.Read("exe")
-
-		title := "ahk_id " . oldHwnd
-
-		if (!WinExist(title))
+		identifier := this._config.Read("identifier")
+		if (WinExist(identifier))
 		{
-			return
+			this._identifier := identifier
 		}
-
-		WinGet, pid, PID, % title
-		if (pid != oldPid)
-		{
-			return
-		}
-
-		WinGet, exe, ProcessName, % title
-		if (exe != oldExe)
-		{
-			return
-		}
-
-		this._identifier := title
 	}
 
-	SaveHwnd(hwnd, pid, exe)
+	Save()
 	{
-		this._config.Write("hwnd", hwnd)
-		this._config.Write("pid", pid)
-		this._config.Write("exe", exe)
+		this._config.Write("identifier", this._identifier)
 	}
 
 	Reset()
 	{
 		this._identifier := ""
-		this.SaveHwnd("", "", "")
+		this.Save()
 	}
 
 	Switch()
@@ -280,8 +259,8 @@ class HwndMatchWindow extends Window
 			return
 		}
 
-		this._identifier := "ahk_id " . hwnd
-		this.SaveHwnd(hwnd, pid, exe)
+		this._identifier := "ahk_id " . hwnd . " ahk_pid " . pid . " ahk_exe " . exe
+		this.Save()
 	}
 
 	Launch()

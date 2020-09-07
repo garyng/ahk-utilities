@@ -30,7 +30,6 @@ _enableOverlay := true
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
 
-
 ^+!R::Reload
 
 ; Hot strings ===============
