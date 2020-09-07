@@ -1,10 +1,11 @@
-SetTimer, MoveMouse, 10000
+SetTimer, MoveMouse, % 9 * 60 * 1000
 
 MoveMouse()
 {
     global _overlay
 
-    if (A_TimeIdle < 10 * 60 * 1000)
+    if (A_TimeIdle < 10 * 60 * 1000 
+        Or !WinExist("A")) ; check whether the computer is locked
     {
         return
     }
