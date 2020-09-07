@@ -29,6 +29,7 @@ _enableOverlay := true
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
 
+#Include NoSleep.ahk
 
 ^+!R::Reload
 
