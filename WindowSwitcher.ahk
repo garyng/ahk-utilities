@@ -51,6 +51,7 @@ class WindowSwitcher
 		if (!win.Exist() and this.ConfirmLaunch(name))
 		{
 			win.Launch()
+			Sleep, 500
 		}
 		win.Switch()
 	}
@@ -207,14 +208,35 @@ class HwndMatchWindow extends Window
 {
 	__New(name, filePath)
 	{
+		this._config := new Config("hwnd-" . name)
 		this._name := name
 		this._prompt := new Prompt()
 		base.__New("", filePath)
+		this.Load()
+	}
+
+	Load()
+	{
+		identifier := this._config.Read("identifier")
+		if (WinExist(identifier))
+		{
+			this._identifier := identifier
+		}
+		else
+		{
+			this.Reset()
+		}
+	}
+
+	Save()
+	{
+		this._config.Write("identifier", this._identifier)
 	}
 
 	Reset()
 	{
 		this._identifier := ""
+		this.Save()
 	}
 
 	Switch()
@@ -240,7 +262,14 @@ class HwndMatchWindow extends Window
 			return
 		}
 
-		this._identifier := "ahk_id " . hwnd
+		this._identifier := "ahk_id " . hwnd . " ahk_pid " . pid . " ahk_exe " . exe
+		this.Save()
+	}
+
+	Launch()
+	{
+		this.Reset()
+		base.Launch()
 	}
 
 	Exist()

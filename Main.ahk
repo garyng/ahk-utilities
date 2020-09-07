@@ -10,6 +10,7 @@ SetBatchLines -1
 
 #Include Externals.ahk
 #Include Functions.ahk
+#Include Config.ahk
 
 #Include WindowSwitcher.ahk
 #Include VirtualDesktopEnhancer.ahk
@@ -28,7 +29,6 @@ _enableOverlay := true
 
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
-
 
 ^+!R::Reload
 
