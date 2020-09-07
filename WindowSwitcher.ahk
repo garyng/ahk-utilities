@@ -42,7 +42,7 @@ class WindowSwitcher
 
 		this._windows["calendar_firefox"] := new FuzzyMatchWindow("Multimedia University ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://calendar.google.com/calendar/b/1/r/day")
 		this._windows["fork"] := New Window("ahk_exe fork.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Fork\\fork.exe")
-
+		
 		this._windows["tasks"] := new HwndMatchWindow("tasks", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["local"] := new HwndMatchWindow("local", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 	}
@@ -54,6 +54,7 @@ class WindowSwitcher
 		if (!win.Exist() and this.ConfirmLaunch(name))
 		{
 			win.Launch()
+			Sleep, 500
 		}
 		win.Switch()
 	}
@@ -210,14 +211,35 @@ class HwndMatchWindow extends Window
 {
 	__New(name, filePath)
 	{
+		this._config := new Config("hwnd-" . name)
 		this._name := name
 		this._prompt := new Prompt()
 		base.__New("", filePath)
+		this.Load()
+	}
+
+	Load()
+	{
+		identifier := this._config.Read("identifier")
+		if (WinExist(identifier))
+		{
+			this._identifier := identifier
+		}
+		else
+		{
+			this.Reset()
+		}
+	}
+
+	Save()
+	{
+		this._config.Write("identifier", this._identifier)
 	}
 
 	Reset()
 	{
 		this._identifier := ""
+		this.Save()
 	}
 
 	Switch()
@@ -243,7 +265,14 @@ class HwndMatchWindow extends Window
 			return
 		}
 
-		this._identifier := "ahk_id " . hwnd
+		this._identifier := "ahk_id " . hwnd . " ahk_pid " . pid . " ahk_exe " . exe
+		this.Save()
+	}
+
+	Launch()
+	{
+		this.Reset()
+		base.Launch()
 	}
 
 	Exist()

@@ -10,6 +10,7 @@ SetBatchLines -1
 
 #Include Externals.ahk
 #Include Functions.ahk
+#Include Config.ahk
 
 #Include WindowSwitcher.ahk
 #Include VirtualDesktopEnhancer.ahk
