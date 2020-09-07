@@ -51,6 +51,7 @@ class WindowSwitcher
 		if (!win.Exist() and this.ConfirmLaunch(name))
 		{
 			win.Launch()
+			Sleep, 500
 		}
 		win.Switch()
 	}
