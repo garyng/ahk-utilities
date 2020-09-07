@@ -42,7 +42,6 @@ class WindowSwitcher
 
 		this._windows["calendar_firefox"] := new FuzzyMatchWindow("Multimedia University ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://calendar.google.com/calendar/b/1/r/day")
 		this._windows["fork"] := New Window("ahk_exe fork.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Fork\\fork.exe")
-		this._windows["hwnd1"] := New HwndMatchWindow("hwnd1", "notepad.exe")
 	}
 
 	Switch(name)
