@@ -223,6 +223,10 @@ class HwndMatchWindow extends Window
 		{
 			this._identifier := identifier
 		}
+		else
+		{
+			this.Reset()
+		}
 	}
 
 	Save()
