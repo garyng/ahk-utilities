@@ -1,16 +1,20 @@
-SetTimer, MoveMouse, % 9 * 60 * 1000
+SetTimer, MoveMouse, % 4 * 60 * 1000
 
 MoveMouse()
 {
     global _overlay
-
-    if (A_TimeIdle < 10 * 60 * 1000 
-        Or !WinExist("A")) ; check whether the computer is locked
+    FormatTime, current, , dd/MM/yyyy HH:mm:ss
+    if (A_TimeIdle > 7 * 60 * 1000 
+        And WinExist("A")) ; only when computer is not locked
     {
-        return
+        _overlay.Show("Drank coffee")
+        FileAppend, %current%: drank coffee`n, logs.txt
+        MouseMove, 1, 0, 0, R
+        MouseMove, -1, 0, 0, R
     }
-
-    _overlay.Show("Drank coffee")
-    MouseMove, 1, 0, 0, R
-    MouseMove, -1, 0, 0, R
+    else
+    {
+        FileAppend, %current%: didnt drink coffee idle: %A_TimeIdle%`n, logs.txt
+    }   
 }
+
