@@ -103,6 +103,9 @@ _enableOverlay := true
 	x::_windowSwitcher.Switch("local"), showOverlay("Esc, x", "Switch to local")
 	+x::_windowSwitcher.Reset("local"), showOverlay("Esc, +x", "Reset local")
 
+	c::_windowSwitcher.Switch("placeholder1"), showOverlay("Esc, c", "Switch to placeholder1")
+	+c::_windowSwitcher.Reset("placeholder1"), showOverlay("Esc, +c", "Reset placeholder1")
+
 	; F3::_windowSwitcher.Switch("onenote"), showOverlay("Esc, F3", "Switch to onenote")
 	; F4::_windowSwitcher.Switch("gitkraken"), showOverlay("Esc, F4", "Switch to gitkraken")
 	; F5::_windowSwitcher.Switch("sublime"), showOverlay("Esc, F5", "Switch to sublime")

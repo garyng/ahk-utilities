@@ -45,6 +45,7 @@ class WindowSwitcher
 		
 		this._windows["tasks"] := new HwndMatchWindow("tasks", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["local"] := new HwndMatchWindow("local", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
+		this._windows["placeholder1"] := new HwndMatchWindow("placeholder1", "")
 	}
 
 	Switch(name)
