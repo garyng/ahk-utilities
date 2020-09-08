@@ -1,4 +1,4 @@
-SetTimer, MoveMouse, % 4 * 60 * 1000
+SetTimer, MoveMouse, % 3 * 60 * 1000
 
 MoveMouse()
 {
@@ -8,13 +8,8 @@ MoveMouse()
         And WinExist("A")) ; only when computer is not locked
     {
         _overlay.Show("Drank coffee")
-        FileAppend, %current%: drank coffee`n, logs.txt
         MouseMove, 1, 0, 0, R
         MouseMove, -1, 0, 0, R
     }
-    else
-    {
-        FileAppend, %current%: didnt drink coffee idle: %A_TimeIdle%`n, logs.txt
-    }   
 }
 
