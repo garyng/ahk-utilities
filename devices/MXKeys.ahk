@@ -1,5 +1,5 @@
 ; remap Home, End, Del, Insert ==========
-F13::Del
+Volume_Up::Del
 Ins::Home
 Del::End
 ; Home::Ins
@@ -22,6 +22,7 @@ NumpadAdd::SendInput {F15}{NumpadAdd}
 NumpadSub::SendInput {F15}{NumpadSub}
 NumpadEnter::SendInput {F15}{NumpadEnter}
 NumpadDot::SendInput {F15}{NumpadDot}
+; scan codes are from https://docs.google.com/spreadsheets/d/1GSj0gKDxyWAecB3SIyEZ2ssPETZkkxn67gdIwL1zFUs/edit#gid=0
 ; top left button on numpad
 SC05B::SendInput {Ctrl}{F15}{NumpadLeft}
 ; top right button on numpad
