@@ -42,6 +42,7 @@ class WindowSwitcher
 
 		this._windows["calendar_firefox"] := new FuzzyMatchWindow("Multimedia University ahk_exe firefox.exe", "C:\\Program Files\\Mozilla Firefox\\firefox.exe https://calendar.google.com/calendar/b/1/r/day")
 		this._windows["fork"] := New Window("ahk_exe fork.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Fork\\fork.exe")
+		this._windows["datagrip"] := New Window("ahk_exe datagrip64.exe", "C:\\Users\\GaryNg\\AppData\\Local\\JetBrains\\Toolbox\\apps\\datagrip\\ch-0\\201.8538.4\\bin\\datagrip64.exe")
 		
 		this._windows["tasks"] := new HwndMatchWindow("tasks", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["local"] := new HwndMatchWindow("local", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")

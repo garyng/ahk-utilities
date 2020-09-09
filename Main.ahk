@@ -103,6 +103,9 @@ _enableOverlay := true
 	x::_windowSwitcher.Switch("local"), showOverlay("Esc, x", "Switch to local")
 	+x::_windowSwitcher.Reset("local"), showOverlay("Esc, +x", "Reset local")
 
+	d::_windowSwitcher.Switch("datagrip"), showOverlay("Esc, d", "Switch to datagrip")
+	+d::_windowSwitcher.Reset("datagrip"), showOverlay("Esc, +d", "Reset datagrip")
+
 	c::_windowSwitcher.Switch("placeholder1"), showOverlay("Esc, c", "Switch to placeholder1")
 	+c::_windowSwitcher.Reset("placeholder1"), showOverlay("Esc, +c", "Reset placeholder1")
 
