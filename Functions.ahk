@@ -24,13 +24,13 @@ TypeZettelkastenUid()
 
 TypeFileDate()
 {
-	FormatTime, current, , dd-MM-yyyy_
+	FormatTime, current, , yyyy-MM-dd_
 	SendInput, %current%
 }
 
 TypeFileDateTime()
 {
-	FormatTime, current, , dd-MM-yyyyTHH.mm.ss_
+	FormatTime, current, , yyyy-MM-ddTHH.mm.ss_
 	SendInput, %current%
 }
 
