@@ -95,13 +95,13 @@ class VirtualDesktopEnhancer
         this.switchToDesktopNThenFocus(this.getPreviousDesktopIndex())
     }
 
-    MoveActiveWindowToNextDekstopThenFocus()
+    MoveActiveWindowToNextDesktopThenFocus()
     {
         this.moveActiveWindowToDesktopN(this.getNextDesktopIndex())
         this.focus()
     }
 
-    MoveActiveWindowToPreviousDekstopThenFocus()
+    MoveActiveWindowToPreviousDesktopThenFocus()
     {
         this.moveActiveWindowToDesktopN(this.getPreviousDesktopIndex())
         this.focus()

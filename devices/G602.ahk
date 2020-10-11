@@ -19,11 +19,11 @@ F24::_windowQuickMinMax.MinimizeActiveWindow(), showOverlay("F24", "Minimize act
 ^F24::_windowQuickMinMax.MaximizeActiveWindow(), showOverlay("^F24", "Maximize active window")
 
 #if GetKeyState("F18", "P")	; mapped to G11
-	F24::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("F18, F24", "Switch to previous dekstop")
-	F23::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("F18, F23", "Switch to next dekstop")
+	F24::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("F18, F24", "Switch to previous desktop")
+	F23::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("F18, F23", "Switch to next desktop")
 
 	F21::_virtualDesktopEnhancer.CreateDesktop(), showOverlay("F18, F21", "Create a new desktop")
-	F20::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("F18, F20", "Delete current dekstop")
+	F20::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("F18, F20", "Delete current desktop")
 
 	F19::Send ^+{Escape}
 #if
