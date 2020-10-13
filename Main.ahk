@@ -182,14 +182,14 @@ _enableOverlay := true
 	CapsLock & F8::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(7), showOverlay("CapsLock & F8", "Move active window to desktop #8")
 	CapsLock & F9::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(8), showOverlay("CapsLock & F9", "Move active window to desktop #9")
 
-	CapsLock & a::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock & a", "Switch to previous dekstop")
-	CapsLock & s::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("CapsLock & s", "Switch to next dekstop")
+	CapsLock & a::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock & a", "Switch to previous desktop")
+	CapsLock & s::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("CapsLock & s", "Switch to next desktop")
 
-	CapsLock & q::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDekstopThenFocus(), showOverlay("CapsLock & q", "Move active window and switch to next dekstop")
-	CapsLock & w::_virtualDesktopEnhancer.MoveActiveWindowToNextDekstopThenFocus(), showOverlay("CapsLock & w", "Move active window and switch to next dekstop")
+	CapsLock & q::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), showOverlay("CapsLock & q", "Move active window to previous desktop")
+	CapsLock & w::_virtualDesktopEnhancer.MoveActiveWindowToNextDesktopThenFocus(), showOverlay("CapsLock & w", "Move active window to next desktop")
 
 	CapsLock & c::_virtualDesktopEnhancer.CreateDesktop(), showOverlay("CapsLock & c", "Create a new desktop")
-	CapsLock & d::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("CapsLock & d", "Delete current dekstop")
+	CapsLock & d::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("CapsLock & d", "Delete current desktop")
 
 	CapsLock & z::_virtualDesktopEnhancer.PinActiveWindow(), showOverlay("CapsLock & z", "Pin active window")
 	CapsLock & x::_virtualDesktopEnhancer.PinActiveApp(), showOverlay("CapsLock & x", "Pin active app")
@@ -197,7 +197,7 @@ _enableOverlay := true
 	CapsLock & e::_virtualDesktopEnhancer.GoToLastDesktop(), showOverlay("CapsLock, e", "Go to last active desktop")
 #if
 
-#if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and dekstop
+#if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and desktop
 	CapsLock & 1::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0), showOverlay("CapsLock, Shift + 1", "Move active window and switch to desktop #1")
 	CapsLock & 2::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1), showOverlay("CapsLock, Shift + 2", "Move active window and switch to desktop #2")
 	CapsLock & 3::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2), showOverlay("CapsLock, Shift + 3", "Move active window and switch to desktop #3")
@@ -208,8 +208,8 @@ _enableOverlay := true
 	CapsLock & 8::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(7), showOverlay("CapsLock, Shift + 8", "Move active window and switch to desktop #8")
 	CapsLock & 9::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), showOverlay("CapsLock, Shift + 9", "Move active window and switch to desktop #9")
 
-	CapsLock & a::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift + a", "Switch to previous dekstop")
-	CapsLock & s::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift + s", "Switch to next dekstop")
+	CapsLock & a::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift + a", "Move active window and switch to previous desktop")
+	CapsLock & s::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift + s", "Move active window and switch to next desktop")
 
 	CapsLock & z::_virtualDesktopEnhancer.UnpinActiveWindow(), showOverlay("CapsLock, Shift + z", "Unpin active window")
 	CapsLock & x::_virtualDesktopEnhancer.UnpinActiveApp(), showOverlay("CapsLock, Shift + x", "Unpin active app")
