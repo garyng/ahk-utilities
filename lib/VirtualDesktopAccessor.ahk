@@ -17,6 +17,12 @@ class VirtualDesktopAccessor
         this._isPinnedAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "IsPinnedApp", "Ptr")
         this._pinAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "PinApp", "Ptr")
         this._unPinAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "UnPinApp", "Ptr")
+        this._restartVirtualDesktopAccessorProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "RestartVirtualDesktopAccessor", "Ptr")
+    }
+
+    RestartVirtualDesktopAccessor()
+    {
+        DllCall(this._restartVirtualDesktopAccessorProc)
     }
 
     GoToDesktopNumber(index)

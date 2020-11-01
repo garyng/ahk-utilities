@@ -8,6 +8,7 @@
 class VirtualDesktopEnhancer
 {
     ; _onVirtualDesktopChangedMessageHandler
+    ; _onExplorerRestartHandler
     ; _focusAfterSwitching
     ; _prompt
     _primaryTaskbarId := 0
@@ -17,6 +18,7 @@ class VirtualDesktopEnhancer
     __New()
     {
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
+        this._onExplorerRestartHandler := ObjBindMethod(this, "OnExplorerRestartHandler")
         this._prompt := new Prompt()
         this._virtualDesktopAccessor := new VirtualDesktopAccessor()
         this.init()
@@ -25,6 +27,7 @@ class VirtualDesktopEnhancer
     init()
     {
         this.registerOnVirtualDesktopChangedMessageHandler()
+        this.registerOnExplorerRestartHandler()
         this.updateTrayIcon(this.getCurrentDesktopIndex())
         ; setup icon?
     }
@@ -45,6 +48,19 @@ class VirtualDesktopEnhancer
         ; wParam -> old desktop index
         ; lParam -> new desktop index
         this.onDesktopChangedHandler(wParam, lParam)
+    }
+
+    registerOnExplorerRestartHandler()
+    {   
+        ; restart the virtual desktop accessor when Explorer.exe crashes, 
+        ; or restarts (e.g. when coming from fullscreen game)
+        msg := DllCall("user32\RegisterWindowMessage", "Str", "TaskbarCreated")
+        OnMessage(msg, this._onExplorerRestartHandler)
+    }
+
+    OnExplorerRestartHandler()
+    {
+        this._virtualDesktopAccessor.RestartVirtualDesktopAccessor()
     }
 
 ; =============================
