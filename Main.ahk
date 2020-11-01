@@ -8,7 +8,6 @@
 DetectHiddenWindows, On
 SetBatchLines -1
 
-#Include Externals.ahk
 #Include Functions.ahk
 #Include Config.ahk
 
@@ -20,7 +19,6 @@ SetBatchLines -1
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
 
-RunExternals()
 _windowSwitcher := new WindowSwitcher()
 _virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 _windowQuickMinMax := new WindowQuickMinMax()
