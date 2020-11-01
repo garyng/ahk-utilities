@@ -11,12 +11,14 @@ class VirtualDesktopEnhancer
     ; _onExplorerRestartHandler
     ; _focusAfterSwitching
     ; _prompt
+    ; _updateTrayIcon
     _primaryTaskbarId := 0
     _secondaryTaskbarId := 0    ; taskbar on another monitor
     _lastDesktopIndex := -1
     
-    __New()
+    __New(updateTrayIcon := false)
     {
+        this._updateTrayIcon := updateTrayIcon
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
         this._onExplorerRestartHandler := ObjBindMethod(this, "OnExplorerRestartHandler")
         this._prompt := new Prompt()
@@ -249,6 +251,10 @@ class VirtualDesktopEnhancer
 
     updateTrayIcon(desktopIndex)
     {
+        if (!this._updateTrayIcon)
+        {
+            return
+        }
         
         Menu, Tray, Tip, % this.GetDesktopName(desktopindex)
         ; icons start at index 1
