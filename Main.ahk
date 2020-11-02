@@ -25,6 +25,9 @@ _windowQuickMinMax := new WindowQuickMinMax()
 _overlay := new Overlay()
 _enableOverlay := true
 
+_layerConfig := new Config("layer")
+LoadLayerTrayIcon()
+
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
 
@@ -213,6 +216,9 @@ _enableOverlay := true
 	~MButton & z::_windowQuickMinMax.Restore(), showOverlay("~MButton & Shift + z", "Restore previously minimized/maximized window")
 	~MButton & x::_windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
+
+; Numpad =============
+#Include devices/34KeysNumpad.ahk
 
 ; Mouse ==============
 #Include devices/MXMaster3.ahk
