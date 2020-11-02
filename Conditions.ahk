@@ -30,3 +30,8 @@ IsMultitaskingViewExists()
 {
 	return WinExist("ahk_class MultitaskingViewFrame")
 }
+
+IsHolding(keyname)
+{
+    return GetKeyState(keyname, "P")
+}
