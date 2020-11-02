@@ -258,14 +258,14 @@ class VirtualDesktopEnhancer
         
         Menu, Tray, Tip, % this.GetDesktopName(desktopindex)
         ; icons start at index 1
-        iconFileName := A_ScriptDir . "\icons\" . (desktopIndex + 1) . ".ico"
+        iconFileName := A_ScriptDir . "\icons\desktops\" . (desktopIndex + 1) . ".ico"
         if (FileExist(iconFileName))
         {
             Menu, Tray, Icon, % iconFileName
         }
         else
         {
-            Menu, Tray, Icon, % A_ScriptDir . "\icons\+.ico"
+            Menu, Tray, Icon, % A_ScriptDir . "\icons\desktops\+.ico"
         }
     }    
 
