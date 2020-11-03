@@ -114,7 +114,7 @@ class Window
 		hwnd := this.GetHwnd()
 
 		if (this.IsActive(hwnd))
-		{		
+		{
 			if (this.GetGroupCount() == 1)
 			{
 				this.MinimizeActiveWindow(hwnd)
@@ -186,6 +186,17 @@ class AltTabWindow extends Window
 
 class FuzzyMatchWindow extends Window
 {
+	GetGroupCount()
+	{
+		SetTitleMatchMode 2
+
+		WinGet, itemsCount, Count, % "ahk_group " . this._groupName
+
+		SetTitleMatchMode 1
+
+		return itemsCount
+	}
+
 	ActivateWindow()
 	{
 		SetTitleMatchMode 2
