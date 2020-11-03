@@ -8,7 +8,6 @@
 DetectHiddenWindows, On
 SetBatchLines -1
 
-#Include Externals.ahk
 #Include Functions.ahk
 #Include Config.ahk
 
@@ -20,12 +19,14 @@ SetBatchLines -1
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
 
-RunExternals()
 _windowSwitcher := new WindowSwitcher()
 _virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 _windowQuickMinMax := new WindowQuickMinMax()
 _overlay := new Overlay()
 _enableOverlay := true
+
+_layerConfig := new Config("layer")
+LoadLayerTrayIcon()
 
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
@@ -245,6 +246,9 @@ _enableOverlay := true
 	~MButton & z::_windowQuickMinMax.Restore(), showOverlay("~MButton & Shift + z", "Restore previously minimized/maximized window")
 	~MButton & x::_windowQuickMinMax.ClearHistory(), showOverlay("~MButton & Shift + x", "Clear history stack")
 #if
+
+; Numpad =============
+#Include devices/34KeysNumpad.ahk
 
 ; Mouse ==============
 #Include devices/MXMaster3.ahk

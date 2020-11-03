@@ -8,15 +8,19 @@
 class VirtualDesktopEnhancer
 {
     ; _onVirtualDesktopChangedMessageHandler
+    ; _onExplorerRestartHandler
     ; _focusAfterSwitching
     ; _prompt
+    ; _updateTrayIcon
     _primaryTaskbarId := 0
     _secondaryTaskbarId := 0    ; taskbar on another monitor
     _lastDesktopIndex := -1
     
-    __New()
+    __New(updateTrayIcon := false)
     {
+        this._updateTrayIcon := updateTrayIcon
         this._onVirtualDesktopChangedMessageHandler := ObjBindMethod(this, "OnVirtualDesktopChangedMessageHandler")
+        this._onExplorerRestartHandler := ObjBindMethod(this, "OnExplorerRestartHandler")
         this._prompt := new Prompt()
         this._virtualDesktopAccessor := new VirtualDesktopAccessor()
         this.init()
@@ -25,6 +29,7 @@ class VirtualDesktopEnhancer
     init()
     {
         this.registerOnVirtualDesktopChangedMessageHandler()
+        this.registerOnExplorerRestartHandler()
         this.updateTrayIcon(this.getCurrentDesktopIndex())
         ; setup icon?
     }
@@ -45,6 +50,19 @@ class VirtualDesktopEnhancer
         ; wParam -> old desktop index
         ; lParam -> new desktop index
         this.onDesktopChangedHandler(wParam, lParam)
+    }
+
+    registerOnExplorerRestartHandler()
+    {   
+        ; restart the virtual desktop accessor when Explorer.exe crashes, 
+        ; or restarts (e.g. when coming from fullscreen game)
+        msg := DllCall("user32\RegisterWindowMessage", "Str", "TaskbarCreated")
+        OnMessage(msg, this._onExplorerRestartHandler)
+    }
+
+    OnExplorerRestartHandler()
+    {
+        this._virtualDesktopAccessor.RestartVirtualDesktopAccessor()
     }
 
 ; =============================
@@ -233,17 +251,21 @@ class VirtualDesktopEnhancer
 
     updateTrayIcon(desktopIndex)
     {
+        if (!this._updateTrayIcon)
+        {
+            return
+        }
         
         Menu, Tray, Tip, % this.GetDesktopName(desktopindex)
         ; icons start at index 1
-        iconFileName := A_ScriptDir . "\icons\" . (desktopIndex + 1) . ".ico"
+        iconFileName := A_ScriptDir . "\icons\desktops\" . (desktopIndex + 1) . ".ico"
         if (FileExist(iconFileName))
         {
             Menu, Tray, Icon, % iconFileName
         }
         else
         {
-            Menu, Tray, Icon, % A_ScriptDir . "\icons\+.ico"
+            Menu, Tray, Icon, % A_ScriptDir . "\icons\desktops\+.ico"
         }
     }    
 
