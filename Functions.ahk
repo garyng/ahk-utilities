@@ -46,6 +46,12 @@ TypeRandomNumber()
 	SendInput %num%
 }
 
+TypeCustIdQuery()
+{
+	text := "SELECT * `nFROM t_cust_location WHERE cust_id = " . Clipboard
+	SendInput %text%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A

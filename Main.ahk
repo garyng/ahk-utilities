@@ -62,6 +62,10 @@ LoadLayerTrayIcon()
 	TypeFileDateTime()
 	return
 
+:*:!!custid::
+	TypeCustIdQuery()
+	return
+
 ; Hot strings ============
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
