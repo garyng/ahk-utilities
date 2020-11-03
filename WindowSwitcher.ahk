@@ -94,13 +94,13 @@ class Window
 	{
 		this._identifier := identifier
 		this._filePath := filePath
-		; remove all illegal characters
-		this._groupName := RegExReplace(identifier, "[_\\\.\*\?\+\[\{\|\(\)\^\$\""\s\:\-]")  . "_group"
 		this.InitGroup()
 	}
 
 	InitGroup()
 	{
+		; remove all illegal characters
+		this._groupName := RegExReplace(this._identifier, "[_\\\.\*\?\+\[\{\|\(\)\^\$\""\s\:\-]")  . "_group"
 		GroupAdd, % this._groupName , % this._identifier
 	}
 
@@ -216,8 +216,8 @@ class HwndMatchWindow extends Window
 		this._config := new Config("hwnd-" . name)
 		this._name := name
 		this._prompt := new Prompt()
-		base.__New("", filePath)
 		this.Load()
+		base.__New(this._identifier, filePath)
 	}
 
 	Load()
@@ -267,7 +267,8 @@ class HwndMatchWindow extends Window
 			return
 		}
 
-		this._identifier := "ahk_id " . hwnd . " ahk_pid " . pid . " ahk_exe " . exe
+		this._identifier := "ahk_id " . hwnd
+		this.InitGroup()
 		this.Save()
 	}
 
