@@ -78,41 +78,41 @@ LoadLayerTrayIcon()
 !F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouse")
 
 #if GetKeyState("Esc", "P")
-	F1::_windowSwitcher.Switch("slack"), showOverlay("Esc, F1", "Switch to slack")
-	+F1::_windowSwitcher.Launch("slack"), showOverlay("Esc, +F1", "Launch slack")
+	; F1::_windowSwitcher.Switch("slack"), showOverlay("Esc, F1", "Switch to slack")
+	; +F1::_windowSwitcher.Launch("slack"), showOverlay("Esc, +F1", "Launch slack")
 
-	F2::_windowSwitcher.Switch("chrome"), showOverlay("Esc, F2", "Switch to chrome")
-	+F2::_windowSwitcher.Launch("chrome"), showOverlay("Esc, +F2", "Launch chrome")
+	; F2::_windowSwitcher.Switch("chrome"), showOverlay("Esc, F2", "Switch to chrome")
+	; +F2::_windowSwitcher.Launch("chrome"), showOverlay("Esc, +F2", "Launch chrome")
 
-	F3::_windowSwitcher.Switch("firefox"), showOverlay("Esc, F3", "Switch to firefox")
-	+F3::_windowSwitcher.Launch("firefox"), showOverlay("Esc, +F3", "Launch firefox")
+	; F3::_windowSwitcher.Switch("firefox"), showOverlay("Esc, F3", "Switch to firefox")
+	; +F3::_windowSwitcher.Launch("firefox"), showOverlay("Esc, +F3", "Launch firefox")
 
-	1::_windowSwitcher.Switch("visualstudio"), showOverlay("Esc, 1", "Switch to visual studio")
-	+1::_windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch visual studio")
+	; 1::_windowSwitcher.Switch("visualstudio"), showOverlay("Esc, 1", "Switch to visual studio")
+	; +1::_windowSwitcher.Launch("visualstudio"), showOverlay("Esc, +1", "Launch visual studio")
 	
-	2::_windowSwitcher.Switch("vscode"), showOverlay("Esc, 2", "Switch to vscode")
-	+2::_windowSwitcher.Launch("vscode"), showOverlay("Esc, +2", "Launch vscode")
+	; 2::_windowSwitcher.Switch("vscode"), showOverlay("Esc, 2", "Switch to vscode")
+	; +2::_windowSwitcher.Launch("vscode"), showOverlay("Esc, +2", "Launch vscode")
 
-	3::_windowSwitcher.Switch("fork"), showOverlay("Esc, 3", "Switch to fork")
-	+3::_windowSwitcher.Launch("fork"), showOverlay("Esc, +3", "Launch fork")
+	; 3::_windowSwitcher.Switch("fork"), showOverlay("Esc, 3", "Switch to fork")
+	; +3::_windowSwitcher.Launch("fork"), showOverlay("Esc, +3", "Launch fork")
 	
-	e::_windowSwitcher.Switch("explorer"), showOverlay("Esc, e", "Switch to explorer")
-	+e::_windowSwitcher.Launch("explorer"), showOverlay("Esc, +e", "Launch explorer")
+	; e::_windowSwitcher.Switch("explorer"), showOverlay("Esc, e", "Switch to explorer")
+	; +e::_windowSwitcher.Launch("explorer"), showOverlay("Esc, +e", "Launch explorer")
 
-	w::_windowSwitcher.Switch("wt"), showOverlay("Esc, w", "Switch to terminal")
-	+w::_windowSwitcher.Launch("wt"), showOverlay("Esc, +w", "Launch terminal")
+	; w::_windowSwitcher.Switch("wt"), showOverlay("Esc, w", "Switch to terminal")
+	; +w::_windowSwitcher.Launch("wt"), showOverlay("Esc, +w", "Launch terminal")
 
-	z::_windowSwitcher.Switch("tasks"), showOverlay("Esc, z", "Switch to tasks")
-	+z::_windowSwitcher.Reset("tasks"), showOverlay("Esc, +z", "Reset tasks")
+	; z::_windowSwitcher.Switch("tasks"), showOverlay("Esc, z", "Switch to tasks")
+	; +z::_windowSwitcher.Reset("tasks"), showOverlay("Esc, +z", "Reset tasks")
 
-	x::_windowSwitcher.Switch("local"), showOverlay("Esc, x", "Switch to local")
-	+x::_windowSwitcher.Reset("local"), showOverlay("Esc, +x", "Reset local")
+	; x::_windowSwitcher.Switch("local"), showOverlay("Esc, x", "Switch to local")
+	; +x::_windowSwitcher.Reset("local"), showOverlay("Esc, +x", "Reset local")
 
-	d::_windowSwitcher.Switch("datagrip"), showOverlay("Esc, d", "Switch to datagrip")
-	+d::_windowSwitcher.Reset("datagrip"), showOverlay("Esc, +d", "Reset datagrip")
+	; d::_windowSwitcher.Switch("datagrip"), showOverlay("Esc, d", "Switch to datagrip")
+	; +d::_windowSwitcher.Reset("datagrip"), showOverlay("Esc, +d", "Reset datagrip")
 
-	c::_windowSwitcher.Switch("placeholder1"), showOverlay("Esc, c", "Switch to placeholder1")
-	+c::_windowSwitcher.Reset("placeholder1"), showOverlay("Esc, +c", "Reset placeholder1")
+	; c::_windowSwitcher.Switch("placeholder1"), showOverlay("Esc, c", "Switch to placeholder1")
+	; +c::_windowSwitcher.Reset("placeholder1"), showOverlay("Esc, +c", "Reset placeholder1")
 
 	; F3::_windowSwitcher.Switch("onenote"), showOverlay("Esc, F3", "Switch to onenote")
 	; F4::_windowSwitcher.Switch("gitkraken"), showOverlay("Esc, F4", "Switch to gitkraken")
@@ -259,14 +259,6 @@ LoadLayerTrayIcon()
 
 ; Keyboard ============
 #Include devices/MXKeys.ahk
-
-; Work ===============
-#F1::
-	Run *RunAs "iisreset.exe"
-	showOverlay("!F1", "Reset IIS")
-	return
-; Work ===============
-
 
 showOverlay(label, description)
 {

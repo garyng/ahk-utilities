@@ -47,6 +47,11 @@ class WindowSwitcher
 		this._windows["tasks"] := new HwndMatchWindow("tasks", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["local"] := new HwndMatchWindow("local", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe --high-dpi-support=1 --force-device-scale-factor=1")
 		this._windows["placeholder1"] := new HwndMatchWindow("placeholder1", "")
+		this._windows["ccmp_vs"] := new Window("xyz ahk_exe devenv.exe", "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\IDE\\devenv.exe")
+		this._windows["ccmp_vscode"] := new FuzzyMatchWindow("- ccmp - ahk_exe Code.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
+		this._windows["tickets_vscode"] := new FuzzyMatchWindow("- tickets - ahk_exe Code.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
+		this._windows["ccmp_wt"] := new HwndMatchWindow("ccmp wt", "C:\\Users\\GaryNg\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe")
+
 	}
 
 	Switch(name)

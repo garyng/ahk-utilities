@@ -6,7 +6,10 @@ layer1ShowOverlay(description)
 #If IsHolding("F13")
 
 BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
-^BackSpace::return
+^BackSpace::
+    Run *RunAs "iisreset.exe"
+	showOverlay("!F1", "Reset IIS")
+	return
 !BackSpace::return
 
 ^=::return
@@ -18,52 +21,52 @@ BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
 ^Escape::return
 !Escape::return
 
-NumpadSub::return
-^NumpadSub::return
+NumpadSub::_windowSwitcher.Switch("slack"), layer1ShowOverlay("Switch to slack")
+^NumpadSub::_windowSwitcher.Launch("slack"), layer1ShowOverlay("Launch slack")
 !NumpadSub::return
 
-NumpadMult::return
-^NumpadMult::return
+NumpadMult::_windowSwitcher.Switch("ccmp_vs"), layer1ShowOverlay("Switch to ccmp visual studio")
+^NumpadMult::_windowSwitcher.Launch("ccmp_vs"), layer1ShowOverlay("Launch ccmp visual studio")
 !NumpadMult::return
 
-NumpadDiv::return
-^NumpadDiv::return
+NumpadDiv::_windowSwitcher.Switch("visualstudio"), layer1ShowOverlay("Switch to visual studio")
+^NumpadDiv::_windowSwitcher.Launch("visualstudio"), layer1ShowOverlay("Launch visual studio")
 !NumpadDiv::return
 
-NumpadAdd::return
-^NumpadAdd::return
+NumpadAdd::_windowSwitcher.Switch("tasks"), layer1ShowOverlay("Switch to tasks")
+^NumpadAdd::_windowSwitcher.Reset("tasks"), layer1ShowOverlay("Reset tasks")
 !NumpadAdd::return
 
-NumpadEnter::return
-^NumpadEnter::return
+NumpadEnter::_windowSwitcher.Switch("local"), layer1ShowOverlay("Switch to local")
+^NumpadEnter::_windowSwitcher.Reset("local"), layer1ShowOverlay("Reset local")
 !NumpadEnter::return
 
-Numpad9::return
-^Numpad9::return
+Numpad9::_windowSwitcher.Switch("ccmp_vscode"), layer1ShowOverlay("Switch to ccmp vscode")
+^Numpad9::_windowSwitcher.Launch("ccmp_vscode"), layer1ShowOverlay("Launch ccmp vscode")
 !Numpad9::return
 
-Numpad8::return
-^Numpad8::return
+Numpad8::_windowSwitcher.Switch("tickets_vscode"), layer1ShowOverlay("Switch to tickets")
+^Numpad8::_windowSwitcher.Launch("tickets_vscode"), layer1ShowOverlay("Launch tickets")
 !Numpad8::return
 
-Numpad7::return
-^Numpad7::return
+Numpad7::_windowSwitcher.Switch("vscode"), layer1ShowOverlay("Switch to vscode")
+^Numpad7::_windowSwitcher.Launch("vscode"), layer1ShowOverlay("Launch vscode")
 !Numpad7::return
 
-Numpad6::return
-^Numpad6::return
+Numpad6::_windowSwitcher.Switch("ccmp_wt"), layer1ShowOverlay("Switch to terminal")
+^Numpad6::_windowSwitcher.Launch("ccmp_wt"), layer1ShowOverlay("Launch terminal")
 !Numpad6::return
 
-Numpad5::return
-^Numpad5::return
+Numpad5::_windowSwitcher.Switch("wt"), layer1ShowOverlay("Switch to terminal")
+^Numpad5::_windowSwitcher.Launch("wt"), layer1ShowOverlay("Launch terminal")
 !Numpad5::return
 
 Numpad4::return
 ^Numpad4::return
 !Numpad4::return
 
-Numpad3::return
-^Numpad3::return
+Numpad3::_windowSwitcher.Switch("datagrip"), layer1ShowOverlay("Switch to datagrip")
+^Numpad3::_windowSwitcher.Reset("datagrip"), layer1ShowOverlay("Reset datagrip")
 !Numpad3::return
 
 Numpad2::return
@@ -78,8 +81,8 @@ NumpadDot::return
 ^NumpadDot::return
 !NumpadDot::return
 
-Numpad0::return
-^Numpad0::return
+Numpad0::_windowSwitcher.Switch("fork"), layer1ShowOverlay("Switch to fork")
+^Numpad0::_windowSwitcher.Launch("fork"), layer1ShowOverlay("Launch fork")
 !Numpad0::return
 
 Up::return
