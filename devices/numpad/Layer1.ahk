@@ -9,15 +9,6 @@ BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
 ^BackSpace::return
 !BackSpace::return
 
-^=::return
-!=::return
-
-^Tab::return
-!Tab::return
-
-^Escape::return
-!Escape::return
-
 NumpadSub::return
 ^NumpadSub::return
 !NumpadSub::return

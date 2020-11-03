@@ -9,15 +9,6 @@ Tab::UpdateTrayIcon(3), layer3ShowOverlay("Change to layer 3")
 ^Tab::return
 !Tab::return
 
-^BackSpace::return
-!BackSpace::return
-
-^=::return
-!=::return
-
-^Escape::return
-!Escape::return
-
 NumpadSub::return
 ^NumpadSub::return
 !NumpadSub::return

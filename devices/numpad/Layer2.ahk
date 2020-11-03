@@ -9,15 +9,6 @@ layer2ShowOverlay(description)
 ^=::return
 !=::return
 
-^BackSpace::return
-!BackSpace::return
-
-^Tab::return
-!Tab::return
-
-^Escape::return
-!Escape::return
-
 NumpadSub::return
 ^NumpadSub::return
 !NumpadSub::return

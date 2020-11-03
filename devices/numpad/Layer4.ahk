@@ -9,9 +9,6 @@ Escape::UpdateTrayIcon(4), layer4ShowOverlay("Change to layer 4")
 ^Escape::return
 !Escape::return
 
-^BackSpace::return
-!BackSpace::return
-
 ^=::return
 !=::return
 
