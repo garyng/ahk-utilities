@@ -35,11 +35,11 @@ NumpadDiv::_windowSwitcher.Switch("visualstudio"), layer1ShowOverlay("Switch to 
 
 NumpadAdd::_windowSwitcher.Switch("tasks"), layer1ShowOverlay("Switch to tasks")
 ^NumpadAdd::_windowSwitcher.Reset("tasks"), layer1ShowOverlay("Reset tasks")
-!NumpadAdd::return
+!NumpadAdd::_windowSwitcher.Launch("chrome"), layer1ShowOverlay("Launch chrome")
 
 NumpadEnter::_windowSwitcher.Switch("local"), layer1ShowOverlay("Switch to local")
 ^NumpadEnter::_windowSwitcher.Reset("local"), layer1ShowOverlay("Reset local")
-!NumpadEnter::return
+!NumpadEnter::_windowSwitcher.Launch("chrome"), layer1ShowOverlay("Launch chrome")
 
 Numpad9::_windowSwitcher.Switch("ccmp_vscode"), layer1ShowOverlay("Switch to ccmp vscode")
 ^Numpad9::_windowSwitcher.Launch("ccmp_vscode"), layer1ShowOverlay("Launch ccmp vscode")
