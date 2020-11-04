@@ -9,7 +9,7 @@ layer2ShowOverlay(description)
 ^=::return
 !=::return
 
-NumpadSub::return
+NumpadSub::_windowManager.MinimizeActiveWindow(), layer2ShowOverlay("Minimize active window")
 ^NumpadSub::return
 !NumpadSub::return
 
@@ -21,11 +21,11 @@ NumpadDiv::return
 ^NumpadDiv::return
 !NumpadDiv::return
 
-NumpadAdd::return
-^NumpadAdd::return
+NumpadAdd::_windowManager.ResizeAndCenterActiveWindow(), layer2ShowOverlay("Resize and center active window")
+^NumpadAdd::_windowManager.ExpandActiveWindow(), layer2ShowOverlay("Expand active window")
 !NumpadAdd::return
 
-NumpadEnter::return
+NumpadEnter::_windowManager.ToggleActiveWindow(), layer2ShowOverlay("Toggle active window state")
 ^NumpadEnter::return
 !NumpadEnter::return
 
@@ -41,27 +41,27 @@ Numpad7::return
 ^Numpad7::return
 !Numpad7::return
 
-Numpad6::return
+Numpad6::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer2ShowOverlay("Switch to next desktop")
 ^Numpad6::return
 !Numpad6::return
 
-Numpad5::return
-^Numpad5::return
+Numpad5::_virtualDesktopEnhancer.CreateDesktop(), layer2ShowOverlay("Create a new desktop")
+^Numpad5::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer2ShowOverlay("Delete current desktop")
 !Numpad5::return
 
-Numpad4::return
+Numpad4::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Switch to previous desktop")
 ^Numpad4::return
 !Numpad4::return
 
-Numpad3::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer2ShowOverlay("Switch to next desktop")
+Numpad3::_windowManager.MoveActiveWindowToMonitor(2), layer2ShowOverlay("Move active window to monitor 3")
 ^Numpad3::return
 !Numpad3::return
 
-Numpad2::_virtualDesktopEnhancer.CreateDesktop(), layer2ShowOverlay("Create a new desktop")
-^Numpad2::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer2ShowOverlay("Delete current desktop")
+Numpad2::_windowManager.MoveActiveWindowToMonitor(1), layer2ShowOverlay("Move active window to monitor 2")
+^Numpad2::return
 !Numpad2::return
 
-Numpad1::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Switch to previous desktop")
+Numpad1::_windowManager.MoveActiveWindowToMonitor(0), layer2ShowOverlay("Move active window to monitor 1")
 ^Numpad1::return
 !Numpad1::return
 
