@@ -7,6 +7,8 @@ class Rect_
         this.Right := right
         this.Bottom := bottom
 
+        this.X := left
+        this.Y := top
         this.Width := Abs(this.Right - this.Left)
         this.Height := Abs(this.Bottom - this.Top)
     }
@@ -86,8 +88,8 @@ class Window2
 
         if (moveToCenter)
         {
-            x := workArea.Left + (workArea.Width - width) / 2
-            y := workArea.Top + (workArea.Height - height) / 2
+            x := workArea.X + (workArea.Width - width) / 2
+            y := workArea.Y + (workArea.Height - height) / 2
             WinMove, % this._ahkId, , x, y, width, height
         }
         else
@@ -101,10 +103,11 @@ class Window2
 
     Center()
     {
+        ; todo: size is different on each monitor?
         size := this.GetWindowRect()
         workArea := this.GetCurrentWorkAreaFromWindow(this._hwnd)
-        x := workArea.Left + (workArea.Width - size.Width) / 2
-        y := workArea.Top + (workArea.Height - size.Height) / 2
+        x := workArea.X + (workArea.Width - size.Width) / 2
+        y := workArea.Y + (workArea.Height - size.Height) / 2
 
         WinMove % this._ahkId, , x, y
     }
@@ -165,8 +168,8 @@ class Window2
         rect := this.GetWindowRect()
         width := rect.Width + inc
         height := rect.Height + inc
-        x := rect.Left - inc / 2
-        y := rect.Top - inc / 2
+        x := rect.X - inc / 2
+        y := rect.Y - inc / 2
 
         WinMove, % this._ahkId, , x, y, width, height
     }
