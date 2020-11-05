@@ -13,12 +13,12 @@ NumpadSub::_windowManager.MinimizeActiveWindow(), layer2ShowOverlay("Minimize ac
 ^NumpadSub::_windowManager.ShrinkActiveWindow(), layer2ShowOverlay("Shrink active window")
 !NumpadSub::return
 
-NumpadMult::return
-^NumpadMult::return
+NumpadMult::_virtualDesktopEnhancer.PinActiveWindow(), layer2ShowOverlay("Pin active window")
+^NumpadMult::_virtualDesktopEnhancer.UnpinActiveWindow(), layer2ShowOverlay("Unpin active window")
 !NumpadMult::return
 
-NumpadDiv::return
-^NumpadDiv::return
+NumpadDiv::_virtualDesktopEnhancer.PinActiveApp(), layer2ShowOverlay("Pin active app")
+^NumpadDiv::_virtualDesktopEnhancer.UnpinActiveApp(), layer2ShowOverlay("Unpin active app")
 !NumpadDiv::return
 
 NumpadAdd::_windowManager.ResizeAndCenterActiveWindow(), layer2ShowOverlay("Resize and center active window")
@@ -42,16 +42,16 @@ Numpad7::return
 !Numpad7::return
 
 Numpad6::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer2ShowOverlay("Switch to next desktop")
-^Numpad6::return
-!Numpad6::return
+^Numpad6::_virtualDesktopEnhancer.MoveActiveWindowToNextDesktopThenFocus(), layer2ShowOverlay("Move active window to next desktop")
+!Numpad6::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), layer2ShowOverlay("Move active window and switch to next desktop")
 
 Numpad5::_virtualDesktopEnhancer.CreateDesktop(), layer2ShowOverlay("Create a new desktop")
 ^Numpad5::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer2ShowOverlay("Delete current desktop")
 !Numpad5::return
 
 Numpad4::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Switch to previous desktop")
-^Numpad4::return
-!Numpad4::return
+^Numpad4::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window to previous desktop")
+!Numpad4::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window and switch to previous desktop")
 
 Numpad3::_windowManager.MoveActiveWindowToMonitor(2), layer2ShowOverlay("Move active window to monitor 3")
 ^Numpad3::return
@@ -91,38 +91,38 @@ Right::return
 
 1::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(0), layer2ShowOverlay("Switch to desktop #1")
 ^1::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(0), layer2ShowOverlay("Move active window to desktop #1")
-!1::return
+!1::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0), layer2ShowOverlay("Move active window and switch to desktop #1")
 
 2::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(1), layer2ShowOverlay("Switch to desktop #2")
 ^2::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(1), layer2ShowOverlay("Move active window to desktop #2")
-!2::return
+!2::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1), layer2ShowOverlay("Move active window and switch to desktop #2")
 
 3::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(2), layer2ShowOverlay("Switch to desktop #3")
 ^3::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(2), layer2ShowOverlay("Move active window to desktop #3")
-!3::return
+!3::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2), layer2ShowOverlay("Move active window and switch to desktop #3")
 
 4::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(3), layer2ShowOverlay("Switch to desktop #4")
 ^4::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(3), layer2ShowOverlay("Move active window to desktop #4")
-!4::return
+!4::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(3), layer2ShowOverlay("Move active window and switch to desktop #4")
 
 5::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(4), layer2ShowOverlay("Switch to desktop #5")
 ^5::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(4), layer2ShowOverlay("Move active window to desktop #5")
-!5::return
+!5::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(4), layer2ShowOverlay("Move active window and switch to desktop #5")
 
 6::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(5), layer2ShowOverlay("Switch to desktop #6")
 ^6::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(5), layer2ShowOverlay("Move active window to desktop #6")
-!6::return
+!6::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(5), layer2ShowOverlay("Move active window and switch to desktop #6")
 
 7::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(6), layer2ShowOverlay("Switch to desktop #7")
 ^7::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(6), layer2ShowOverlay("Move active window to desktop #7")
-!7::return
+!7::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(6), layer2ShowOverlay("Move active window and switch to desktop #7")
 
 8::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(7), layer2ShowOverlay("Switch to desktop #8")
 ^8::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(7), layer2ShowOverlay("Move active window to desktop #8")
-!8::return
+!8::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(7), layer2ShowOverlay("Move active window and switch to desktop #8")
 
 9::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(8), layer2ShowOverlay("Switch to desktop #9")
 ^9::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(8), layer2ShowOverlay("Move active window to desktop #9")
-!9::return
+!9::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), layer2ShowOverlay("Move active window and switch to desktop #9")
 
 #if
