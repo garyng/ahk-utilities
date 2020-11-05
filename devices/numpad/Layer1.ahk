@@ -68,7 +68,7 @@ Numpad1::return
 ^Numpad1::return
 !Numpad1::return
 
-NumpadDot::return
+NumpadDot::_windowSwitcher.Launch("chrome"), layer1ShowOverlay("Launch chrome")
 ^NumpadDot::return
 !NumpadDot::return
 
