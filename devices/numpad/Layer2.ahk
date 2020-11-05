@@ -10,7 +10,7 @@ layer2ShowOverlay(description)
 !=::return
 
 NumpadSub::_windowManager.MinimizeActiveWindow(), layer2ShowOverlay("Minimize active window")
-^NumpadSub::return
+^NumpadSub::_windowManager.ShrinkActiveWindow(), layer2ShowOverlay("Shrink active window")
 !NumpadSub::return
 
 NumpadMult::return
