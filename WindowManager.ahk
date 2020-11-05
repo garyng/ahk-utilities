@@ -227,4 +227,9 @@ class WindowManager
     {
         new ActiveWindow2().Expand()
     }
+
+    ShrinkActiveWindow(dec := 40)
+    {
+        new ActiveWindow2().Expand(-dec)
+    }
 }
