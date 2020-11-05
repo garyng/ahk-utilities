@@ -26,7 +26,10 @@ NumpadAdd::_windowManager.ResizeAndCenterActiveWindow(), layer2ShowOverlay("Resi
 !NumpadAdd::return
 
 NumpadEnter::_windowManager.ToggleActiveWindow(), layer2ShowOverlay("Toggle active window state")
-^NumpadEnter::return
+^NumpadEnter::
+    SendInput #!c
+    layer2ShowOverlay("Maximize window (DisplayFusion)")
+    return
 !NumpadEnter::return
 
 Numpad9::return
@@ -53,16 +56,22 @@ Numpad4::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowO
 ^Numpad4::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window to previous desktop")
 !Numpad4::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window and switch to previous desktop")
 
-Numpad3::_windowManager.MoveActiveWindowToMonitor(2), layer2ShowOverlay("Move active window to monitor 3")
-^Numpad3::return
+Numpad3::
+    SendInput #!s
+    layer2ShowOverlay("Move window to next partition (DisplayFusion)")
+    return
+^Numpad3::_windowManager.MoveActiveWindowToMonitor(2), layer2ShowOverlay("Move active window to monitor 3")
 !Numpad3::return
 
-Numpad2::_windowManager.MoveActiveWindowToMonitor(1), layer2ShowOverlay("Move active window to monitor 2")
-^Numpad2::return
+Numpad2::return
+^Numpad2::_windowManager.MoveActiveWindowToMonitor(1), layer2ShowOverlay("Move active window to monitor 2")
 !Numpad2::return
 
-Numpad1::_windowManager.MoveActiveWindowToMonitor(0), layer2ShowOverlay("Move active window to monitor 1")
-^Numpad1::return
+Numpad1::
+    SendInput #!a
+    layer2ShowOverlay("Move window to next previous (DisplayFusion)")
+    return
+^Numpad1::_windowManager.MoveActiveWindowToMonitor(0), layer2ShowOverlay("Move active window to monitor 1")
 !Numpad1::return
 
 NumpadDot::return
