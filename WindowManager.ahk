@@ -175,7 +175,6 @@ class Window2
     }
 
     ; todo: show overlay for monitor index
-    ; todo: store size when maximize/resize/center
 }
 
 class ActiveWindow2 extends Window2
