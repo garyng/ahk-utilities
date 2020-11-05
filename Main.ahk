@@ -12,6 +12,7 @@ SetBatchLines -1
 #Include Config.ahk
 
 #Include WindowSwitcher.ahk
+#Include WindowManager.ahk
 #Include VirtualDesktopEnhancer.ahk
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk
@@ -20,6 +21,7 @@ SetBatchLines -1
 #Include MultiplePressListener.ahk
 
 _windowSwitcher := new WindowSwitcher()
+_windowManager := new WindowManager()
 _virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 _windowQuickMinMax := new WindowQuickMinMax()
 _overlay := new Overlay()

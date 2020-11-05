@@ -12,15 +12,6 @@ BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
 	return
 !BackSpace::return
 
-^=::return
-!=::return
-
-^Tab::return
-!Tab::return
-
-^Escape::return
-!Escape::return
-
 NumpadSub::_windowSwitcher.Switch("slack"), layer1ShowOverlay("Switch to slack")
 ^NumpadSub::_windowSwitcher.Launch("slack"), layer1ShowOverlay("Launch slack")
 !NumpadSub::return
