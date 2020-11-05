@@ -12,6 +12,7 @@ SetBatchLines -1
 #Include Config.ahk
 
 #Include WindowSwitcher.ahk
+#Include WindowManager.ahk
 #Include VirtualDesktopEnhancer.ahk
 #Include WindowQuickMinMax.ahk
 #Include Overlay.ahk
@@ -20,6 +21,7 @@ SetBatchLines -1
 #Include MultiplePressListener.ahk
 
 _windowSwitcher := new WindowSwitcher()
+_windowManager := new WindowManager()
 _virtualDesktopEnhancer := new VirtualDesktopEnhancer()
 _windowQuickMinMax := new WindowQuickMinMax()
 _overlay := new Overlay()
@@ -70,10 +72,10 @@ LoadLayerTrayIcon()
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
 
-#if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
-	~LShift & WheelUp::ScrollLeft()
-	~LShift & WheelDown::ScrollRight()
-#if
+; #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
+; 	~LShift & WheelUp::ScrollLeft()
+; 	~LShift & WheelDown::ScrollRight()
+; #if
 
 !F2::ResetTransparencyOfWindowUnderMouse(), showOverlay("!F2", "Reset the transparency of window under mouse")
 
@@ -140,56 +142,56 @@ LoadLayerTrayIcon()
 ; #if
 
 #if IsNone()
-	CapsLock & 1::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(0), showOverlay("CapsLock & 1", "Switch to desktop #1")
-	CapsLock & 2::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(1), showOverlay("CapsLock & 2", "Switch to desktop #2")
-	CapsLock & 3::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(2), showOverlay("CapsLock & 3", "Switch to desktop #3")
-	CapsLock & 4::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(3), showOverlay("CapsLock & 4", "Switch to desktop #4")
-	CapsLock & 5::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(4), showOverlay("CapsLock & 5", "Switch to desktop #5")
-	CapsLock & 6::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(5), showOverlay("CapsLock & 6", "Switch to desktop #6")
-	CapsLock & 7::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(6), showOverlay("CapsLock & 7", "Switch to desktop #7")
-	CapsLock & 8::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(7), showOverlay("CapsLock & 8", "Switch to desktop #8")
-	CapsLock & 9::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(8), showOverlay("CapsLock & 9", "Switch to desktop #9")
-	CapsLock & F1::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(0), showOverlay("CapsLock & F1", "Move active window to desktop #1")
-	CapsLock & F2::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(1), showOverlay("CapsLock & F2", "Move active window to desktop #2")
-	CapsLock & F3::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(2), showOverlay("CapsLock & F3", "Move active window to desktop #3")
-	CapsLock & F4::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(3), showOverlay("CapsLock & F4", "Move active window to desktop #4")
-	CapsLock & F5::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(4), showOverlay("CapsLock & F5", "Move active window to desktop #5")
-	CapsLock & F6::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(5), showOverlay("CapsLock & F6", "Move active window to desktop #6")
-	CapsLock & F7::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(6), showOverlay("CapsLock & F7", "Move active window to desktop #7")
-	CapsLock & F8::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(7), showOverlay("CapsLock & F8", "Move active window to desktop #8")
-	CapsLock & F9::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(8), showOverlay("CapsLock & F9", "Move active window to desktop #9")
+	; CapsLock & 1::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(0), showOverlay("CapsLock & 1", "Switch to desktop #1")
+	; CapsLock & 2::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(1), showOverlay("CapsLock & 2", "Switch to desktop #2")
+	; CapsLock & 3::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(2), showOverlay("CapsLock & 3", "Switch to desktop #3")
+	; CapsLock & 4::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(3), showOverlay("CapsLock & 4", "Switch to desktop #4")
+	; CapsLock & 5::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(4), showOverlay("CapsLock & 5", "Switch to desktop #5")
+	; CapsLock & 6::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(5), showOverlay("CapsLock & 6", "Switch to desktop #6")
+	; CapsLock & 7::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(6), showOverlay("CapsLock & 7", "Switch to desktop #7")
+	; CapsLock & 8::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(7), showOverlay("CapsLock & 8", "Switch to desktop #8")
+	; CapsLock & 9::_virtualDesktopEnhancer.SwitchToDesktopNThenFocus(8), showOverlay("CapsLock & 9", "Switch to desktop #9")
+	; CapsLock & F1::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(0), showOverlay("CapsLock & F1", "Move active window to desktop #1")
+	; CapsLock & F2::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(1), showOverlay("CapsLock & F2", "Move active window to desktop #2")
+	; CapsLock & F3::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(2), showOverlay("CapsLock & F3", "Move active window to desktop #3")
+	; CapsLock & F4::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(3), showOverlay("CapsLock & F4", "Move active window to desktop #4")
+	; CapsLock & F5::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(4), showOverlay("CapsLock & F5", "Move active window to desktop #5")
+	; CapsLock & F6::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(5), showOverlay("CapsLock & F6", "Move active window to desktop #6")
+	; CapsLock & F7::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(6), showOverlay("CapsLock & F7", "Move active window to desktop #7")
+	; CapsLock & F8::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(7), showOverlay("CapsLock & F8", "Move active window to desktop #8")
+	; CapsLock & F9::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(8), showOverlay("CapsLock & F9", "Move active window to desktop #9")
 
-	CapsLock & a::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock & a", "Switch to previous desktop")
-	CapsLock & s::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("CapsLock & s", "Switch to next desktop")
+	; CapsLock & a::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock & a", "Switch to previous desktop")
+	; CapsLock & s::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), showOverlay("CapsLock & s", "Switch to next desktop")
 
-	CapsLock & q::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), showOverlay("CapsLock & q", "Move active window to previous desktop")
-	CapsLock & w::_virtualDesktopEnhancer.MoveActiveWindowToNextDesktopThenFocus(), showOverlay("CapsLock & w", "Move active window to next desktop")
+	; CapsLock & q::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), showOverlay("CapsLock & q", "Move active window to previous desktop")
+	; CapsLock & w::_virtualDesktopEnhancer.MoveActiveWindowToNextDesktopThenFocus(), showOverlay("CapsLock & w", "Move active window to next desktop")
 
-	CapsLock & c::_virtualDesktopEnhancer.CreateDesktop(), showOverlay("CapsLock & c", "Create a new desktop")
-	CapsLock & d::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("CapsLock & d", "Delete current desktop")
+	; CapsLock & c::_virtualDesktopEnhancer.CreateDesktop(), showOverlay("CapsLock & c", "Create a new desktop")
+	; CapsLock & d::_virtualDesktopEnhancer.DeleteCurrentDesktop(), showOverlay("CapsLock & d", "Delete current desktop")
 
-	CapsLock & z::_virtualDesktopEnhancer.PinActiveWindow(), showOverlay("CapsLock & z", "Pin active window")
-	CapsLock & x::_virtualDesktopEnhancer.PinActiveApp(), showOverlay("CapsLock & x", "Pin active app")
+	; CapsLock & z::_virtualDesktopEnhancer.PinActiveWindow(), showOverlay("CapsLock & z", "Pin active window")
+	; CapsLock & x::_virtualDesktopEnhancer.PinActiveApp(), showOverlay("CapsLock & x", "Pin active app")
 
 	CapsLock & e::_virtualDesktopEnhancer.GoToLastDesktop(), showOverlay("CapsLock, e", "Go to last active desktop")
 #if
 
 #if IsOnlyShift()	; Only Shift is pressed -> "Shift" window and desktop
-	CapsLock & 1::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0), showOverlay("CapsLock, Shift + 1", "Move active window and switch to desktop #1")
-	CapsLock & 2::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1), showOverlay("CapsLock, Shift + 2", "Move active window and switch to desktop #2")
-	CapsLock & 3::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2), showOverlay("CapsLock, Shift + 3", "Move active window and switch to desktop #3")
-	CapsLock & 4::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(3), showOverlay("CapsLock, Shift + 4", "Move active window and switch to desktop #4")
-	CapsLock & 5::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(4), showOverlay("CapsLock, Shift + 5", "Move active window and switch to desktop #5")
-	CapsLock & 6::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(5), showOverlay("CapsLock, Shift + 6", "Move active window and switch to desktop #6")
-	CapsLock & 7::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(6), showOverlay("CapsLock, Shift + 7", "Move active window and switch to desktop #7")
-	CapsLock & 8::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(7), showOverlay("CapsLock, Shift + 8", "Move active window and switch to desktop #8")
-	CapsLock & 9::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), showOverlay("CapsLock, Shift + 9", "Move active window and switch to desktop #9")
+	; CapsLock & 1::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(0), showOverlay("CapsLock, Shift + 1", "Move active window and switch to desktop #1")
+	; CapsLock & 2::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(1), showOverlay("CapsLock, Shift + 2", "Move active window and switch to desktop #2")
+	; CapsLock & 3::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(2), showOverlay("CapsLock, Shift + 3", "Move active window and switch to desktop #3")
+	; CapsLock & 4::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(3), showOverlay("CapsLock, Shift + 4", "Move active window and switch to desktop #4")
+	; CapsLock & 5::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(4), showOverlay("CapsLock, Shift + 5", "Move active window and switch to desktop #5")
+	; CapsLock & 6::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(5), showOverlay("CapsLock, Shift + 6", "Move active window and switch to desktop #6")
+	; CapsLock & 7::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(6), showOverlay("CapsLock, Shift + 7", "Move active window and switch to desktop #7")
+	; CapsLock & 8::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(7), showOverlay("CapsLock, Shift + 8", "Move active window and switch to desktop #8")
+	; CapsLock & 9::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), showOverlay("CapsLock, Shift + 9", "Move active window and switch to desktop #9")
 
-	CapsLock & a::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift + a", "Move active window and switch to previous desktop")
-	CapsLock & s::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift + s", "Move active window and switch to next desktop")
+	; CapsLock & a::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToPreviousDesktopThenFocus(), showOverlay("CapsLock, Shift + a", "Move active window and switch to previous desktop")
+	; CapsLock & s::_virtualDesktopEnhancer.MoveActiveWindowAndSwitchToNextDesktopThenFocus(), showOverlay("CapsLock, Shift + s", "Move active window and switch to next desktop")
 
-	CapsLock & z::_virtualDesktopEnhancer.UnpinActiveWindow(), showOverlay("CapsLock, Shift + z", "Unpin active window")
-	CapsLock & x::_virtualDesktopEnhancer.UnpinActiveApp(), showOverlay("CapsLock, Shift + x", "Unpin active app")
+	; CapsLock & z::_virtualDesktopEnhancer.UnpinActiveWindow(), showOverlay("CapsLock, Shift + z", "Unpin active window")
+	; CapsLock & x::_virtualDesktopEnhancer.UnpinActiveApp(), showOverlay("CapsLock, Shift + x", "Unpin active app")
 #if
 
 #if IsOnlyCtrl()
