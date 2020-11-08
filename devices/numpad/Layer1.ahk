@@ -55,10 +55,10 @@ Numpad4::return
 
 Numpad3::_windowSwitcher.Switch("obsidian"), layer1ShowOverlay("Switch to obsidian")
 ^Numpad3::_windowSwitcher.Launch("obsidian"), layer1ShowOverlay("Launch obsidian")
-!Numpad3::_windowSwitcher.Switch("notes_vscode"), layer1ShowOverlay("Switch to notes")
+!Numpad3::return
 
-Numpad2::return
-^Numpad2::return
+Numpad2::_windowSwitcher.Switch("notes_vscode"), layer1ShowOverlay("Switch to notes")
+^Numpad2::_windowSwitcher.Launch("notes_vscode"), layer1ShowOverlay("Launch notes")
 !Numpad2::return
 
 Numpad1::return
