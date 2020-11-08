@@ -45,6 +45,8 @@ class WindowSwitcher
 
 		this._windows["tasks"] := new HwndMatchWindow("tasks", "C:\\Program Files\\Mozilla Firefox\\firefox.exe")
 		
+		this._windows["obsidian"] := New Window("ahk_exe Obsidian.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Obsidian\\Obsidian.exe")
+		this._windows["notes_vscode"] := new FuzzyMatchWindow("notes - ahk_exe Code.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
 	}
 
 	Switch(name)
