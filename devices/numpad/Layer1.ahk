@@ -64,8 +64,8 @@ Numpad2::return
 ^Numpad2::return
 !Numpad2::return
 
-Numpad1::return
-^Numpad1::return
+Numpad1::_windowSwitcher.Switch("linqpad"), layer1ShowOverlay("Switch to linqpad")
+^Numpad1::_windowSwitcher.Launch("linqpad"), layer1ShowOverlay("Launch obsidian")
 !Numpad1::return
 
 NumpadDot::_windowSwitcher.Launch("chrome"), layer1ShowOverlay("Launch chrome")
