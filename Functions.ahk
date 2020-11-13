@@ -58,6 +58,12 @@ TypeJira()
 	SendInput %text%
 }
 
+TypeZettelkastenUid()
+{
+	FormatTime, current, , yyyyMMddHHmmss
+	SendInput %current%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A

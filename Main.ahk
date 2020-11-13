@@ -63,13 +63,14 @@ LoadLayerTrayIcon()
 :*:!!ft::
 	TypeFileDateTime()
 	return
-
 :*:!!custid::
 	TypeCustIdQuery()
 	return
-
 :*:!!jira::
 	TypeJira()
+	return
+:*:!!dz::
+	TypeZettelkastenUid()
 	return
 
 ; Hot strings ============
