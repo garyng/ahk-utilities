@@ -68,6 +68,10 @@ LoadLayerTrayIcon()
 	TypeCustIdQuery()
 	return
 
+:*:!!jira::
+	TypeJira()
+	return
+
 ; Hot strings ============
 
 !F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")

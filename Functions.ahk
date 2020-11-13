@@ -52,6 +52,12 @@ TypeCustIdQuery()
 	SendInput %text%
 }
 
+TypeJira()
+{
+	text := "https://jira.cheetahmail.com/browse/" . Clipboard
+	SendInput %text%
+}
+
 ToggleActiveWindowAlwaysOnTop()
 {
 	WinGet, activeWindow, ID, A
