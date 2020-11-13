@@ -60,8 +60,8 @@ Numpad3::_windowSwitcher.Switch("datagrip"), layer1ShowOverlay("Switch to datagr
 ^Numpad3::_windowSwitcher.Reset("datagrip"), layer1ShowOverlay("Reset datagrip")
 !Numpad3::return
 
-Numpad2::return
-^Numpad2::return
+Numpad2::_windowSwitcher.Switch("obsidian"), layer1ShowOverlay("Switch to obsidian")
+^Numpad2::_windowSwitcher.Launch("obsidian"), layer1ShowOverlay("Launch obsidian")
 !Numpad2::return
 
 Numpad1::_windowSwitcher.Switch("linqpad"), layer1ShowOverlay("Switch to linqpad")

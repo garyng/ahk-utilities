@@ -52,6 +52,7 @@ class WindowSwitcher
 		this._windows["tickets_vscode"] := new FuzzyMatchWindow("tickets - ahk_exe Code.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
 		this._windows["ccmp_wt"] := new HwndMatchWindow("ccmp wt", "C:\\Users\\GaryNg\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe")
 
+		this._windows["obsidian"] := New Window("ahk_exe Obsidian.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Obsidian\\Obsidian.exe")
 		this._windows["linqpad"] := New Window("ahk_exe LINQPad6.exe", "D:\\tools\\LINQPad\\LINQPad.Launcher.exe")
 	}
 
