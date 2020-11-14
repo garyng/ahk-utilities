@@ -16,4 +16,5 @@ Collection of AutoHotKey scripts that I am using.
 # Related Projects
 
 - [Taran's 2nd Keyboard](https://github.com/TaranVH/2nd-keyboard/): gave a lot of inspirations to this project
-- [garyng/qmk_firmware](https://github.com/garyng/qmk_firmware/): fork of QMK that has some features that I wrote for this project
+- [`garyng/qmk_firmware`](https://github.com/garyng/qmk_firmware/): fork of QMK that has some features that I wrote for this project
+- [`garyng/Tss`](https://github.com/garyng/Tss): simple tool for managing my Spotify playlists
