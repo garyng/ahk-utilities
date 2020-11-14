@@ -90,11 +90,11 @@ Down::return
 ^Down::return
 !Down::return
 
-Left::return
+Left::_tss.MoveCurrentToNotGood(), layer1ShowOverlay("Move currently playing to not good list")
 ^Left::return
 !Left::return
 
-Right::return
+Right::_tss.MoveCurrentToGood(), layer1ShowOverlay("Move currently playing to good list")
 ^Right::return
 !Right::return
 

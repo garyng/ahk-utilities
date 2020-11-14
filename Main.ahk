@@ -19,7 +19,10 @@ SetBatchLines -1
 #Include Conditions.ahk
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
+#Include JSON.ahk
+#Include tss/TssClient.ahk
 
+_tss := new TssClient()
 _windowSwitcher := new WindowSwitcher()
 _windowManager := new WindowManager()
 _virtualDesktopEnhancer := new VirtualDesktopEnhancer()

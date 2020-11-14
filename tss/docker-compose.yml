@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  api:
+    image: garyng/tss:latest
+    env_file: .env
+    ports:
+      - '8123:80'
+    volumes:
+      - ./data:/data
+    restart: always

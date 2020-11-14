@@ -1,0 +1,17 @@
+tssMappings:
+  mappings:
+    "6X45oYEBQHh2vxVRYjzWp2":           # 😃 minimal vocal (pending)
+      good: 6mcBhzisTRtQeXqbmEqfAj      # 😀 happy bass minimal vocal
+      notGood: 0b2acqqIZkXLYoQq6vaIez   # 🙁 not good
+
+    "3AvXgsGGMLjVUI5qfq29ww":           # 🎹 piano (pending)
+      good: 6mcBhzisTRtQeXqbmEqfAj      # 🎹 piano
+      notGood: 0b2acqqIZkXLYoQq6vaIez   # 🙁 not good
+
+    "5XaO7GovFgryVQemrPNTmY":           # 🌫 lofi (pending)
+      good: 6mcBhzisTRtQeXqbmEqfAj      # 🌫 lofi
+      notGood: 0b2acqqIZkXLYoQq6vaIez   # 🙁 not good
+    
+  default:
+    good: 03clJdlPjoUvPUbS6e9G13    # default (good)
+    notGood: 0b2acqqIZkXLYoQq6vaIez # 🙁 not good
