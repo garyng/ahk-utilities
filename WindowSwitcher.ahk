@@ -54,6 +54,7 @@ class WindowSwitcher
 
 		this._windows["obsidian"] := New Window("ahk_exe Obsidian.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Obsidian\\Obsidian.exe")
 		this._windows["linqpad"] := New Window("ahk_exe LINQPad6.exe", "D:\\tools\\LINQPad\\LINQPad.Launcher.exe")
+		this._windows["postman"] := New Window("ahk_exe Postman.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Postman\\Postman.exe")
 	}
 
 	Switch(name)

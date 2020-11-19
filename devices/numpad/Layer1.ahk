@@ -52,8 +52,8 @@ Numpad5::_windowSwitcher.Switch("wt"), layer1ShowOverlay("Switch to terminal")
 ^Numpad5::_windowSwitcher.Launch("wt"), layer1ShowOverlay("Launch terminal")
 !Numpad5::return
 
-Numpad4::return
-^Numpad4::return
+Numpad4::_windowSwitcher.Switch("postman"), layer1ShowOverlay("Switch to postman")
+^Numpad4::_windowSwitcher.Launch("postman"), layer1ShowOverlay("Launch postman")
 !Numpad4::return
 
 Numpad3::_windowSwitcher.Switch("datagrip"), layer1ShowOverlay("Switch to datagrip")
