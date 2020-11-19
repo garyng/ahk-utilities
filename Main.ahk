@@ -66,7 +66,7 @@ LoadLayerTrayIcon()
 :*:!!custid::
 	TypeCustIdQuery()
 	return
-:*:!!jira::
+:*?:!!jira::
 	TypeJira()
 	return
 :*:!!dz::
