@@ -27,7 +27,7 @@ class RestClient
     {
         http := ComObjCreate("WinHttp.WinHttpRequest.5.1")
         uri := this._baseUri . endpoint
-        http.Open(method, uri, false)
+        http.Open(method, uri, true)
         return http
     }
 
@@ -39,6 +39,9 @@ class RestClient
         } else {
             http.Send()
         }
+        ; use `true` in `Open` and call `WaitForResponse` allows the script to remain responsive
+        ; https://www.autohotkey.com/docs/commands/URLDownloadToFile.htm
+        http.WaitForResponse()
 
         return http.ResponseText
     }
