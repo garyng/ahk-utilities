@@ -59,11 +59,6 @@ class TssClient
 
     Login()
     {
-        if (this._loggedIn)
-        {
-            return
-        }
-
         response := this._client.Get("/TryLogin")
         if (response.success)
         {
