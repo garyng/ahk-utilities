@@ -8,4 +8,10 @@ services:
       - '8123:80'
     volumes:
       - ./data:/data
+      # https://comodosslstore.com/resources/cer-vs-crt-the-technical-difference-how-to-convert-them/
+      #   export zscaler as based64 encoded .CER
+      #   rename it to .CRT
+      # https://github.com/docker/machine/issues/1799#issuecomment-646986695
+      # https://stackoverflow.com/a/42292623
+      - ./certs:/usr/local/share/ca-certificates/
     restart: always
