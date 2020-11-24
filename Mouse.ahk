@@ -15,4 +15,12 @@ class Mouse
         MouseGetPos, mouseX, mouseY
         MouseMove, mouseX + deltaX, mouseY + deltaY, 0
     }
+
+    MoveToPrimaryScreenCenter()
+    {
+        CoordMode, Mouse, Screen
+        MouseMove, A_ScreenWidth / 2, A_ScreenHeight / 2, 0
+        CoordMode, Mouse
+        Send {Ctrl}
+    }
 }
