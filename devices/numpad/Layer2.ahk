@@ -65,7 +65,7 @@ Numpad1::_windowManager.MoveActiveWindowToMonitor(0), layer2ShowOverlay("Move ac
 ^Numpad1::return
 !Numpad1::return
 
-NumpadDot::return
+NumpadDot::Mouse.MoveToPrimaryScreenCenter(), layer2ShowOverlay("Center mouse cursor to primary screen")
 ^NumpadDot::return
 !NumpadDot::return
 
