@@ -97,10 +97,18 @@ Right::return
 ^2::return
 !2::return
 
-; 1Password mini app
-3::SendInput {CtrlDown}{AltDown}{ShiftDown}{LWinDown}{F12}{LWinUp}{ShiftUp}{AltUp}{CtrlUp}
-^3::return
-!3::return
+3::
+    SendInput ^+!#{F12}
+    layer1ShowOverlay("Open 1Password mini app")
+    return
+^3::
+    SendInput ^+!#{F11}
+    layer1ShowOverlay("Open 1Password main app")
+    return
+!3::
+    SendInput ^+!#{F10}
+    layer1ShowOverlay("Lock 1Password")
+    return
 
 4::return
 ^4::return
