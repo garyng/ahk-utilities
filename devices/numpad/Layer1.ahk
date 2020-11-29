@@ -97,7 +97,8 @@ Right::return
 ^2::return
 !2::return
 
-3::return
+; 1Password mini app
+3::SendInput {CtrlDown}{AltDown}{ShiftDown}{LWinDown}{F12}{LWinUp}{ShiftUp}{AltUp}{CtrlUp}
 ^3::return
 !3::return
 
