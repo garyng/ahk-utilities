@@ -47,7 +47,7 @@ Numpad6::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer2ShowOverl
 
 Numpad5::_virtualDesktopEnhancer.CreateDesktop(), layer2ShowOverlay("Create a new desktop")
 ^Numpad5::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer2ShowOverlay("Delete current desktop")
-!Numpad5::return
+!Numpad5::_virtualDesktopEnhancer.GoToLastDesktop(), layer2ShowOverlay("Go to last desktop")
 
 Numpad4::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Switch to previous desktop")
 ^Numpad4::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window to previous desktop")
