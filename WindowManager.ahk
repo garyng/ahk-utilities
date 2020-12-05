@@ -83,6 +83,11 @@ class Window2
             workArea := this.GetCurrentWorkAreaFromWindow(this._hwnd)
         }
         
+        rect := this.GetWindowRect()
+
+        x := rect.X
+        y := rect.Y
+
         width := workArea.Width * width
         height := workArea.Height * height
 
@@ -90,12 +95,9 @@ class Window2
         {
             x := workArea.X + (workArea.Width - width) / 2
             y := workArea.Y + (workArea.Height - height) / 2
-            WinMove, % this._ahkId, , x, y, width, height
         }
-        else
-        {
-            WinMove, % this._ahkId, , , , width, height
-        }
+        
+        WinMove, % this._ahkId, , x, y, width, height
 
         ; refrehs title bar button states if window is maximized
         this.Restore()
