@@ -22,8 +22,8 @@ NumpadDiv::_virtualDesktopEnhancer.PinActiveApp(), layer2ShowOverlay("Pin active
 !NumpadDiv::return
 
 NumpadAdd::_windowManager.ResizeAndCenterActiveWindow(), layer2ShowOverlay("Resize and center active window")
-^NumpadAdd::_windowManager.ExpandActiveWindow(), layer2ShowOverlay("Expand active window")
-!NumpadAdd::return
+^NumpadAdd::_windowManager.MatchWorkareaHeight(), layer2ShowOverlay("Match workarea height")
+!NumpadAdd::_windowManager.ExpandActiveWindow(), layer2ShowOverlay("Expand active window")
 
 NumpadEnter::_windowManager.ToggleActiveWindow(), layer2ShowOverlay("Toggle active window state")
 ^NumpadEnter::return

@@ -103,6 +103,14 @@ class Window2
         this.Restore()
     }
 
+    MatchHeight()
+    {
+        workArea := this.GetCurrentWorkAreaFromWindow(this._hwnd)
+        rect := this.GetWindowRect()
+
+        WinMove, % this._ahkId, , , 0, , workArea.Height
+    }
+
     Center()
     {
         ; todo: size is different on each monitor?
@@ -217,6 +225,11 @@ class WindowManager
     ResizeAndCenterActiveWindow(width = 0.8, height = 0.8)
     {
         new ActiveWindow2().Resize(width, height, true)
+    }
+
+    MatchWorkareaHeight()
+    {
+        new ActiveWindow2().MatchHeight()
     }
 
     MoveActiveWindowToMonitor(index)
