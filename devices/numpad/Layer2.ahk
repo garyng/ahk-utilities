@@ -22,8 +22,8 @@ NumpadDiv::_virtualDesktopEnhancer.PinActiveApp(), layer2ShowOverlay("Pin active
 !NumpadDiv::return
 
 NumpadAdd::_windowManager.ResizeAndCenterActiveWindow(), layer2ShowOverlay("Resize and center active window")
-^NumpadAdd::_windowManager.ExpandActiveWindow(), layer2ShowOverlay("Expand active window")
-!NumpadAdd::return
+^NumpadAdd::_windowManager.MatchWorkareaHeight(), layer2ShowOverlay("Match workarea height")
+!NumpadAdd::_windowManager.ExpandActiveWindow(), layer2ShowOverlay("Expand active window")
 
 NumpadEnter::_windowManager.ToggleActiveWindow(), layer2ShowOverlay("Toggle active window state")
 ^NumpadEnter::
@@ -50,7 +50,7 @@ Numpad6::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer2ShowOverl
 
 Numpad5::_virtualDesktopEnhancer.CreateDesktop(), layer2ShowOverlay("Create a new desktop")
 ^Numpad5::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer2ShowOverlay("Delete current desktop")
-!Numpad5::return
+!Numpad5::_virtualDesktopEnhancer.GoToLastDesktop(), layer2ShowOverlay("Go to last desktop")
 
 Numpad4::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer2ShowOverlay("Switch to previous desktop")
 ^Numpad4::_virtualDesktopEnhancer.MoveActiveWindowToPreviousDesktopThenFocus(), layer2ShowOverlay("Move active window to previous desktop")

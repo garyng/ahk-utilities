@@ -83,6 +83,11 @@ class Window2
             workArea := this.GetCurrentWorkAreaFromWindow(this._hwnd)
         }
         
+        rect := this.GetWindowRect()
+
+        x := rect.X
+        y := rect.Y
+
         width := workArea.Width * width
         height := workArea.Height * height
 
@@ -90,15 +95,20 @@ class Window2
         {
             x := workArea.X + (workArea.Width - width) / 2
             y := workArea.Y + (workArea.Height - height) / 2
-            WinMove, % this._ahkId, , x, y, width, height
         }
-        else
-        {
-            WinMove, % this._ahkId, , , , width, height
-        }
+        
+        WinMove, % this._ahkId, , x, y, width, height
 
         ; refrehs title bar button states if window is maximized
         this.Restore()
+    }
+
+    MatchHeight()
+    {
+        workArea := this.GetCurrentWorkAreaFromWindow(this._hwnd)
+        rect := this.GetWindowRect()
+
+        WinMove, % this._ahkId, , , 0, , workArea.Height
     }
 
     Center()
@@ -215,6 +225,11 @@ class WindowManager
     ResizeAndCenterActiveWindow(width = 0.8, height = 0.8)
     {
         new ActiveWindow2().Resize(width, height, true)
+    }
+
+    MatchWorkareaHeight()
+    {
+        new ActiveWindow2().MatchHeight()
     }
 
     MoveActiveWindowToMonitor(index)
