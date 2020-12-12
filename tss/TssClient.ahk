@@ -5,11 +5,14 @@ class RestClient
         this._baseUri := baseUri
     }
     
-    Get(endpoint)
+    Get(endpoint, shouldParse := true)
     {
         http := this.Open("GET", endpoint)
         result := this.Send(http)
-        return JSON.Load(result)
+        if (shouldParse)
+        {
+            return JSON.Load(result)
+        }
     }
 
     Post(endpoint, headers := "", data := "")
@@ -76,13 +79,13 @@ class TssClient
     MoveCurrentToGood()
     {
         this.Login()
-        this._client.Get("/MoveCurrentToGood")
+        this._client.Get("/MoveCurrentToGood", false)
     }
 
     MoveCurrentToNotGood()
     {
         this.Login()
-        this._client.Get("/MoveCurrentToNotGood")
+        this._client.Get("/MoveCurrentToNotGood", false)
     }
 
 }
