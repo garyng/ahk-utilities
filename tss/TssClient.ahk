@@ -12,6 +12,12 @@ class RestClient
         return JSON.Load(result)
     }
 
+    GetAndForget(endpoint)
+    {
+        http := this.Open("GET", endpoint)
+        this.Send(http, "")
+    }
+
     Post(endpoint, headers := "", data := "")
     {
         http := this.Open("POST", endpoint)
@@ -76,13 +82,13 @@ class TssClient
     MoveCurrentToGood()
     {
         this.Login()
-        this._client.Get("/MoveCurrentToGood")
+        this._client.GetAndForget("/MoveCurrentToGood")
     }
 
     MoveCurrentToNotGood()
     {
         this.Login()
-        this._client.Get("/MoveCurrentToNotGood")
+        this._client.GetAndForget("/MoveCurrentToNotGood")
     }
 
 }
