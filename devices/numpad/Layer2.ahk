@@ -73,12 +73,12 @@ Numpad0::return
 ^Numpad0::return
 !Numpad0::return
 
-Up::return
-^Up::return
+Up::_windowManager.IncreaseTransparency(), layer2ShowOverlay("Increase active window transparency")
+^Up::_windowManager.ResetTransparency(), layer2ShowOverlay("Reset active window transparency")
 !Up::return
 
-Down::return
-^Down::return
+Down::_windowManager.DecreaseTransparency(), layer2ShowOverlay("Decrease active window transparency")
+^Down::_windowManager.ResetTransparency(), layer2ShowOverlay("Reset active window transparency")
 !Down::return
 
 Left::_tss.MoveCurrentToNotGood(), layer1ShowOverlay("Move currently playing to not good list")
