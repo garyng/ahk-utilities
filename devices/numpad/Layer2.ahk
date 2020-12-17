@@ -6,7 +6,7 @@ layer2ShowOverlay(description)
 #If IsHolding("F14")
 
 =::UpdateTrayIcon(2), layer2ShowOverlay("Change to layer 2")
-^=::return
+^=::_windowManager.ToggleTopMost(), layer2ShowOverlay("Toggle active window always on top")
 !=::return
 
 NumpadSub::_windowManager.MinimizeActiveWindow(), layer2ShowOverlay("Minimize active window")

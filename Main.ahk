@@ -67,8 +67,6 @@ LoadLayerTrayIcon()
 
 ; Hot strings ============
 
-!F1::ToggleActiveWindowAlwaysOnTop(), showOverlay("!F1", "Toggle active window always on top")
-
 ; #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
 ; 	~LShift & WheelUp::ScrollLeft()
 ; 	~LShift & WheelDown::ScrollRight()

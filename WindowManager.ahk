@@ -184,6 +184,21 @@ class Window2
         WinMove, % this._ahkId, , x, y, width, height
     }
 
+    ToggleTopMost()
+    {
+        WinGet, style, ExStyle, % this._ahkId
+        if (style & 0x8)	; 0x8 WX_EX_TOPMOST
+        {
+            WinSet, AlwaysOnTop, off, % this._ahkId
+            WinSet, Transparent, 255, % this._ahkId
+        }
+        else
+        {
+            WinSet, AlwaysOnTop, on, % this._ahkId
+            WinSet, Transparent, 200, % this._ahkId
+        }
+    }
+
     ; todo: show overlay for monitor index
 }
 
@@ -245,5 +260,10 @@ class WindowManager
     ShrinkActiveWindow(dec := 40)
     {
         new ActiveWindow2().Expand(-dec)
+    }
+
+    ToggleTopMost()
+    {
+        new ActiveWindow2().ToggleTopMost()
     }
 }

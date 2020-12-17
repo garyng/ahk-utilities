@@ -46,22 +46,6 @@ TypeRandomNumber()
 	SendInput %num%
 }
 
-ToggleActiveWindowAlwaysOnTop()
-{
-	WinGet, activeWindow, ID, A
-	WinGet, style, ExStyle, ahk_id %activeWindow%
-	if (style & 0x8)	; 0x8 WX_EX_TOPMOST
-	{
-		WinSet, AlwaysOnTop, off, ahk_id %activeWindow%
-		WinSet, Transparent, 255, ahk_id %activeWindow%
-	}
-	else
-	{
-		WinSet, AlwaysOnTop, on, ahk_id %activeWindow%
-		WinSet, Transparent, 200, ahk_id %activeWindow%
-	}
-}
-
 DecreaseTransparencyOfWindowUnderMouse()
 {
     MouseGetPos,,, windowUnderMouse
