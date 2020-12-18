@@ -19,6 +19,7 @@ SetBatchLines -1
 #Include Conditions.ahk
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
+#Include TapAutoMod.ahk
 #Include JSON.ahk
 #Include tss/TssClient.ahk
 
