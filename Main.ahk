@@ -33,6 +33,8 @@ _enableOverlay := true
 _layerConfig := new Config("layer")
 LoadLayerTrayIcon()
 
+_tam := new TapAutoMod()
+
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
 
