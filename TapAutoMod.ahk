@@ -92,7 +92,7 @@ class TapAutoMod
     {
         if (wk)
         {
-            return "{" . key . " down}" . key . "{" . key . " up}"
+            return "{" . wk . " down}" . key . "{" . wk . " up}"
         } else {
             return key
         }
