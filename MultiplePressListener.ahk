@@ -23,6 +23,9 @@ class MultiplePressListener
         ; Reference: https://autohotkey.com/docs/commands/SetTimer.htm#ExampleClass
         timeoutFunc := this._onTimeout
         SetTimer % timeoutFunc, % this._timeout
+
+        ; todo: trigger when new count is equal to target count
+        ; todo: handle interruption?
     }
 
     onTimeout()
