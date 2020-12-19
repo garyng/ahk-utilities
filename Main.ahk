@@ -19,6 +19,7 @@ SetBatchLines -1
 #Include Conditions.ahk
 #Include Mouse.ahk
 #Include MultiplePressListener.ahk
+#Include TapAutoMod.ahk
 #Include JSON.ahk
 #Include tss/TssClient.ahk
 
@@ -32,6 +33,8 @@ _enableOverlay := true
 
 _layerConfig := new Config("layer")
 LoadLayerTrayIcon()
+
+_tam := new TapAutoMod()
 
 ; _enableHomeEndKeyRemap := false
 ; #Include devices/K380.ahk
