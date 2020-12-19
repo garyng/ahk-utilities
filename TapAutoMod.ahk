@@ -30,7 +30,7 @@ class TapAutoMod
 {
     __New()
     {
-        this._map := { 0: "", 1: "", 2: "Ctrl", 3: "Alt", 4: "Shift", 5: "LWin" }
+        this._map := { 0: "", 1: "", 2: "Ctrl", 3: "Alt" }
         this._state := { }
         this._timeout := 300
     }
@@ -50,12 +50,15 @@ class TapAutoMod
 
     OnEachTap(state)
     {
+        ; when the current tap count == max,
+        ; do the action and reset
         if (state.IsMaxCount())
         {
             this.OnReset(state)
         }
     }
 
+    ; reset timer and rebind function
     ResetTimer(state)
     {
         state.TimerOff()
@@ -68,6 +71,8 @@ class TapAutoMod
 
     OnTimeout(state)
     {
+        ; on timeout
+        ; do the action and reset
         this.OnReset(state)
     }
 
@@ -82,22 +87,12 @@ class TapAutoMod
         state.TimerOff()
     }
 
-    Down(key)
-    {
-        return "{" . key . " down}"
-    }
-
-    Up(key)
-    {
-        return "{" . key . " up}"
-    }
-
     ; wk = wrapping key
     Wrap(key, wk)
     {
         if (wk)
         {
-            return this.Down(wk) . key . this.Up(wk)
+            return "{" . key . " down}" . key . "{" . key . " up}"
         } else {
             return key
         }
