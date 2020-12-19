@@ -28,11 +28,11 @@ class TamState
 
 class TapAutoMod
 {
-    __New()
+    __New(timeout := 150)
     {
-        this._map := { 0: "", 1: "", 2: "Ctrl", 3: "Alt" }
+        this._map := { 0: [""], 1: [""], 2: ["Ctrl"], 3: ["Alt"], 4: ["Ctrl", "Alt", "Shift"] }
         this._state := { }
-        this._timeout := 300
+        this._timeout := timeout
     }
 
     Tap(wk, keys, max)
@@ -42,6 +42,7 @@ class TapAutoMod
             this._state[keys] := new TamState(wk, keys, max)
         }
 
+        ; todo: is it possible to ignore repeaated key?
         state := this._state[keys]
         state.Count += 1
         this.ResetTimer(state)
@@ -78,8 +79,15 @@ class TapAutoMod
 
     OnReset(state)
     {
-        mod := this._map[state.Count]
-        keys := this.Wrap(this.Wrap(state.keys, mod), state.Wk)
+        keys := state.keys
+        mods := this._map[state.Count]
+        ; wrap the key in all the specified modifiers
+        For idx, mod in mods {
+            mod := mods[A_Index]
+            keys := this.Wrap(keys, mod)
+        }
+
+        keys := this.Wrap(keys, state.Wk)
 
         SendInput % keys
 
