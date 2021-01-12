@@ -6,11 +6,11 @@ layer1ShowOverlay(description)
 #If IsHolding("F13")
 
 BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
-^BackSpace::
+^BackSpace::return
+!BackSpace::
     Run *RunAs "iisreset.exe"
 	showOverlay("!F1", "Reset IIS")
 	return
-!BackSpace::return
 
 NumpadSub::_windowSwitcher.Switch("slack"), layer1ShowOverlay("Switch to slack")
 ^NumpadSub::_windowSwitcher.Launch("slack"), layer1ShowOverlay("Launch slack")
