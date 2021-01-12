@@ -12,6 +12,13 @@ TamF12(max, hotkey := "")
     _tam.Tap("F12", hotkey, max)
 }
 
+TamBare(max, hotkey := "")
+{
+    global _tam
+    hotkey := hotkey ? hotkey : "{" . A_ThisHotkey . "}"
+    _tam.Tap("", hotkey, max)
+}
+
 ; remap numpad =============
 Numpad0::TamF12(4)
 Numpad1::TamF12(4)
@@ -34,3 +41,6 @@ NumpadDot::TamF12(4)
 SC05B::TamF12(4, "{NumpadLeft}")
 ; top right button on numpad
 SC05D::TamF12(4, "{NumpadRight}")
+
+; other mappings =============
+F5::TamBare(4)
