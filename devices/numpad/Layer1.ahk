@@ -25,9 +25,9 @@ NumpadAdd::_windowSwitcher.Switch("tasks"), layer1ShowOverlay("Switch to tasks")
 ^NumpadAdd::_windowSwitcher.Reset("tasks"), layer1ShowOverlay("Reset tasks")
 !NumpadAdd::_windowSwitcher.Launch("firefox"), layer1ShowOverlay("Launch firefox")
 
-NumpadEnter::return
-^NumpadEnter::return
-!NumpadEnter::return
+NumpadEnter::_windowSwitcher.Switch("work"), layer1ShowOverlay("Switch to work")
+^NumpadEnter::_windowSwitcher.Reset("work"), layer1ShowOverlay("Reset work")
+!NumpadEnter::_windowSwitcher.Launch("chrome"), layer1ShowOverlay("Launch chrome")
 
 Numpad9::_windowSwitcher.Switch("vscode"), layer1ShowOverlay("Switch to vscode")
 ^Numpad9::_windowSwitcher.Launch("vscode"), layer1ShowOverlay("Launch vscode")
