@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes: 
+  ssl-certs:
+
 services:
   api:
     image: garyng/tss:latest
@@ -13,5 +16,6 @@ services:
       #   rename it to .CRT
       # https://github.com/docker/machine/issues/1799#issuecomment-646986695
       # https://stackoverflow.com/a/42292623
-      - ./certs:/usr/local/share/ca-certificates/
+      - ./certs:/usr/local/share/ca-certificates/ # need to run update-ca-certificates inside container on first run
+      - ssl-certs:/etc/ssl/certs # to persist all the added certs
     restart: always
