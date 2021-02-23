@@ -74,6 +74,12 @@ _tam := new TapAutoMod()
 	TypeFileDateTime()
 	return
 
+:*?:!!/::✅
+:*?:!!~::🔃
+:*?:!!x::❌
+:*?:!!]::🔳
+:*?:!!?::❓
+
 ; Hot strings ============
 
 ; #if !WinActive("ahk_exe Acrobat.exe") && !WinActive("ahk_exe idea64.exe")
