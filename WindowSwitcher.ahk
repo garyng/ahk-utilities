@@ -56,6 +56,8 @@ class WindowSwitcher
 		this._windows["linqpad"] := New Window("ahk_exe LINQPad6.exe", "D:\\tools\\LINQPad\\LINQPad.Launcher.exe")
 		this._windows["postman"] := New Window("ahk_exe Postman.exe", "C:\\Users\\GaryNg\\AppData\\Local\\Postman\\Postman.exe")
 		this._windows["insomnia"] := New Window("ahk_exe Insomnia.exe", "C:\\Users\\GaryNg\\AppData\\Local\\insomnia\\Insomnia.exe")
+
+		this._windows["mremoteng"] := New Window("ahk_exe mRemoteNG.exe", "C:\\Program Files (x86)\\mRemoteNG\\mRemoteNG.exe")
 	}
 
 	Switch(name)

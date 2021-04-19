@@ -40,8 +40,8 @@ Numpad8::_windowSwitcher.Switch("tickets_vscode"), layer1ShowOverlay("Switch to 
 ^Numpad8::_windowSwitcher.Launch("tickets_vscode"), layer1ShowOverlay("Launch tickets")
 !Numpad8::return
 
-Numpad7::_windowSwitcher.Switch("vscode"), layer1ShowOverlay("Switch to vscode")
-^Numpad7::_windowSwitcher.Launch("vscode"), layer1ShowOverlay("Launch vscode")
+Numpad7::_windowSwitcher.Switch("mremoteng"), layer1ShowOverlay("Switch to mRemoteNG")
+^Numpad7::_windowSwitcher.Launch("mremoteng"), layer1ShowOverlay("Launch mRemoteNG")
 !Numpad7::return
 
 Numpad6::_windowSwitcher.Switch("ccmp_wt"), layer1ShowOverlay("Switch to terminal")
