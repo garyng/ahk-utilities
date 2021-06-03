@@ -12,6 +12,10 @@ tssMappings:
       good: 12oQYtxqg98zJZSie9my7d      # 🌫 lofi
       notGood: 0b2acqqIZkXLYoQq6vaIez   # 🙁 not good
     
+    "0le3jCqxoDCn5ITqNRjTCq":           # 📻 betterlofi (pending)
+      good: 5mblGpSe7G0cLPltpldiby      # 📻 betterlofi
+      notGood: 0b2acqqIZkXLYoQq6vaIez   # 🙁 not good
+    
   default:
     good: 03clJdlPjoUvPUbS6e9G13    # default (good)
     notGood: 0b2acqqIZkXLYoQq6vaIez # 🙁 not good
