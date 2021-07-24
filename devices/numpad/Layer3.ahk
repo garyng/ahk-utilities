@@ -125,4 +125,12 @@ Right::return
 ^9::return
 !9::return
 
+Media_Prev::return
+WheelLeft::return
+WheelRight::return
+
+Media_Next::return
+WheelUp::return
+WheelDown::return
+
 #if
