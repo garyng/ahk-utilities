@@ -148,23 +148,17 @@ WheelLeft::
     if (IsMultitaskingViewExists()) {
         ; cycle backwards
         SendInput {AltDown}{ShiftDown}{Tab}{ShiftUp}
-    } else {
-        _virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus()
-        layer1ShowOverlay("Switch to previous desktop")
     }
     return
 WheelRight::
     if (IsMultitaskingViewExists()) {
         ; cycle forward
         SendInput {AltDown}{Tab}
-    } else {
-        _virtualDesktopEnhancer.SwitchToNextDesktopThenFocus()
-        layer1ShowOverlay("Switch to next desktop")
     }
     return
 
-Media_Next::return
-WheelUp::return
-WheelDown::return
+Media_Next::_virtualDesktopEnhancer.CreateDesktop(), layer1ShowOverlay("Create a new desktop")
+WheelUp::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer1ShowOverlay("Switch to previous desktop")
+WheelDown::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer1ShowOverlay("Switch to next desktop")
 
 #if
