@@ -134,4 +134,37 @@ Right::return
 ^9::return
 !9::return
 
+; from https://www.autohotkey.com/docs/Hotkeys.htm#alttab
+Media_Prev::
+    if (IsMultitaskingViewExists()) {
+        ; close the AltTab window
+        SendInput {AltUp}
+    } else {
+        ; activate the AltTab window
+        SendInput {AltDown}{Tab}
+    }
+    return
+WheelLeft::
+    if (IsMultitaskingViewExists()) {
+        ; cycle backwards
+        SendInput {AltDown}{ShiftDown}{Tab}{ShiftUp}
+    } else {
+        _virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus()
+        layer1ShowOverlay("Switch to previous desktop")
+    }
+    return
+WheelRight::
+    if (IsMultitaskingViewExists()) {
+        ; cycle forward
+        SendInput {AltDown}{Tab}
+    } else {
+        _virtualDesktopEnhancer.SwitchToNextDesktopThenFocus()
+        layer1ShowOverlay("Switch to next desktop")
+    }
+    return
+
+Media_Next::return
+WheelUp::return
+WheelDown::return
+
 #if
