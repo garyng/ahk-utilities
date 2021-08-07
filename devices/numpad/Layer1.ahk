@@ -3,6 +3,13 @@ layer1ShowOverlay(description)
     showOverlay("F13` + " . A_ThisHotkey, description)
 }
 
+runSqlInClipboard()
+{
+    ; replace all and run
+    SendInput {ctrl down}a{ctrl up}{ctrl down}v{ctrl up}{ctrl down}a{ctrl up}{F5}
+    ; SendInput {enter}^+{end}^v{F5}
+}
+
 #If IsHolding("F13")
 
 BackSpace::UpdateTrayIcon(1), layer1ShowOverlay("Change to layer 1")
@@ -100,7 +107,7 @@ Right::return
 ^2::return
 !2::return
 
-3::return
+3::runSqlInClipboard(), layer1ShowOverlay("Run SQL in clipboard")
 ^3::return
 !3::return
 
