@@ -135,7 +135,7 @@ Right::return
 !9::return
 
 ; from https://www.autohotkey.com/docs/Hotkeys.htm#alttab
-Media_Prev::
+SC073::
     if (IsMultitaskingViewExists()) {
         ; close the AltTab window
         SendInput {AltUp}
@@ -144,6 +144,8 @@ Media_Prev::
         SendInput {AltDown}{Tab}
     }
     return
+!SC073::return
+^SC073::return
 WheelLeft::
     if (IsMultitaskingViewExists()) {
         ; cycle backwards
@@ -157,7 +159,9 @@ WheelRight::
     }
     return
 
-Media_Next::_virtualDesktopEnhancer.CreateDesktop(), layer1ShowOverlay("Create a new desktop")
+SC070::_virtualDesktopEnhancer.CreateDesktop(), layer1ShowOverlay("Create a new desktop")
+^SC070::_virtualDesktopEnhancer.DeleteCurrentDesktop(), layer1ShowOverlay("Delete current desktop")
+!SC070::return
 WheelUp::_virtualDesktopEnhancer.SwitchToPreviousDesktopThenFocus(), layer1ShowOverlay("Switch to previous desktop")
 WheelDown::_virtualDesktopEnhancer.SwitchToNextDesktopThenFocus(), layer1ShowOverlay("Switch to next desktop")
 

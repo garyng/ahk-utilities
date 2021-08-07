@@ -134,11 +134,15 @@ Right::_tss.MoveCurrentToGood(), layer1ShowOverlay("Move currently playing to go
 ^9::_virtualDesktopEnhancer.MoveActiveWindowToDesktopNThenFocus(8), layer2ShowOverlay("Move active window to desktop #9")
 !9::_virtualDesktopEnhancer.MoveActiveWindowThenSwitchToDesktopNAndFocus(8), layer2ShowOverlay("Move active window and switch to desktop #9")
 
-Media_Prev::return
+SC073::return
+!SC073::return
+^SC073::return
 WheelLeft::return
 WheelRight::return
 
-Media_Next::return
+SC070::return
+^SC070::return
+!SC070::return
 WheelUp::return
 WheelDown::return
 
