@@ -131,11 +131,15 @@ Right::return
 ^9::return
 !9::return
 
-Media_Prev::return
+SC073::return
+!SC073::return
+^SC073::return
 WheelLeft::return
 WheelRight::return
 
-Media_Next::return
+SC070::return
+^SC070::return
+!SC070::return
 WheelUp::return
 WheelDown::return
 
