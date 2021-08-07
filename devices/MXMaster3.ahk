@@ -13,7 +13,7 @@
 F24::AltTabAndMenu
 #If IsMultitaskingViewExists()
 	; alt key will remain pressed while inside the multitasking view
-	!F24::AltTabMenuDismiss
-	WheelUp::ShiftAltTab	
-	WheelDown::AltTab
-#if
+	LAlt & F24::AltTabMenuDismiss
+	LAlt & WheelUp::ShiftAltTab	
+	LAlt & WheelDown::AltTab
+#If

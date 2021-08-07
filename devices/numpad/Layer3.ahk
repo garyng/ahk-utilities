@@ -125,4 +125,16 @@ Right::return
 ^9::return
 !9::return
 
+SC073::return
+!SC073::return
+^SC073::return
+WheelLeft::return
+WheelRight::return
+
+SC070::return
+^SC070::return
+!SC070::return
+WheelUp::return
+WheelDown::return
+
 #if
