@@ -1,4 +1,4 @@
-#InstallKeybdHook
+﻿#InstallKeybdHook
 #UseHook
 #SingleInstance Force
 #Persistent
