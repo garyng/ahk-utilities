@@ -7,7 +7,7 @@ layer2ShowOverlay(description)
 
 =::UpdateTrayIcon(2), layer2ShowOverlay("Change to layer 2")
 ^=::_windowManager.ToggleTopMost(), layer2ShowOverlay("Toggle active window always on top")
-!=::return
+!=::RestartExplorer(), layer2ShowOverlay("Restart explorer")
 
 NumpadSub::_windowManager.MinimizeActiveWindow(), layer2ShowOverlay("Minimize active window")
 ^NumpadSub::_windowManager.ShrinkActiveWindow(), layer2ShowOverlay("Shrink active window")

@@ -197,3 +197,22 @@ goForward()
 	}
 	SendInput !{Right}
 }
+
+RestartExplorer()
+{
+	; ref: https://www.autohotkey.com/boards/viewtopic.php?t=81252
+
+
+	; WM_USER+436
+	; same as "Exit Explorer" when Ctrl + Shift + Right click on taskbar
+	; ref: https://stackoverflow.com/a/10438722/1023180
+	PostMessage, 0x5B4, 0, 0,, ahk_class Shell_TrayWnd
+
+	WinGet, pid, PID, ahk_class Progman
+	WinGet, explorerPath, ProcessPath, ahk_pid %pid%
+	Process, WaitClose, %pid%, 15
+	if (!ErrorLevel)
+	{
+		Run, %explorerPath%
+	}	
+}
