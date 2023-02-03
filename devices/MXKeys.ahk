@@ -43,4 +43,8 @@ SC05B::TamF12(4, "{NumpadLeft}")
 SC05D::TamF12(4, "{NumpadRight}")
 
 ; other mappings =============
+F1::TamBare(4)
+F2::TamBare(4)
+F3::TamBare(4)
+F4::TamBare(4)
 F5::TamBare(4)
